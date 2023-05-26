@@ -53,8 +53,6 @@ contactEmail.verify((error, success) => {
     });
   });
   
-
-  /** Con este get mandamos datos del back  al front */
 app.get("/api", (req, res) => {
   res.json({ message: "Hello from server! "+ process.env.PORT});
 });

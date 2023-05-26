@@ -3,9 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Contact.css';
 
 export function Contact() {
-    /**
-     * object that saves data form  
-     */
     const [formData, setFormData] = useState({ 
         name : {
             value: "",
@@ -37,11 +34,6 @@ export function Contact() {
         }
     });
 
-    /**
-     * Function the data inside the form object
-     * 
-     * @param {event} e 
-     */
     const insertData = (e) => {
         let inputTarget = e.target.name;
         let dataInserted = e.target.value;
@@ -86,12 +78,7 @@ export function Contact() {
             default:
         }        
     };
-    
-    /**
-     * Verifies name string
-     * 
-     * @returns {boolean}
-     */
+
     const verifyName = () => {
         let dataInserted = formData.name.value;
         let existError = null;
@@ -119,17 +106,11 @@ export function Contact() {
         return existError;
     }
 
-    /**
-     * Verifies email string
-     * 
-     * @returns {boolean}
-     */
     const verifyEmail = () => {
         let dataInserted = formData.email.value;
         let existError = null;
         let messageError;
 
-        // eslint-disable-next-line
         let regex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
         if(dataInserted === ""){
@@ -158,11 +139,6 @@ export function Contact() {
         return existError;
     }
     
-    /**
-     * Verifies subject string
-     * 
-     * @returns {boolean}
-     */
     const verifySubject = () => {
         let dataInserted = formData.subject.value;
         let existError = null;
@@ -191,11 +167,6 @@ export function Contact() {
         return existError;
     }
 
-    /**
-     * Verifies message string
-     * 
-     * @returns {boolean}
-     */
     const verifyMessage = () => {
         let dataInserted = formData.message.value;
         let existError = null;
@@ -224,11 +195,6 @@ export function Contact() {
         return existError;
     }
 
-    /**
-     * Verify that all inputs are valid
-     * 
-     * @returns {boolean} 
-     */
     const verifyInputs = () => { // Verifies that all inputs are ok to send it
         if(!verifyName()){
             if(!verifyEmail()){
@@ -249,9 +215,6 @@ export function Contact() {
         }
     };
 
-    /**
-     * State of the submit button
-     */
     const [submitValue, setSubmitValue] = useState({ // State of the form input
         message: "Send", 
         icon: <FontAwesomeIcon icon="fa-solid fa-paper-plane" />, 
@@ -282,12 +245,6 @@ export function Contact() {
         return await response.json();
     };
 
-    /**
-     * Prevent form's Default action, verifies if inputs all are valid
-     * Then send the inputs value and show to users the status with setSubmitValue
-     * 
-     * @param {event} e
-     */
     const handleSubmit = async (e) => {
         e.preventDefault();
         let result;
