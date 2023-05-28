@@ -1,17 +1,17 @@
 // server/index.js
-require("dotenv").config()
 
+const dotenv = require("dotenv").config();
 const express = require("express");
 const router = express.Router(); //para entender las rutas mirar video guardado
 const cors = require("cors");
 const nodemailer = require("nodemailer");
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3001 ;
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 app.use("/", router);
-app.listen(PORT, () => console.log("Server Running | " + process.env.PORT));
+app.listen(PORT, () => console.log("Server Running | " + PORT));
 
 var contactEmail = nodemailer.createTransport({
     service: "gmail",
