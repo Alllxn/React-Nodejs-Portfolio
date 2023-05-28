@@ -303,7 +303,7 @@ export function Contact() {
                 <aside id="contact-links">
                     <ul>
                         <li className='load-animation-element'>
-                            <a href="mailto:Allan.esib@gmail.com" id="button-hire-me" className="button-cta card">
+                            <a href="mailto:contact@allandev.es" id="button-hire-me" className="button-cta card">
                                 <span className="magic-background">
                                     <FontAwesomeIcon icon="fa-solid fa-envelope"/>
                                 </span>
@@ -323,7 +323,7 @@ export function Contact() {
                             </a>
                         </li>
                         <li className='load-animation-element'>
-                            <a href="https://www.linkedin.com/in/AllanEspinozaIbanez" rel="nofollow noopener noreferrer" target="_blank" className="button-cta card">
+                            <a href="https://www.linkedin.com/in/allanwebdev" rel="nofollow noopener noreferrer" target="_blank" className="button-cta card">
                                 <span className="magic-background">
                                     <FontAwesomeIcon icon="fa-brands fa-linkedin-in"/>
                                     

@@ -54,7 +54,7 @@ export function Home() {
                     </div>
                 </div>
                 <div id="presentation-cta">
-                    <a href="allan_cv.pdf" id="button-resume" className="button-cta card" download>
+                    <a href="allan_espinoza_cv.pdf" id="button-resume" className="button-cta card" download>
                         <span className="magic-background">
                             📂
                         </span>
