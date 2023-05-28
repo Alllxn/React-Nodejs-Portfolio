@@ -222,7 +222,7 @@ export function Contact() {
     }); 
 
     const sendEmail = async () => {
-        let siteUrl = "http://192.168.1.36:3000";
+        let siteUrl = process.env.REACT_APP_SITEURL;
         let details = {
             name: formData.name.value,
             email: formData.email.value,
