@@ -1,6 +1,6 @@
 // server/index.js
 
-const dotenv = require("dotenv").config();
+// const dotenv = require("dotenv").config();
 const express = require("express");
 const router = express.Router(); //para entender las rutas mirar video guardado
 const cors = require("cors");
