@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "build": "npm install"
+    "build": "npm install; npm build"
   },
   "keywords": [],
   "author": "",
