@@ -108,8 +108,8 @@
                 "#00a6c2",
                 "#17883d"
             ],
-            "Cover" : "/card-MBC.svg",
-            "CoverBackground" : "/cover-MBC.jpg",
+            "Cover" : "/card-ESP.png",
+            "CoverBackground" : "/cover-ESP.jpg",
             "Images" : [
                 "/ESP-login.png",
                 "/ESP-main.png",
@@ -144,8 +144,8 @@
                 "#0000d0",
                 "#ff3184"
             ],
-            "Cover" : "/card-MBC.svg",
-            "CoverBackground" : "/cover-MBC.jpg",
+            "Cover" : "/card-JDA.svg",
+            "CoverBackground" : "/cover-JDA.jpg",
             "Images" : [
                 "/Ayesa-fp.png",
                 "/Ayesa-adultos.png",
@@ -194,8 +194,8 @@
                 "#cb0017",
                 "#282829"
             ],
-            "Cover" : "/card-MBC.svg",
-            "CoverBackground" : "/cover-MBC.jpg",
+            "Cover" : "/card-URJC.svg",
+            "CoverBackground" : "/cover-URJC.jpg",
             "Images" : [
                 "/Urjc.png"
             ],
@@ -224,7 +224,7 @@
                 "Created and consumed web services and APIs."
             ],
             "Links" : [
-                "https://educacionadistancia.juntadeandalucia.es"
+                "https://www.urjc.es/"
             ]
         }
     ]

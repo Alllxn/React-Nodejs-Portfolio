@@ -90,6 +90,9 @@
   overflow: hidden;
   width: 150px;
   transition: 1s ease-in-out;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
 }
 
 .project-image img {
