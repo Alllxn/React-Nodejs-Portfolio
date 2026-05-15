@@ -27,6 +27,23 @@ li.timeline-element:first-child{
     padding-top: 35px;
 }
 
+li.timeline-element:nth-child(odd):hover .timeline-element-description > *{
+    transform: scale(1.04) translateX(10px);
+}
+li.timeline-element:nth-child(even):hover .timeline-element-description > *{
+    transform: scale(1.04) translateX(-10px);
+}
+
+li.timeline-element:hover .timeline-element-image{
+    transform: scale(1.1);
+}
+
+li.timeline-element .timeline-element-description > *,
+li.timeline-element .timeline-element-image{
+    transition: 1s;
+    display: block;
+}
+
 li.timeline-element{
     padding: 20px 0;
     display: flex;
@@ -47,7 +64,8 @@ li.timeline-element{
     height: 100%;
     max-width: 100px;
     margin-top: 5px;
-    
+    justify-content: center;
+    display: flex;
 }
 
 .timeline-element-image img{
