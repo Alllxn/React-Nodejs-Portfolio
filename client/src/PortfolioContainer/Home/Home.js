@@ -36,17 +36,17 @@ export function Home() {
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.linkedin.com/in/AllanEspinozaIbanez" rel="nofollow noopener noreferrer" target="_blank">
+                                <a href="https://www.linkedin.com/in/allanwebdev" rel="nofollow noopener noreferrer" target="_blank">
                                     <FontAwesomeIcon icon="fa-brands fa-linkedin-in" className="card" />
                                 </a>
                             </li>
                             <li>
-                                <a href="tel:+34615460628">
+                                <a href="tel:+34628766431">
                                     <FontAwesomeIcon icon="fa-solid fa-phone" className="card" />
                                 </a>
                             </li>
                             <li>
-                                <a href="mailto:allan.esib@gmail.com">
+                                <a href="mailto:contact@allandev.es">
                                     <FontAwesomeIcon icon="fa-solids fa-envelope" className="card" />
                                 </a>
                             </li>
@@ -54,6 +54,7 @@ export function Home() {
                     </div>
                 </div>
                 <div id="presentation-cta">
+                    {/* TODO: actualizar CV PDF*/}
                     <a href="allan_espinoza_cv.pdf" id="button-resume" className="button-cta card" download>
                         <span className="magic-background">
                             📂
