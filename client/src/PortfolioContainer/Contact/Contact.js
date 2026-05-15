@@ -222,7 +222,6 @@ export function Contact() {
     }); 
 
     const sendEmail = async () => {
-        let siteUrl = process.env.REACT_APP_SITEURL;
         let details = {
             name: formData.name.value,
             email: formData.email.value,
@@ -230,7 +229,7 @@ export function Contact() {
             message: formData.message.value,
         };
         
-        let response = await fetch(siteUrl + '/contact', { //Send email
+        let response = await fetch('/contact', { //Send email
             method: "POST",
             headers: {
             "Content-Type": "application/json;charset=utf-8",
@@ -313,7 +312,7 @@ export function Contact() {
                             </a>
                         </li>
                         <li className='load-animation-element'>
-                            <a href="tel:+34615460628" id="button-hire-me" className="button-cta card">
+                            <a href="tel:+34628766431" id="button-hire-me" className="button-cta card">
                                 <span className="magic-background">
                                     <FontAwesomeIcon icon="fa-solid fa-phone"/>
                                 </span>
@@ -326,13 +325,13 @@ export function Contact() {
                             <a href="https://www.linkedin.com/in/allanwebdev" rel="nofollow noopener noreferrer" target="_blank" className="button-cta card">
                                 <span className="magic-background">
                                     <FontAwesomeIcon icon="fa-brands fa-linkedin-in"/>
-                                    
                                 </span>
                                 <span>
                                     Linkedin
                                 </span>    
                             </a>
                         </li>
+                        {/* TODO: Añadir whatsapp */}
                         <li className='load-animation-element'>
                             <a href="https://github.com/Alllxn" rel="nofollow noopener noreferrer" target="_blank" className="button-cta card">
                                 <span className="magic-background">
