@@ -47,7 +47,11 @@ export default function Footer() {
                                 <FontAwesomeIcon icon="fa-solid fa-phone"/>
                             </a>
                         </li>
-                        {/* TODO: Añadir whatsapp */}
+                        <li>
+                            <a href="https://wa.me/34628766431" rel="nofollow noopener noreferrer" target="_blank" aria-label="WhatsApp Allan Espinoza">
+                                <FontAwesomeIcon icon="fa-brands fa-whatsapp"/>
+                            </a>
+                        </li>
                         <li>
                             {/* TODO: comprobar url del linkedin */}
                             <a href="https://www.linkedin.com/in/allanwebdev" rel="nofollow noopener noreferrer" target="_blank" aria-label="LinkedIn profile">

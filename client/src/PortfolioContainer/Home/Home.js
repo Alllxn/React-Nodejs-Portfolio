@@ -54,7 +54,6 @@ export function Home() {
                     </div>
                 </div>
                 <div id="presentation-cta">
-                    {/* TODO: actualizar CV PDF*/}
                     <a href="allan_espinoza_cv_es.pdf" id="button-resume" className="button-cta card" download>
                         <span className="magic-background">
                             📂

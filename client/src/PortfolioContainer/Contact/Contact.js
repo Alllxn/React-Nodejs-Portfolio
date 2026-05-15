@@ -331,7 +331,16 @@ export function Contact() {
                                 </span>    
                             </a>
                         </li>
-                        {/* TODO: Añadir whatsapp */}
+                        <li className='load-animation-element'>
+                            <a href="https://wa.me/34628766431" rel="nofollow noopener noreferrer" target="_blank" className="button-cta card">
+                                <span className="magic-background">
+                                    <FontAwesomeIcon icon="fa-brands fa-whatsapp"/>
+                                </span>
+                                <span>
+                                    WhatsApp
+                                </span>
+                            </a>
+                        </li>
                         <li className='load-animation-element'>
                             <a href="https://github.com/Alllxn" rel="nofollow noopener noreferrer" target="_blank" className="button-cta card">
                                 <span className="magic-background">
