@@ -27,12 +27,24 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
+import { faDatabase } from '@fortawesome/free-solid-svg-icons';
+import { faUniversalAccess } from '@fortawesome/free-solid-svg-icons';
+import { faMobileScreenButton } from '@fortawesome/free-solid-svg-icons';
+import { faPalette } from '@fortawesome/free-solid-svg-icons';
+import { faCodeBranch } from '@fortawesome/free-solid-svg-icons';
+import { faServer } from '@fortawesome/free-solid-svg-icons';
+import { faTable } from '@fortawesome/free-solid-svg-icons';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faGitAlt } from '@fortawesome/free-brands-svg-icons';
+import { faGitlab } from '@fortawesome/free-brands-svg-icons';
 import { faSquareJs } from '@fortawesome/free-brands-svg-icons';
 import { faReact } from '@fortawesome/free-brands-svg-icons';
 import { faNodeJs } from '@fortawesome/free-brands-svg-icons';
 import { faPhp } from '@fortawesome/free-brands-svg-icons';
+import { faJava } from '@fortawesome/free-brands-svg-icons';
+import { faPython } from '@fortawesome/free-brands-svg-icons';
+import { faFigma } from '@fortawesome/free-brands-svg-icons';
 import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
 import { faWindowRestore } from '@fortawesome/free-regular-svg-icons';
 import { faHtml5 } from '@fortawesome/free-brands-svg-icons';
@@ -72,12 +84,24 @@ library.add(
     faCheck,
     faTriangleExclamation,
     faEye,
+    faDatabase,
+    faUniversalAccess,
+    faMobileScreenButton,
+    faPalette,
+    faCodeBranch,
+    faServer,
+    faTable,
     faArrowLeft,
     faArrowRight,
+    faGitAlt,
+    faGitlab,
     faSquareJs,
     faReact,
     faNodeJs,
     faPhp,
+    faJava,
+    faPython,
+    faFigma,
     faGraduationCap,
     faWindowRestore,
     faHtml5,
