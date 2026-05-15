@@ -6,6 +6,7 @@ import About from './PortfolioContainer/About/About';
 import Work from './PortfolioContainer/Work/Work';
 import Contact from './PortfolioContainer/Contact/Contact';
 import Timeline from './PortfolioContainer/Timeline/Timeline';
+import Footer from './PortfolioContainer/Footer/Footer';
 import './assets/fontawesome';
 
 function App() {
@@ -19,6 +20,8 @@ function App() {
   //     })
   // }, []);
   return (
+    // TODO: Crear funcionalidad cambio de idioma
+    // TODO: Crear funcionalidad de cambio de color del fondo
     <div className="App" id="App">
       <Nav/>
       <Home/>
@@ -28,6 +31,7 @@ function App() {
           <Work/>
           <Contact/>
         </main>
+        <Footer/>
     </div>
   );
 }
