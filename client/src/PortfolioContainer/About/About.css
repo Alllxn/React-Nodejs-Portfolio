@@ -1,7 +1,3 @@
-#biography-soft-skills{
-    flex-basis: 100%;
-}
-
 #about-container h3,
 #about-container h4{
     font-weight: bold;
@@ -9,30 +5,89 @@
 
 #about-container h3{
     max-width: 100%;
+    margin-bottom: 14px;
 }
 
 #biography p{
     font-size: 1.1rem;
 }
 
-#biography > p:nth-child(2){
-    margin-bottom: 10px;
-}
-
 #about-presentation .card{
     margin-bottom: 20px;
+}
+
+#biography-intro{
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+#biography-intro,
+#biography-more-info > .biography-element{
+    position: relative;
+    overflow: hidden;
+}
+
+#biography-intro::before,
+#biography-more-info > .biography-element::before{
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 5px;
+    background: var(--color-rainbow-animation);
+    background-size: 1800% 1800%;
+    animation: rainbow 4s ease-in infinite;
+}
+
+.about-intro-marker{
+    width: 54px;
+    height: 54px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--contraste-primario);
+    flex: 0 0 auto;
+    margin-left: 4px;
+    box-shadow: var(--custom-box-shadow);
+}
+
+.about-intro-marker img{
+    height: 100%;
+    min-height: 100%;
+    padding: 2px;
+}
+
+.about-intro-copy{
+    padding-left: 4px;
+}
+
+.about-intro-label{
+    display: inline-block;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    opacity: 0.65;
+}
+
+.about-intro-copy p{
+    margin-bottom: 12px;
+}
+
+.about-intro-copy p:last-child{
+    margin-bottom: 0;
 }
 
 #biography-more-info{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    gap: 24px;
     margin-top: 30px;
     margin-bottom: 30px;
 }
 
 #biography-more-info > .biography-element{
-    margin-bottom: 30px;
     height: fit-content;
 }
 
@@ -46,37 +101,46 @@
 }
 
 .biography-element{
-    padding-left: 5px;
+    padding: 18px;
     flex-basis: 100%;
-    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    box-shadow: var(--custom-box-shadow);
 }
 
 .biography-element ul{
-    padding-left: 35px;
+    padding-left: 20px;
+    list-style-type:disc;
 }
 
-.biography-element li > p{
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-end;
-    position: relative;
+.education-list li{
+    gap: 12px;
+    margin-bottom: 18px;
+    display: list-item;
 }
 
-.biography-element li > p span:nth-child(2){
-    position: absolute;
-    left: -30px;
+.education-list li:last-child,
+.mindset-list li:last-child,
+.exploring-list li:last-child{
+    margin-bottom: 0;
 }
 
-.biography-element:not(:first-child) span:first-child {
-    opacity: 0.5;
+.education-icon{
+    flex: 0 0 auto;
+    line-height: 1.5;
 }
 
-#biography-education li p:first-child{
+.education-list li p:first-child,
+.mindset-list li p:first-child,
+.exploring-list li p{
     margin: 0;
+    font-weight: bold;
 }
 
-#biography li p{
-    margin-bottom: 5px;
+.education-list li p:nth-child(2),
+.mindset-list li p:nth-child(2){
+    opacity: 0.65;
 }
 
 #biography li p svg{
@@ -84,59 +148,109 @@
     height: 25px;
 }
 
-#biography li p:nth-child(n+2) > span{
-    opacity: 0.5;
-}
-
-#biography-skills li p{
-    display: flex;
-}
-
-.biography-element li p > *{
-    margin-right: 5px;
-}
-
 #know-me-more-container{
     max-width: 300px;
-    margin: 0 auto;
+    margin: 125px auto 0;
 }
 
 #know-me-more-container > p{
     text-align: center;
     margin-bottom: 15px;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
 }
 
+.biography-institution-date{
+    font-size: 1rem;
+}
+
+.biography-institution::after{
+    content: " · ";
+}
+
+.tech-stack-groups{
+    display: grid;
+    gap: 16px;
+}
+
+.tech-stack-group h4{
+    margin-bottom: 10px;
+    opacity: 0.75;
+}
+
+.tech-stack-group ul{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tech-stack-group li{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    font-size: 0.95rem;
+}
+
+.tech-stack-group li svg{
+    width: 18px;
+    height: 18px;
+}
+
+.mindset-list li{
+    margin-bottom: 18px;
+}
+
+.exploring-list{
+    display: grid;
+    gap: 10px;
+}
 
 @media only screen and (min-width: 576px){
+    #biography-intro,
+    #biography-more-info > .biography-element{
+        padding: 24px;
+    }
+
+    #biography-intro{
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
     #biography-education{
-        flex-basis: 100%;
-    }
-
-    #biography-interests{
-        flex-basis: 50%;
-        padding-right: 5px;
-    }
-
-    #biography-skills{
-        flex-basis: 50%;
-    }
-}
-
-@media only screen and (min-width: 769px) {
-    #biography-more-info{
-        justify-content: space-between;
-    }
-
-    #biography-interests{
-        flex-basis: fit-content;
-    }
-
-    #biography-skills{
-        flex-basis: fit-content;
+        flex-basis: calc(100% - 12px);
     }
 
     #biography-soft-skills{
-        flex-basis: 33%;
+        flex-basis: calc(100% - 12px);
+    }
+
+    #biography-skills{
+        flex-basis: calc(100% - 12px);
+    }
+
+    #biography-interests{
+        flex-basis: calc(100% - 12px);
+    }
+    
+}
+
+@media only screen and (min-width: 1024px) {
+    #biography-education{
+        flex-basis: calc(50% - 12px);
+    }
+
+    #biography-soft-skills{
+        flex-basis: calc(50% - 12px);
+    }
+
+    #biography-skills{
+        flex-basis: calc(70% - 12px);
+    }
+
+    #biography-interests{
+        flex-basis: calc(30% - 12px);
     }
 }

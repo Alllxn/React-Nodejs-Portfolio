@@ -1,5 +1,6 @@
 // server/index.js
 
+require("dotenv").config();
 const express = require("express");
 const router = express.Router();
 const cors = require("cors");
@@ -15,8 +16,8 @@ app.listen(PORT, () => console.log("Server Running | " + PORT));
 var contactEmail = nodemailer.createTransport({
     service: "gmail",
     auth: {
-        user: "allan.esib@gmail.com",
-        pass: "klhcgpeqmujsllwp",
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
     },
 });
 

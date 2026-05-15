@@ -2,10 +2,13 @@ import React from 'react';
 import './Timeline.css';
 import grupo_mbc from '../../assets/timeline/grupo_mbc.jpg';
 import self_taught from '../../assets/timeline/self-taught.jpg';
-import web_developer_1 from '../../assets/timeline/web_developer_1.jpg';
+import learning from '../../assets/timeline/learning.jpg';
+import ieselrincon from '../../assets/timeline/ieselrincon.png';
+import ayesa from '../../assets/timeline/ayesa.jpg';
 
 export default function Timeline(){
     return (
+        // TODO: Añadir un hover en cada elemento para poder leerlo mejor (letra mas grande)
         <section id='timeline-container' className='component'>
             <h2 className='magic-background-underline load-animation-element'>What I've been doing...</h2>
             <article id="timeline-wrap" className='load-animation-element'>
@@ -16,10 +19,23 @@ export default function Timeline(){
                         </div>
                         <div className="timeline-element-description">
                             <span>Before 2019</span>
-                            <h3 className="magic-underline">Self-taught</h3>
+                            <h3 className="magic-underline">Self-Taught Developer</h3>
                             <p>
-                                I have always been interested in the world of web development, however, it was 
-                                not until 2019 that I decided to dedicate myself to this professionally.
+                                My interest in web development began early, but in 2019 I decided to turn that
+                                passion into a professional career.
+                            </p>
+                        </div>
+                    </li>
+                    <li className="timeline-element load-animation-element">
+                        <div className="timeline-element-image">
+                            <img src={learning} alt='learning'/>
+                        </div>
+                        <div className="timeline-element-description">
+                            <span>2019 - 2020</span>
+                            <h3 className="magic-underline">Professional Certificate in Web Application Development</h3>
+                            <p>
+                                In 2020, I completed my training at Grupo MBC, gaining a solid foundation in
+                                web application development and modern web technologies.
                             </p>
                         </div>
                     </li>
@@ -28,23 +44,39 @@ export default function Timeline(){
                             <img src={grupo_mbc} alt='grupo_mbc'/>
                         </div>
                         <div className="timeline-element-description">
-                            <span>2019 - 2020</span>
-                            <h3 className="magic-underline">Professional Certificate development of applications with web technologies</h3>
+                            <span>2020 - 2023</span>
+                            <h3 className="magic-underline">Web Developer at Grupo MBC</h3>
                             <p>
-                                With great effort, in 2020 I finished my studies at the formation center, Grupo MBC.
+                                After completing the program, I joined Grupo MBC as a web developer, creating
+                                and maintaining Moodle-based learning platforms for Gran Canaria and Tenerife.
                             </p>
                         </div>
                     </li>
                     <li className="timeline-element load-animation-element">
                         <div className="timeline-element-image">
-                            <img src={web_developer_1} alt='web_developer_1'/>
+                            <img src={ieselrincon} alt='ieselrincon'/>
                         </div>
                         <div className="timeline-element-description">
-                            <span>2020 - Today</span>
-                            <h3 className="magic-underline">Web Developer</h3>
+                            <span>2023 - 2026</span>
+                            <h3 className="magic-underline">Higher Technician in Web Application Development</h3>
                             <p>
-                                After finishing the course, the same formation center hired me 
-                                to create and maintain learning platforms with Moodle where I am still working currently. 
+                                While working as a web developer, I completed my Higher Technician degree in Web 
+                                Application Development in IES El Rincón, strengthening my full-stack skills and 
+                                applying them directly to real-world projects.
+                            </p>
+                        </div>
+                    </li>
+                    <li className="timeline-element load-animation-element">
+                        <div className="timeline-element-image">
+                            <img src={ayesa} alt='ayesa'/>
+                        </div>
+                        <div className="timeline-element-description">
+                            <span>2023 - Present</span>
+                            <h3 className="magic-underline">Web Developer at Ayesa</h3>
+                            <p>
+                                Alongside starting my Higher Technician degree in Web Application Development
+                                in 2023, I joined Ayesa as a web developer, working on Moodle projects for
+                                Andalusia and Rey Juan Carlos University, where I continue to work today.
                             </p>
                         </div>
                     </li>

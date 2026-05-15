@@ -3,7 +3,8 @@ html {
 }
 
 #App{
-  height: 100vh;
+  height: 100%;
+  position: relative;
 }
 
 header,
@@ -21,9 +22,9 @@ header > video{
   min-height: 100%;
   min-width: 100%;
   left: 50%;
-  transform: translate(-50%);
+  transform: translate(-50%, -15%);
   position: absolute;
-  filter:brightness(0.40);
+  filter:brightness(0.5);
 }
 
 header .component{
@@ -41,9 +42,9 @@ main{
 }
 
 main .component{
-  padding: 200px 0 0;
+  padding: 125px 0 125px;
   min-width: 250px;
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -53,12 +54,6 @@ main .component{
 
 section.load-animation{
   opacity: 1;
-}
-
-@media only screen and (min-width: 1024px) {
-  main .component {
-    padding: 175px 0 0;
-  }
 }
 
 .button-pressed{
@@ -276,4 +271,9 @@ a{
 
 ul{
   list-style-type: none;
+}
+
+#footer-container{
+  bottom: 0;
+  width: 100%;
 }

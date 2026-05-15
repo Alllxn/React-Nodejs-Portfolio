@@ -4,9 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function Projects(props){
     const project = props.project;
+    const hasMultipleImages = project.Images.length > 1;
     const [projectDetails, setProjectDetails] = useState(false); // is project Details opened?
     let [carrouselLeft, setCarrouselLeft] = useState(false); // is the left button of carrousel displayed?
-    let [carrouselRight, setCarrouselRight] = useState(true); // is the right button of carrousel displayed?
+    let [carrouselRight, setCarrouselRight] = useState(hasMultipleImages); // is the right button of carrousel displayed?
     
     // When we open a project Details, the scroll of body disable
     if(projectDetails){
@@ -43,7 +44,7 @@ export default function Projects(props){
 
     const controlOpenDetails = (action) => {
         setCarrouselLeft(false);
-        setCarrouselRight(true);
+        setCarrouselRight(hasMultipleImages);
 
         if(action === 'open'){
             setProjectDetails(true);
@@ -103,11 +104,16 @@ export default function Projects(props){
     return(
         <li className="project-container">
             <button className="project-card load-animation-element card" onClick={() => {controlOpenDetails('open')}}>
-                <div className="project-image">
-                    <img 
-                        alt={project.Name} 
-                        src={require('../../../assets/work' + project.Images[0])} 
-                    />
+                <div className="project-image" style={{backgroundImage: `
+                linear-gradient(rgba(40, 40, 40, 0.6), rgba(40, 40, 40, 0.45)),
+                url(${require('../../../assets/work' + project.CoverBackground)})
+                `, }}>
+                    <div className="project-image-container">
+                        <img 
+                            alt={project.Name} 
+                            src={require('../../../assets/work' + project.Cover)} 
+                        />
+                    </div>
                     <div className="project-show-more card" style={{backgroundColor: 'white'}}>
                         <FontAwesomeIcon icon="fa-solid fa-eye" size='lg'/>
                         <div>

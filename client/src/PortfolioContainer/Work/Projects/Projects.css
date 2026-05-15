@@ -52,6 +52,8 @@
   transition: 1s;
   border: none;
   cursor: pointer;
+  min-width: 100%;
+  min-height: 100%;
 }
 
 .project-type{
@@ -63,13 +65,43 @@
   color: white;
 }
 
+.project-image{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 15/9;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.project-image::before{
+  transition: 0.5s ease-out;
+  content: "";
+  background-size: cover;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+}
+
+.project-image .project-image-container {
+  background-color: white;
+  padding: 15px;
+  border-radius: 100%;
+  overflow: hidden;
+  width: 150px;
+  transition: 1s ease-in-out;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+}
+
 .project-image img {
-  width: 100%;
-  object-fit: cover;
-  transition: 1s;
+  width: 125px;
+  height: auto;
+  object-fit: contain;
+  box-sizing: border-box;
   vertical-align: middle;
   border-style: none;
-  aspect-ratio: 15/9;
 }
 
 .project-information > *:not(.project-type){
@@ -95,7 +127,7 @@
 .project-name{
   flex-basis: 70%;
   margin: 0;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   margin-top: 10px;
   overflow: hidden;
   min-height: 30px;
@@ -306,7 +338,6 @@
 .project-name{
   margin-top: 10px;
   display: flex;
-  margin-bottom: 0;
 }
 
 .project-year{
@@ -354,9 +385,15 @@
     opacity: 1;
   }
   
-  .project-card:hover .project-image-container img{
-    filter: blur(2px);
-    -webkit-filter: blur(2px);
+  .project-card:hover .project-image .project-image-container{
+    transform:translate(-190px, -90px) scale(0.5);
+    /* transition-delay: 0.5s; */
+    transition: 0.5s ease-in;
+  }
+
+  .project-card:hover .project-image::before {
+    backdrop-filter: blur(2.5px);
+    transform: scale(1.1); /* Escalar un poco elimina los bordes blancos del blur */
   }
   
   .project-card:hover .project-information{
