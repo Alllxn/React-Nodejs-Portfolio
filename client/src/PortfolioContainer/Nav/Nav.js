@@ -71,10 +71,10 @@ export default function NavContainer() {
             <div id="nav-wrapper">
                 <div id='nav-left' className='part-nav'>
                     <a href='.' id='link-home'>
-                        <img className='magic-background' id='imagen-nav' src='/extraterrestre.ico' alt='alien-cabecera'></img>
+                        <img className='magic-background' id='imagen-nav' src='/extraterrestre.png' alt='alien-cabecera'></img>
                         <div>
-                            <p>Allan Espinoza</p>
-                            <p>Web Developer</p>
+                            <p className="nav-myname nav-myname-name">Allan Espinoza</p>
+                            <p className="nav-myname nav-myname-desc">$ Web Developer</p>
                         </div>
                     </a>
                     <div id='wrapper-button-nav-drawer'>
@@ -86,7 +86,7 @@ export default function NavContainer() {
                 <div id='nav-right' className="part-nav menu-dropdown">
                     <ul>
                         <li className='li-nav-item'>
-                            <Link onClick={controllNav} offset={-150} className="nav-item" activeClass="actived-link" spy to="home-container" smooth={true} duration={100}>
+                            <Link onClick={controllNav} offset={-200} className="nav-item" activeClass="actived-link" spy to="home-container" smooth={true} duration={100}>
                                 <span className='icon-container'>
                                     <FontAwesomeIcon icon="fa-solid fa-house-chimney" size='lg'/>
                                 </span>
@@ -114,7 +114,7 @@ export default function NavContainer() {
                                 <span className='icon-container'>
                                     <FontAwesomeIcon icon="fa-solid fa-history" size='lg'/>
                                 </span>
-                                <span className='magic-underline'>Work</span>
+                                <span className='magic-underline'>Projects</span>
                             </Link>
                         </li>
                         <li className='li-nav-item'>
