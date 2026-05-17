@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import './Projects.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useLanguage } from '../../../context/LanguageContext';
 
 export default function Projects(props){
     const project = props.project;
+    const { t } = useLanguage();
     const hasMultipleImages = project.Images.length > 1;
     const [projectDetails, setProjectDetails] = useState(false); // is project Details opened?
     let [carrouselLeft, setCarrouselLeft] = useState(false); // is the left button of carrousel displayed?
@@ -117,7 +119,7 @@ export default function Projects(props){
                     <div className="project-show-more card" style={{backgroundColor: 'white'}}>
                         <FontAwesomeIcon icon="fa-solid fa-eye" size='lg'/>
                         <div>
-                            <span> Show more...</span>
+                            <span> {t.work.showMore}</span>
                         </div>
                     </div>
                 </div>

@@ -2,9 +2,12 @@ import React from 'react';
 import './Footer.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-scroll';
+import { useLanguage } from '../../context/LanguageContext';
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
+    const { t } = useLanguage();
+    const f = t.footer;
 
     return (
         // El footer en pantallas moviles se ve por encima del contact hasta 768 width
@@ -16,25 +19,23 @@ export default function Footer() {
                         <img className='magic-background' src='/extraterrestre.png' alt='Allan Espinoza logo'></img>
                         <div>
                             <p>Allan Espinoza</p>
-                            <span>Web Developer</span>
+                            <span>{f.role}</span>
                         </div>
                     </a>
-                    <p>
-                        I enjoy turning ideas into web experiences that feel clear, useful, and carefully built from the first click.
-                    </p>
+                    <p>{f.tagline}</p>
                 </div>
                 <nav id="footer-navigation" aria-label="Footer navigation">
-                    <p className="footer-title">Explore</p>
+                    <p className="footer-title">{f.explore}</p>
                     <ul>
-                        <li><Link to="home-container" offset={-200} smooth={true} duration={100}>Home</Link></li>
-                        <li><Link to="about-container" smooth={true} duration={100}>About</Link></li>
-                        <li><Link to="timeline-container" smooth={true} duration={100}>Timeline</Link></li>
-                        <li><Link to="work-container" smooth={true} duration={100}>Projects</Link></li>
-                        <li><Link to="contact-container" smooth={true} duration={100}>Contact</Link></li>
+                        <li><Link to="home-container" offset={-200} smooth={true} duration={100}>{t.nav.home}</Link></li>
+                        <li><Link to="about-container" smooth={true} duration={100}>{t.nav.about}</Link></li>
+                        <li><Link to="timeline-container" smooth={true} duration={100}>{t.nav.timeline}</Link></li>
+                        <li><Link to="work-container" smooth={true} duration={100}>{t.nav.projects}</Link></li>
+                        <li><Link to="contact-container" smooth={true} duration={100}>{t.nav.contact}</Link></li>
                     </ul>
                 </nav>
                 <div id="footer-contact">
-                    <p className="footer-title">Let's Connect</p>
+                    <p className="footer-title">{f.connect}</p>
                     <ul>
                         <li>
                             {/* TODO: comprobar porque no funciona el mailto */}
@@ -43,7 +44,7 @@ export default function Footer() {
                             </a>
                         </li>
                         <li>
-                            <a href="tel:+34628766431" rel="nofollow noopener noreferrer" target="_blank" aria-label="GitHub profile">
+                            <a href="tel:+34628766431" rel="nofollow noopener noreferrer" target="_blank" aria-label="Phone Allan Espinoza">
                                 <FontAwesomeIcon icon="fa-solid fa-phone"/>
                             </a>
                         </li>
@@ -69,7 +70,7 @@ export default function Footer() {
                 </div>
             </div>
             <div id="footer-bottom">
-                <p>© {currentYear} Allan Espinoza. Designed and built with React.</p>
+                <p>© {currentYear} Allan Espinoza. {f.copyright}</p>
             </div>
         </footer>
     )

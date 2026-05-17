@@ -1,225 +1,78 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Contact.css';
+import { useLanguage } from '../../context/LanguageContext';
 
 export function Contact() {
-    const [formData, setFormData] = useState({ 
-        name : {
-            value: "",
-            error: {
-                exist : null,
-                message : ""
-            }
-        },
-        email : {
-            value: "",
-            error: {
-                exist : null,
-                message : ""
-            }
-        },
-        subject : {
-            value: "",
-            error: {
-                exist : null,
-                message : ""
-            }
-        },
-        message : {
-            value: "",
-            error: {
-                exist : null,
-                message : ""
-            }
-        }
+    const { t } = useLanguage();
+    const f = t.contact.form;
+
+    const [formData, setFormData] = useState({
+        name : { value: "", error: { exist: null, key: "" } },
+        email : { value: "", error: { exist: null, key: "" } },
+        subject : { value: "", error: { exist: null, key: "" } },
+        message : { value: "", error: { exist: null, key: "" } },
     });
 
     const insertData = (e) => {
         let inputTarget = e.target.name;
         let dataInserted = e.target.value;
 
-        switch (inputTarget) {
-            case 'name':                
-                setFormData((prevFormData) => ({
-                    ...prevFormData, name : {
-                        ...prevFormData.name,
-                        value: dataInserted                        
-                    }
-                }));
-            break;
-            
-            case 'email':                
-                setFormData((prevFormData) => ({
-                    ...prevFormData, email : {
-                        ...prevFormData.email,
-                        value: dataInserted                        
-                    }
-                }));
-            break;
-            
-            case 'subject':                
-                setFormData((prevFormData) => ({
-                    ...prevFormData, subject : {
-                        ...prevFormData.subject,
-                        value: dataInserted
-                    }
-                }));
-            break;
-            
-            case 'message':                
-                setFormData((prevFormData) => ({
-                    ...prevFormData, message : {
-                        ...prevFormData.message,
-                        value: dataInserted
-                    }
-                }));
-            break;
-
-            default:
-        }        
+        setFormData((prev) => ({
+            ...prev,
+            [inputTarget]: { ...prev[inputTarget], value: dataInserted }
+        }));
     };
+
+    const setError = (field, key) =>
+        setFormData((prev) => ({
+            ...prev,
+            [field]: { ...prev[field], error: { exist: !!key, key } }
+        }));
 
     const verifyName = () => {
-        let dataInserted = formData.name.value;
-        let existError = null;
-        let messageError;
-        
-        if(dataInserted === ""){
-            existError = true;
-            messageError = 'This field cannot be empty.';
-        }else{
-            existError = false;
-            messageError = '';
-        }
-        
-        setFormData((prevFormData) => ({
-            ...prevFormData, name : {
-                ...prevFormData.name,
-                error: {
-                    ...prevFormData.name.error,
-                    exist: existError,
-                    message: messageError
-                }
-            },
-        })); 
-
-        return existError;
-    }
-
-    const verifyEmail = () => {
-        let dataInserted = formData.email.value;
-        let existError = null;
-        let messageError;
-
-        let regex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-
-        if(dataInserted === ""){
-            existError = true;
-            messageError = 'This field cannot be empty.';
-        }else if (!regex.test(dataInserted)){
-            existError = true;
-            messageError = 'This e-mail format is not correct. Example: username@domain.com';
-        }else{
-            existError = false;
-            messageError = '';
-        }
-
-        setFormData((prevFormData) => ({
-            ...prevFormData, email : {
-                ...prevFormData.email,
-                error: {
-                    ...prevFormData.email.error,
-                    exist: existError,
-                    message: messageError
-                }
-                
-            },
-        }));
-
-        return existError;
-    }
-    
-    const verifySubject = () => {
-        let dataInserted = formData.subject.value;
-        let existError = null;
-        let messageError;
-
-        if(dataInserted === ""){
-            existError = true;
-            messageError = 'This field cannot be empty.';
-        }else{
-            existError = false;
-            messageError = '';
-        }
-
-        setFormData((prevFormData) => ({
-            ...prevFormData, subject : {
-                ...prevFormData.subject,
-                error: {
-                    ...prevFormData.subject.error,
-                    exist: existError,
-                    message: messageError
-                }
-                
-            },
-        }));
-
-        return existError;
-    }
-
-    const verifyMessage = () => {
-        let dataInserted = formData.message.value;
-        let existError = null;
-        let messageError;
-
-        if(dataInserted === ""){
-            existError = true;
-            messageError = 'This field cannot be empty.';
-        }else{
-            existError = false;
-            messageError = '';
-        }
-
-        setFormData((prevFormData) => ({
-            ...prevFormData, message : {
-                ...prevFormData.message,
-                error: {
-                    ...prevFormData.message.error,
-                    exist: existError,
-                    message: messageError
-                }
-                
-            },
-        }));
-
-        return existError;
-    }
-
-    const verifyInputs = () => { // Verifies that all inputs are ok to send it
-        if(!verifyName()){
-            if(!verifyEmail()){
-                if(!verifySubject()){
-                    if(!verifyMessage()){
-                        return true; // all verified, OK
-                    }else{
-                        return false; // exists errors, not OK
-                    }
-                }else{
-                    return false;
-                }
-            }else{
-                return false;
-            }
-        }else{
-            return false;
-        }
+        const empty = formData.name.value === "";
+        setError('name', empty ? 'empty' : '');
+        return empty;
     };
 
-    const [submitValue, setSubmitValue] = useState({ // State of the form input
-        message: "Send", 
-        icon: <FontAwesomeIcon icon="fa-solid fa-paper-plane" />, 
-        class: "form-waiting"
-    }); 
+    const verifyEmail = () => {
+        const val = formData.email.value;
+        const regex = /^(([^<>()[\]\.,;:\s@"]+(\.[^<>()[\]\.,;:\s@"]+)*)|(".+"))@(([^<>()[\]\.,;:\s@"]+\.)+[^<>()[\]\.,;:\s@"]{2,})$/i;
+        let key = '';
+        if (val === '') key = 'empty';
+        else if (!regex.test(val)) key = 'invalidEmail';
+        setError('email', key);
+        return !!key;
+    };
+
+    const verifySubject = () => {
+        const empty = formData.subject.value === "";
+        setError('subject', empty ? 'empty' : '');
+        return empty;
+    };
+
+    const verifyMessage = () => {
+        const empty = formData.message.value === "";
+        setError('message', empty ? 'empty' : '');
+        return empty;
+    };
+
+    const verifyInputs = () =>
+        !verifyName() && !verifyEmail() && !verifySubject() && !verifyMessage();
+
+    // submitStatus: 'waiting' | 'sending' | 'success' | 'check-errors' | 'server-error'
+    const [submitStatus, setSubmitStatus] = useState('waiting');
+    const [serverMessage, setServerMessage] = useState('');
+
+    const submitDisplay = {
+        waiting:       { message: f.send,        icon: <FontAwesomeIcon icon="fa-solid fa-paper-plane" />,   class: "form-waiting" },
+        sending:       { message: f.sending,      icon: <FontAwesomeIcon icon="fa-solid fa-spinner fa-spin" />, class: "form-process" },
+        success:       { message: serverMessage,  icon: <FontAwesomeIcon icon="fa-solid fa-check" />,          class: "form-success" },
+        'check-errors':{ message: f.checkErrors,  icon: <FontAwesomeIcon icon="fa-solid fa-xmark" />,          class: "form-error" },
+        'server-error':{ message: f.serverError,  icon: <FontAwesomeIcon icon="fa-solid fa-xmark" />,          class: "form-error" },
+        error:         { message: serverMessage,  icon: <FontAwesomeIcon icon="fa-solid fa-xmark" />,          class: "form-error" },
+    }[submitStatus];
 
     const sendEmail = async () => {
         let details = {
@@ -228,76 +81,42 @@ export function Contact() {
             subject: formData.subject.value,
             message: formData.message.value,
         };
-        
-        let response = await fetch('/contact', { //Send email
+
+        let response = await fetch('/contact', {
             method: "POST",
-            headers: {
-            "Content-Type": "application/json;charset=utf-8",
-            },
+            headers: { "Content-Type": "application/json;charset=utf-8" },
             body: JSON.stringify(details),
         });
 
-        if(!response.ok){
-            throw new Error ('HTTP Error');
-        }
-
+        if (!response.ok) throw new Error('HTTP Error');
         return await response.json();
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        let result;
-        
-        setSubmitValue({ // Showing that the process starts
-            message: "Sending...", 
-            icon: <FontAwesomeIcon icon="fa-solid fa-spinner fa-spin" />,
-            class: "form-process"
-        });
-            
-        if(verifyInputs()){
-            try{
-                result = await sendEmail();
-                if(result.status){
-                    setSubmitValue({
-                        message: result.message, 
-                        icon: <FontAwesomeIcon icon="fa-solid fa-check" />, 
-                        class: "form-success"
-                    });
-                    
-                    setTimeout(() => {
-                        setSubmitValue({
-                            message: "Send", 
-                            icon: <FontAwesomeIcon icon="fa-solid fa-paper-plane" />, 
-                            class: "form-waiting"
-                        })
-                    }, 5000);
-                }else{
-                    setSubmitValue({
-                        message: result.message, 
-                        icon: <FontAwesomeIcon icon="fa-solid fa-xmark" />, 
-                        class: "form-error"
-                    });
+        setSubmitStatus('sending');
+
+        if (verifyInputs()) {
+            try {
+                const result = await sendEmail();
+                setServerMessage(result.message);
+                if (result.status) {
+                    setSubmitStatus('success');
+                    setTimeout(() => setSubmitStatus('waiting'), 5000);
+                } else {
+                    setSubmitStatus('error');
                 }
-            }catch(error){
-                result = undefined;
-                setSubmitValue({
-                    message: "Can't connect with server...", 
-                    icon: <FontAwesomeIcon icon="fa-solid fa-xmark" />, 
-                    class: "form-error"
-                });
+            } catch {
+                setSubmitStatus('server-error');
             }
-        }else{
-            setSubmitValue({
-                message: "Check errors and try again.", 
-                icon: <FontAwesomeIcon icon="fa-solid fa-xmark" />, 
-                class: "form-error"
-            });
+        } else {
+            setSubmitStatus('check-errors');
         }
     };
 
     return (
         <section id="contact-container" className='component'>
-            <h2 className='magic-background-underline load-animation-element'>Contact</h2>
+            <h2 className='magic-background-underline load-animation-element'>{t.contact.title}</h2>
             <article id="contact-wrapper">
                 <aside id="contact-links">
                     <ul>
@@ -306,9 +125,7 @@ export function Contact() {
                                 <span className="magic-background">
                                     <FontAwesomeIcon icon="fa-solid fa-envelope"/>
                                 </span>
-                                <span>
-                                    Email
-                                </span>    
+                                <span>{t.contact.links.email}</span>
                             </a>
                         </li>
                         <li className='load-animation-element'>
@@ -316,9 +133,7 @@ export function Contact() {
                                 <span className="magic-background">
                                     <FontAwesomeIcon icon="fa-solid fa-phone"/>
                                 </span>
-                                <span>
-                                    Phone
-                                </span>    
+                                <span>{t.contact.links.phone}</span>
                             </a>
                         </li>
                         <li className='load-animation-element'>
@@ -326,9 +141,7 @@ export function Contact() {
                                 <span className="magic-background">
                                     <FontAwesomeIcon icon="fa-brands fa-linkedin-in"/>
                                 </span>
-                                <span>
-                                    Linkedin
-                                </span>    
+                                <span>{t.contact.links.linkedin}</span>
                             </a>
                         </li>
                         <li className='load-animation-element'>
@@ -336,9 +149,7 @@ export function Contact() {
                                 <span className="magic-background">
                                     <FontAwesomeIcon icon="fa-brands fa-whatsapp"/>
                                 </span>
-                                <span>
-                                    WhatsApp
-                                </span>
+                                <span>{t.contact.links.whatsapp}</span>
                             </a>
                         </li>
                         <li className='load-animation-element'>
@@ -346,9 +157,7 @@ export function Contact() {
                                 <span className="magic-background">
                                     <FontAwesomeIcon icon="fa-brands fa-github"/>
                                 </span>
-                                <span>
-                                    Github
-                                </span>    
+                                <span>{t.contact.links.github}</span>
                             </a>
                         </li>
                     </ul>
@@ -356,29 +165,29 @@ export function Contact() {
                 <form id="form-contact" onSubmit={handleSubmit}>
                     <div id="form-contact-data" className="form-contact-part">
                         <label className="contact-field load-animation-element">
-                            <span style={{color: formData.name.error.exist ? '#F44336' : ''}}> 
+                            <span style={{color: formData.name.error.exist ? '#F44336' : ''}}>
                                 <FontAwesomeIcon icon="fa-solid fa-user-astronaut" size='xl' />
                             </span>
-                            <input 
-                                placeholder="Full name*"
+                            <input
+                                placeholder={f.name}
                                 name="name"
-                                type="text" 
+                                type="text"
                                 className='card load-animation-element'
                                 onChange={(e) => insertData(e)}
                             />
                             {formData.name.error.exist && (
                                 <span className='input-error'>
                                     <FontAwesomeIcon icon="fa-solid fa-triangle-exclamation" size='lg'/>
-                                    {formData.name.error.message}
+                                    {f[formData.name.error.key]}
                                 </span>
                             )}
                         </label>
                         <label className="contact-field load-animation-element">
-                            <span style={{color: formData.email.error.exist ? '#F44336' : ''}}> 
+                            <span style={{color: formData.email.error.exist ? '#F44336' : ''}}>
                                 <FontAwesomeIcon icon="fa-solid fa-envelope" size='xl' />
                             </span>
-                            <input 
-                                placeholder="Email*"
+                            <input
+                                placeholder={f.email}
                                 name="email"
                                 type="text"
                                 className="card load-animation-element"
@@ -388,18 +197,18 @@ export function Contact() {
                             {formData.email.error.exist && (
                                 <span className='input-error'>
                                     <FontAwesomeIcon icon="fa-solid fa-triangle-exclamation" size='lg'/>
-                                    {formData.email.error.message}
+                                    {f[formData.email.error.key]}
                                 </span>
                             )}
-                        </label>    
+                        </label>
                         <label className="contact-field load-animation-element">
                             <span style={{color: formData.subject.error.exist ? '#F44336' : ''}}>
                                 <FontAwesomeIcon icon="fa-solid fa-pen" size='xl'/>
                             </span>
-                            <input 
-                                placeholder="Subject*"
+                            <input
+                                placeholder={f.subject}
                                 name="subject"
-                                type="text" 
+                                type="text"
                                 className="card load-animation-element"
                                 maxLength="70"
                                 onChange={(e) => insertData(e)}
@@ -407,38 +216,38 @@ export function Contact() {
                             {formData.subject.error.exist && (
                                 <span className='input-error'>
                                     <FontAwesomeIcon icon="fa-solid fa-triangle-exclamation" size='lg'/>
-                                    {formData.subject.error.message}
+                                    {f[formData.subject.error.key]}
                                 </span>
                             )}
-                        </label>                
+                        </label>
                     </div>
                     <div id="form-contact-message" className="form-contact-part">
                         <label className="contact-field load-animation-element">
                             <span style={{color: formData.message.error.exist ? '#F44336' : ''}}>
                                 <FontAwesomeIcon icon="fa-solid fa-message" size='xl' />
                             </span>
-                            <textarea 
+                            <textarea
                                 name="message"
-                                placeholder="Message*"
+                                placeholder={f.message}
                                 className="card load-animation-element"
                                 onChange={(e) => insertData(e)}
                             />
                             {formData.message.error.exist && (
                                 <span className='input-error'>
                                     <FontAwesomeIcon icon="fa-solid fa-triangle-exclamation" size='lg'/>
-                                    {formData.message.error.message}
+                                    {f[formData.message.error.key]}
                                 </span>
                             )}
                         </label>
                     </div>
                     <div id="form-contact-submit" className="form-contact-part load-animation-element">
                         <button type="submit" className="card button-cta">
-                            <span className={submitValue.class}>
-                                {submitValue.icon}
+                            <span className={submitDisplay.class}>
+                                {submitDisplay.icon}
                             </span>
                             <span>
-                                {submitValue.message}
-                            </span>    
+                                {submitDisplay.message}
+                            </span>
                         </button>
                     </div>
                 </form>

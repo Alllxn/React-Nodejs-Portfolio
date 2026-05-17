@@ -1,12 +1,15 @@
 import React from 'react';
 import './About.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useLanguage } from '../../context/LanguageContext';
 
 export default function About() {
+    const { t } = useLanguage();
+    const a = t.about;
 
     return (
         <section id='about-container' className='component'>
-            <h2 className='magic-background-underline load-animation-element'>Me, Myself & I</h2>
+            <h2 className='magic-background-underline load-animation-element'>{a.title}</h2>
             <article id='about-presentation'>
                 <div id='biography' className=''>
                     <div id="biography-intro" className="biography-element load-animation-element">
@@ -14,70 +17,45 @@ export default function About() {
                             <img src='/extraterrestre.png' alt='alien'></img>
                         </div>
                         <div className="about-intro-copy">
-                            <span className="about-intro-label">Web developer</span>
-                            <p>
-                                Hello, my name is <b>Allan Bastian Espinoza Ibañez</b>. I'm driven by curiosity and a practical love for solving problems.
-                            </p>
-                            <p>
-                                I like building things that make sense: clear interfaces, useful workflows, and solutions that feel easier for the people using them.
-                            </p>
-                            <p>
-                                I currently work at <b>Ayesa</b>, helping build Moodle-based learning platforms for institutions across Spain.
-                            </p>
+                            <span className="about-intro-label">{a.label}</span>
+                            {a.bio.map((paragraph, i) => (
+                                <p key={i} dangerouslySetInnerHTML={{ __html: paragraph }} />
+                            ))}
                         </div>
                     </div>
-                    <div id="biography-more-info"> 
+                    <div id="biography-more-info">
                         <div id="biography-education" className="biography-element load-animation-element">
-                            <h3>Education <span className="education-icon">📚</span></h3>
+                            <h3>{a.education.title}</h3>
                             <ul className="education-list">
-                                <li>
-                                    <div>
-                                        <p>Higher Technician in Web Application Development (DAW)</p>
-                                        <p><span className="biography-institution">IES El Rincón</span><span className="biography-institution-date">2023 - 2026</span></p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <p>Professional Certificate in Web Technologies Development</p>
-                                        <p><span className="biography-institution">Grupo MBC</span><span className="biography-institution-date">2019 - 2020</span></p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <p>Baccalaureate</p>
-                                        <p><span className="biography-institution">EASDGC</span><span className="biography-institution-date">2010 - 2012</span></p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <p>High School</p>
-                                        <p><span className="biography-institution">School San Vicente de Paúl</span><span className="biography-institution-date">2006 - 2010</span></p>
-                                    </div>
-                                </li>
+                                {a.education.items.map((item, i) => (
+                                    <li key={i}>
+                                        <div>
+                                            <p>{item.degree}</p>
+                                            <p>
+                                                <span className="biography-institution">{item.institution}</span>
+                                                <span className="biography-institution-date">{item.date}</span>
+                                            </p>
+                                        </div>
+                                    </li>
+                                ))}
                             </ul>
                         </div>
                         <div id='biography-soft-skills' className="biography-element load-animation-element">
-                            <h3>How I Work <span className="education-icon">🛠️</span></h3>
+                            <h3>{a.softSkills.title}</h3>
                             <ul className="mindset-list">
-                                <li>
-                                    <p>Curiosity embodied</p>
-                                    <p>I like understanding the why behind a problem before jumping into the how.</p>
-                                </li>
-                                <li>
-                                    <p>I find a way forward</p>
-                                    <p>When things get complicated, I like to organize the problem, explore different paths, and keep moving until I find a solution that works.</p>
-                                </li>
-                                <li>
-                                    <p>Adaptable learner</p>
-                                    <p>I learn fast, ask better questions over time, and stay calm when requirements shift.</p>
-                                </li>
+                                {a.softSkills.items.map((item, i) => (
+                                    <li key={i}>
+                                        <p>{item.title}</p>
+                                        <p>{item.desc}</p>
+                                    </li>
+                                ))}
                             </ul>
                         </div>
                         <div id='biography-skills' className="biography-element load-animation-element">
-                            <h3>Tech Stack <span className="education-icon">🧱</span></h3>
+                            <h3>{a.techStack.title}</h3>
                             <div className="tech-stack-groups">
                                 <div className="tech-stack-group">
-                                    <h4>Frontend</h4>
+                                    <h4>{a.techStack.frontend}</h4>
                                     <ul>
                                         <li><FontAwesomeIcon icon="fa-brands fa-html5" style={{color:"#E54D26"}}/><span>HTML5</span></li>
                                         <li><FontAwesomeIcon icon="fa-brands fa-css3-alt" style={{color:"#379AD5"}}/><span>CSS3</span></li>
@@ -91,7 +69,7 @@ export default function About() {
                                     </ul>
                                 </div>
                                 <div className="tech-stack-group">
-                                    <h4>Backend</h4>
+                                    <h4>{a.techStack.backend}</h4>
                                     <ul>
                                         <li><FontAwesomeIcon icon="fa-brands fa-node-js" style={{color:"#68a063"}}/><span>Node.js</span></li>
                                         <li><FontAwesomeIcon icon="fa-brands fa-php" style={{color:"#8993be"}}/><span>PHP</span></li>
@@ -102,7 +80,7 @@ export default function About() {
                                     </ul>
                                 </div>
                                 <div className="tech-stack-group">
-                                    <h4>Development Tools</h4>
+                                    <h4>{a.techStack.tools}</h4>
                                     <ul>
                                         <li><FontAwesomeIcon icon="fa-brands fa-git-alt" style={{color:"#F05032"}}/><span>Git</span></li>
                                         <li><FontAwesomeIcon icon="fa-brands fa-github" style={{color:"#ffffff"}}/><span>GitHub</span></li>
@@ -110,7 +88,7 @@ export default function About() {
                                     </ul>
                                 </div>
                                 <div className="tech-stack-group">
-                                    <h4>Databases</h4>
+                                    <h4>{a.techStack.databases}</h4>
                                     <ul>
                                         <li><FontAwesomeIcon icon="fa-solid fa-table" style={{color:"#C0C0C0"}}/><span>SQL</span></li>
                                         <li><FontAwesomeIcon icon="fa-solid fa-database" style={{color:"#00758F"}}/><span>MySQL</span></li>
@@ -118,7 +96,7 @@ export default function About() {
                                     </ul>
                                 </div>
                                 <div className="tech-stack-group">
-                                    <h4>E-learning</h4>
+                                    <h4>{a.techStack.elearning}</h4>
                                     <ul>
                                         <li><FontAwesomeIcon icon="fa-solid fa-graduation-cap" style={{color:"#F98012"}}/><span>Moodle</span></li>
                                     </ul>
@@ -126,36 +104,24 @@ export default function About() {
                             </div>
                         </div>
                         <div id="biography-interests" className="biography-element load-animation-element">
-                            <h3>What I'm Exploring <span className="education-icon">🧪</span></h3>
+                            <h3>{a.exploring.title}</h3>
                             <ul className="exploring-list">
-                                <li>
-                                    <p>AI-powered learning tools</p>
-                                </li>
-                                <li>
-                                    <p>Better frontend experiences</p>
-                                </li>
-                                <li>
-                                    <p>Useful backend systems</p>
-                                </li>
-                                <li>
-                                    <p>Designing with real users in mind</p>
-                                </li>
-                                <li>
-                                    <p>Interesting projects with real impact</p>
-                                </li>
+                                {a.exploring.items.map((item, i) => (
+                                    <li key={i}><p>{item}</p></li>
+                                ))}
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div id="know-me-more-container" className='load-animation-element'>
-                    <p>Would you like to know more about me?</p>
+                    <p>{a.cta.text}</p>
                     <a href="#contact-container" id="know-me-more" className="button-cta card">
                         <span className="magic-background">
                             <FontAwesomeIcon icon="fa-solid fa-paper-plane" />
                         </span>
                         <span>
-                            Get in touch! ☕
-                        </span>     
+                            {a.cta.button}
+                        </span>
                     </a>
                 </div>
             </article>

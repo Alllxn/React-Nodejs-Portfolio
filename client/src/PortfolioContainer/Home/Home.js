@@ -4,9 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-scroll';
 import { TypeAnimation } from 'react-type-animation';
 import './Home.css';
+import { useLanguage } from '../../context/LanguageContext';
 
 export function Home() {
-    
+    const { t } = useLanguage();
+
     return (
         <header>
             <video src={require('../../assets/home/home_background.mp4')} autoPlay loop muted />
@@ -16,15 +18,15 @@ export function Home() {
                         <img src={me} alt='me' id='presentation-image'/>
                     </div>
                     <div id='presentation-content-text'>
-                        <h1 className='magic-background-underline'>Allan Bastian Espinoza Ibañez</h1> 
+                        <h1 className='magic-background-underline'>Allan Bastian Espinoza Ibañez</h1>
                         <TypeAnimation
                             className="text-shadow"
                             cursor={true}
                             sequence={[
-                            '$ Web developer 👽',
-                            2000,
-                            '$ Problem solver 🚀',
-                            2000,
+                                t.home.type1,
+                                2000,
+                                t.home.type2,
+                                2000,
                             ]}
                             wrapper="p"
                             repeat={Infinity}
@@ -54,21 +56,21 @@ export function Home() {
                     </div>
                 </div>
                 <div id="presentation-cta">
-                    <a href="allan_espinoza_cv_es.pdf" id="button-resume" className="button-cta card" download>
+                    <a href={t.home.cv} id="button-resume" className="button-cta card" download>
                         <span className="magic-background">
                             📂
                         </span>
                         <span>
-                            Resume
-                        </span>     
+                            {t.home.resume}
+                        </span>
                     </a>
                     <Link to="work-container" id="button-hire-me" className="button-cta card">
                         <span className="magic-background">
                             🔥
                         </span>
                         <span>
-                            View projects
-                        </span>    
+                            {t.home.viewProjects}
+                        </span>
                     </Link>
                 </div>
             </div>

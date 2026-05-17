@@ -3,8 +3,8 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding-bottom: 40%;
-    min-height: 100vh;
+    padding-bottom: 250px;
+    /* min-height: 100vh; */
 }
 
 #contact-container #contact-wrapper{
