@@ -387,7 +387,6 @@
   
   .project-card:hover .project-image .project-image-container{
     transform:translate(-170px, -80px) scale(0.5);
-    /* transition-delay: 0.5s; */
     transition: 0.5s ease-in;
   }
 

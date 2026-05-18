@@ -15,7 +15,6 @@ export default function Footer() {
             <div id="footer-wrapper">
                 <div id="footer-brand">
                     <a href='.' id='footer-logo'>
-                        {/* TODO: cambiar el borde del icono del alien del footer */}
                         <img className='magic-background' src='/extraterrestre.png' alt='Allan Espinoza logo'></img>
                         <div>
                             <p>Allan Espinoza</p>
@@ -38,7 +37,6 @@ export default function Footer() {
                     <p className="footer-title">{f.connect}</p>
                     <ul>
                         <li>
-                            {/* TODO: comprobar porque no funciona el mailto */}
                             <a href="mailto:contact@allandev.es" aria-label="Email Allan Espinoza">
                                 <FontAwesomeIcon icon="fa-solid fa-envelope"/>
                             </a>
@@ -54,7 +52,6 @@ export default function Footer() {
                             </a>
                         </li>
                         <li>
-                            {/* TODO: comprobar url del linkedin */}
                             <a href="https://www.linkedin.com/in/allanwebdev" rel="nofollow noopener noreferrer" target="_blank" aria-label="LinkedIn profile">
                                 <FontAwesomeIcon icon="fa-brands fa-linkedin-in"/>
                             </a>
@@ -65,7 +62,6 @@ export default function Footer() {
                             </a>
                         </li>
                     </ul>
-                    {/* TODO: comprobar porque no funciona el mailto */}
                     <a href="mailto:contact@allandev.es" id="footer-email">contact@allandev.es</a>
                 </div>
             </div>

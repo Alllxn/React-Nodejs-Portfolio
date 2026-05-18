@@ -21,7 +21,6 @@ export default function Work(){
 
     return(
         <section id="work-container" className='component'>
-            {/* TODO: añadir proyectos de AYESA */}
             <h2 className='magic-background-underline load-animation-element'>{t.work.title}</h2>
             <ol id="work-wrap">
                 {project}

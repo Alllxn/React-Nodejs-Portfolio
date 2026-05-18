@@ -14,7 +14,6 @@ export default function Timeline(){
     const { t } = useLanguage();
 
     return (
-        // TODO: Añadir un hover en cada elemento para poder leerlo mejor (letra mas grande)
         <section id='timeline-container' className='component'>
             <h2 className='magic-background-underline load-animation-element'>{t.timeline.title}</h2>
             <article id="timeline-wrap" className='load-animation-element'>
