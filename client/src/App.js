@@ -8,11 +8,12 @@ import Contact from './PortfolioContainer/Contact/Contact';
 import Timeline from './PortfolioContainer/Timeline/Timeline';
 import Footer from './PortfolioContainer/Footer/Footer';
 import { LanguageProvider } from './context/LanguageContext';
+import { ThemeProvider } from './context/ThemeContext';
 import './assets/fontawesome';
 
 function App() {
   return (
-    // TODO: Crear funcionalidad de cambio de color del fondo
+    <ThemeProvider>
     <LanguageProvider>
       <div className="App" id="App">
         <Nav/>
@@ -26,6 +27,7 @@ function App() {
           <Footer/>
       </div>
     </LanguageProvider>
+    </ThemeProvider>
   );
 }
 

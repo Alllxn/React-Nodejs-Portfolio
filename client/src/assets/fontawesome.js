@@ -53,6 +53,8 @@ import { faSass } from '@fortawesome/free-brands-svg-icons';
 import { faBrain } from '@fortawesome/free-solid-svg-icons';
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { faSun } from '@fortawesome/free-solid-svg-icons';
+import { faMoon } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -110,6 +112,8 @@ library.add(
     faSass,
     faBrain,
     faArrowUpRightFromSquare,
-    faWhatsapp
+    faWhatsapp,
+    faSun,
+    faMoon,
 
 );

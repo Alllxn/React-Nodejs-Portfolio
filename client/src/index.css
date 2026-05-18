@@ -61,6 +61,13 @@
   --custom-green: #4CAF50;
 }
 
+body.theme-light {
+  --primario: #f4f5f7;
+  --secundario: #e8eaed;
+  --contraste-primario: #1a1a1a;
+  --custom-box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px, rgba(0, 0, 0, 0.14) 0px 2px 16px 0px;
+}
+
 * {
   outline: none;
   margin: 0;

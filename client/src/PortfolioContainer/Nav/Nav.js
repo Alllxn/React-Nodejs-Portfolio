@@ -3,10 +3,12 @@ import './Nav.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-scroll';
 import { useLanguage } from '../../context/LanguageContext';
+import { useTheme } from '../../context/ThemeContext';
 
 export default function NavContainer() {
     const [ navState, setNavState ] = useState(false);
     const { lang, t, toggleLang } = useLanguage();
+    const { theme, toggleTheme } = useTheme();
 
     const controllNav = (event) => {
         console.log('aqyu');
@@ -132,6 +134,11 @@ export default function NavContainer() {
                     <button className="lang-toggle nav-item li-nav-item" onClick={toggleLang} aria-label="Toggle language">
                         <span className='icon-container'>🌐</span>
                         <span className='magic-underline'>{lang === 'en' ? 'ES' : 'EN'}</span>
+                    </button>
+                    <button className="theme-toggle lang-toggle nav-item li-nav-item" onClick={toggleTheme} aria-label="Toggle theme">
+                        <span className='icon-container'>
+                            <FontAwesomeIcon icon={theme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon'} size='lg'/>
+                        </span>
                     </button>
                 </div>
             </div>
