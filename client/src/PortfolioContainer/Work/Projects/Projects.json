@@ -10,9 +10,9 @@
             "Cover" : "/card-MBC.svg",
             "CoverBackground" : "/cover-MBC.jpg",
             "Images" : [
-                "/MBC-login.png",
-                "/MBC-main.png",
-                "/MBC-curse-page.png"
+                "/MBC-login.webp",
+                "/MBC-main.webp",
+                "/MBC-curse-page.webp"
             ],
             "Tecnologies" : [
                 "Moodle",
@@ -37,9 +37,9 @@
             "Cover" : "/card-EH.svg",
             "CoverBackground" : "/cover-EH.jpg",
             "Images" : [
-                "/EH-login.png",
-                "/EH-main.png",
-                "/EH-curse-page.png"
+                "/EH-login.webp",
+                "/EH-main.webp",
+                "/EH-curse-page.webp"
             ],
             "Tecnologies" : [
                 "Moodle",
@@ -64,9 +64,9 @@
             "Cover" : "/card-EHT.png",
             "CoverBackground" : "/cover-EHT.jpg",
             "Images" : [
-                "/EHT-login.png",
-                "/EHT-main.png",
-                "/EHT-curse-page.png"
+                "/EHT-login.webp",
+                "/EHT-main.webp",
+                "/EHT-curse-page.webp"
             ],
             "Tecnologies" : [
                 "Moodle",
@@ -91,9 +91,9 @@
             "Cover" : "/card-ESP.png",
             "CoverBackground" : "/cover-ESP.jpg",
             "Images" : [
-                "/ESP-login.png",
-                "/ESP-main.png",
-                "/ESP-curse-page.png"
+                "/ESP-login.webp",
+                "/ESP-main.webp",
+                "/ESP-curse-page.webp"
             ],
             "Tecnologies" : [
                 "Moodle",
@@ -119,15 +119,15 @@
             "Cover" : "/card-JDA.svg",
             "CoverBackground" : "/cover-JDA.jpg",
             "Images" : [
-                "/Ayesa-fp.png",
-                "/Ayesa-adultos.png",
-                "/Ayesa-avep.png",
-                "/Ayesa-centros.png",
-                "/Ayesa-iacp.png",
-                "/Ayesa-inspeccion.png",
-                "/Ayesa-plantillas.png",
-                "/Ayesa-profesorado.png",
-                "/Ayesa-taller.png"
+                "/Ayesa-fp.webp",
+                "/Ayesa-adultos.webp",
+                "/Ayesa-avep.webp",
+                "/Ayesa-centros.webp",
+                "/Ayesa-iacp.webp",
+                "/Ayesa-inspeccion.webp",
+                "/Ayesa-plantillas.webp",
+                "/Ayesa-profesorado.webp",
+                "/Ayesa-taller.webp"
             ],
             "Tecnologies" : [
                 "Moodle",
@@ -159,7 +159,7 @@
             "Cover" : "/card-URJC.svg",
             "CoverBackground" : "/cover-URJC.jpg",
             "Images" : [
-                "/Urjc.png"
+                "/Urjc.webp"
             ],
             "Tecnologies" : [
                 "Moodle",
