@@ -82,7 +82,7 @@ export function Contact() {
             message: formData.message.value,
         };
 
-        let response = await fetch('/contact', {
+        let response = await fetch(`${process.env.REACT_APP_API_URL || ''}/contact`, {
             method: "POST",
             headers: { "Content-Type": "application/json;charset=utf-8" },
             body: JSON.stringify(details),
