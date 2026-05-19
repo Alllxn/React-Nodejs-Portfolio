@@ -85,7 +85,7 @@ li.timeline-element{
     bottom: -7px;
 }
 
-@media only screen and (min-width: 768px){
+@media only screen and (min-width: 769px){
     #timeline-wrap::before{
         left: calc(50% - 2.5px);
     }

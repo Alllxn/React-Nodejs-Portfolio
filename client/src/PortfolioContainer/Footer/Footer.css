@@ -98,6 +98,7 @@
     display: flex;
     gap: 10px;
     margin: 4px 0 16px;
+    flex-wrap: wrap;
 }
 
 #footer-contact li a{

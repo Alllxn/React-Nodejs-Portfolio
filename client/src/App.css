@@ -239,6 +239,31 @@ textarea{
   font-family: inherit;
   background-color: var(--contraste-primario);
   overflow: hidden;
+  position: relative;
+  transition: box-shadow 0.3s ease;
+}
+
+.button-cta::before{
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(29, 232, 64, 0.08) 50%, transparent 100%);
+  transform: translateX(-150%);
+  transition: transform 0.55s ease;
+  pointer-events: none;
+}
+
+.button-cta:hover{
+  border-color: var(--terciario);
+  box-shadow: 0 0 10px rgba(29, 232, 64, 0.35), 0 0 30px rgba(29, 232, 64, 0.12), inset 0 0 15px rgba(29, 232, 64, 0.05);
+}
+
+.button-cta:hover::before{
+  transform: translateX(150%);
+}
+
+.button-cta:active{
+  box-shadow: 0 0 6px rgba(29, 232, 64, 0.5), inset 0 0 8px rgba(29, 232, 64, 0.1);
 }
 
 .button-cta span:first-child{
@@ -251,6 +276,11 @@ textarea{
   justify-content: center;
   color: white;
   text-shadow: 0px 0px 5px #222;
+  transition: filter 0.3s ease;
+}
+
+.button-cta:hover span:first-child{
+  filter: drop-shadow(0 0 6px var(--terciario));
 }
 
 .button-cta span:first-child svg{
@@ -262,6 +292,12 @@ textarea{
   width: 100%;
   text-align: center;
   color: var(--primary);
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.button-cta:hover span:last-child{
+  color: var(--terciario);
+  text-shadow: 0 0 8px rgba(29, 232, 64, 0.5);
 }
 
 a{

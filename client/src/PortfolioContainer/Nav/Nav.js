@@ -91,7 +91,7 @@ export default function NavContainer() {
                 <div id='nav-right' className="part-nav menu-dropdown">
                     <ul>
                         <li className='li-nav-item'>
-                            <Link offset={-200} className="nav-item" activeClass="actived-link" spy to="home-container" smooth={true} duration={100}>
+                            <Link offset={0} className="nav-item" activeClass="actived-link" spy to="home-container" smooth={true} duration={100}>
                                 <span className='icon-container'>
                                     <FontAwesomeIcon icon="fa-solid fa-house-chimney" size='lg'/>
                                 </span>
@@ -131,15 +131,17 @@ export default function NavContainer() {
                             </Link>
                         </li>
                     </ul>
-                    <button className="lang-toggle nav-item li-nav-item" onClick={toggleLang} aria-label="Toggle language">
-                        <span className='icon-container'>🌐</span>
-                        <span className='magic-underline'>{lang === 'en' ? 'ES' : 'EN'}</span>
-                    </button>
-                    <button className="theme-toggle lang-toggle nav-item li-nav-item" onClick={toggleTheme} aria-label="Toggle theme">
-                        <span className='icon-container'>
-                            <FontAwesomeIcon icon={theme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon'} size='lg'/>
-                        </span>
-                    </button>
+                    <div className="button-group">
+                        <button className="lang-toggle nav-item li-nav-item" onClick={toggleLang} aria-label="Toggle language">
+                            <span className='icon-container'>🌐</span>
+                            <span className='magic-underline'>{lang === 'en' ? 'EN' : 'ES'}</span>
+                        </button>
+                        <button className="theme-toggle lang-toggle nav-item li-nav-item" onClick={toggleTheme} aria-label="Toggle theme">
+                            <span className='icon-container'>
+                                <FontAwesomeIcon icon={theme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon'} size='lg'/>
+                            </span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </nav>
