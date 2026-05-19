@@ -3,7 +3,8 @@
     background-position: center;
     position: relative;
     width: fit-content;
-    margin: 200px auto;
+    margin: 0 auto;
+    padding: 200px 0;
 }
 
 #home-container #presentation-content{

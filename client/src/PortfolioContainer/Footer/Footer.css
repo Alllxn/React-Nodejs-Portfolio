@@ -41,12 +41,12 @@
 }
 
 #footer-logo span{
-    color: rgba(255, 255, 255, 0.72);
+    opacity: 0.76;
     font-size: 0.85rem;
 }
 
 #footer-brand > p{
-    color: rgba(255, 255, 255, 0.76);
+    opacity: 0.76;
     line-height: 1.7;
     max-width: 440px;
 }
@@ -82,7 +82,8 @@
 
 #footer-navigation a,
 #footer-email{
-    color: rgba(255, 255, 255, 0.76);
+    color: var(--contraste-primario);
+    opacity: 0.76;
     text-decoration: none;
     cursor: pointer;
     transition: color 0.25s;
@@ -97,6 +98,7 @@
     display: flex;
     gap: 10px;
     margin: 4px 0 16px;
+    flex-wrap: wrap;
 }
 
 #footer-contact li a{
@@ -106,7 +108,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(255, 255, 255, 0.08);
+    backdrop-filter: brightness(140%);
     color: var(--contraste-primario);
     text-decoration: none;
     transition: transform 0.25s, background-color 0.25s;
@@ -130,7 +132,7 @@
 }
 
 #footer-bottom p{
-    color: rgba(255, 255, 255, 0.62);
+    opacity: 0.62;
     font-size: 0.9rem;
 }
 

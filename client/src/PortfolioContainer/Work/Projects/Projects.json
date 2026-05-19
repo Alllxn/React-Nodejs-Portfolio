@@ -1,10 +1,8 @@
 {
     "Projects" : [
         {
-            "Name" : "Grupo MBC",
-            "Type" : "Grupo MBC",
+"Type" : "Grupo MBC",
             "Year" : "2020 - 2023",
-            "Description" : "Moodle-based CMS developed for Grupo MBC, a formation center.",
             "Colores" : [
                 "#2a2658",
                 "#c04f28"
@@ -12,21 +10,17 @@
             "Cover" : "/card-MBC.svg",
             "CoverBackground" : "/cover-MBC.jpg",
             "Images" : [
-                "/MBC-login.png",
-                "/MBC-main.png",
-                "/MBC-curse-page.png"
+                "/MBC-login.webp",
+                "/MBC-main.webp",
+                "/MBC-curse-page.webp"
             ],
             "Tecnologies" : [
                 "Moodle",
-                "PHP", 
+                "PHP",
                 "Mustache",
-                "JavaScript", 
+                "JavaScript",
                 "AJAX",
                 "MySQL"
-            ],
-            "Notes" : [
-                "Developed custom Moodle blocks and modules.",
-                "Integrated PDF generation libraries to create automated reports."
             ],
             "Links" : [
                 "https://grupombc.info/",
@@ -34,10 +28,8 @@
             ]
         },
         {
-            "Name" : "Las Palmas Culinary School",
-            "Type" : "Grupo MBC",
+"Type" : "Grupo MBC",
             "Year" : "2020 - 2023",
-            "Description" : "Moodle-based CMS developed for Las Palmas Culinary School, Gran Canaria.",
             "Colores" : [
                 "#a21c26",
                 "#585757"
@@ -45,21 +37,17 @@
             "Cover" : "/card-EH.svg",
             "CoverBackground" : "/cover-EH.jpg",
             "Images" : [
-                "/EH-login.png",
-                "/EH-main.png",
-                "/EH-curse-page.png"
+                "/EH-login.webp",
+                "/EH-main.webp",
+                "/EH-curse-page.webp"
             ],
             "Tecnologies" : [
                 "Moodle",
-                "PHP", 
+                "PHP",
                 "Mustache",
-                "JavaScript", 
+                "JavaScript",
                 "AJAX",
                 "MySQL"
-            ],
-            "Notes" : [
-                "Developed custom Moodle blocks and modules.",
-                "Integrated PDF generation libraries to create automated reports."
             ],
             "Links" : [
                 "https://www.escueladehostelerialp.com/",
@@ -67,10 +55,8 @@
             ]
         },
         {
-            "Name" : "Canary Islands Higher School of Hospitality",
-            "Type" : "Grupo MBC",
+"Type" : "Grupo MBC",
             "Year" : "2020 - 2023",
-            "Description" : "Moodle-based CMS developed for Canary Islands Higher School of Hospitality, Tenerife",
             "Colores" : [
                 "#003944",
                 "#f67b2f"
@@ -78,21 +64,17 @@
             "Cover" : "/card-EHT.png",
             "CoverBackground" : "/cover-EHT.jpg",
             "Images" : [
-                "/EHT-login.png",
-                "/EHT-main.png",
-                "/EHT-curse-page.png"
+                "/EHT-login.webp",
+                "/EHT-main.webp",
+                "/EHT-curse-page.webp"
             ],
             "Tecnologies" : [
                 "Moodle",
-                "PHP", 
+                "PHP",
                 "Mustache",
-                "JavaScript", 
+                "JavaScript",
                 "AJAX",
                 "MySQL"
-            ],
-            "Notes" : [
-                "Developed custom Moodle blocks and modules.",
-                "Integrated PDF generation libraries to create automated reports."
             ],
             "Links" : [
                 "https://www.escuelahosteleriacanarias.com/",
@@ -100,10 +82,8 @@
             ]
         },
         {
-            "Name" : "Especializa2",
-            "Type" : "Grupo MBC",
+"Type" : "Grupo MBC",
             "Year" : "2021 - 2023",
-            "Description" : "Moodle-based CMS developed for a private formation center.",
             "Colores" : [
                 "#00a6c2",
                 "#17883d"
@@ -111,24 +91,18 @@
             "Cover" : "/card-ESP.png",
             "CoverBackground" : "/cover-ESP.jpg",
             "Images" : [
-                "/ESP-login.png",
-                "/ESP-main.png",
-                "/ESP-curse-page.png"
+                "/ESP-login.webp",
+                "/ESP-main.webp",
+                "/ESP-curse-page.webp"
             ],
             "Tecnologies" : [
                 "Moodle",
-                "PHP", 
+                "PHP",
                 "Mustache",
-                "JavaScript", 
+                "JavaScript",
                 "AJAX",
                 "MySQL",
                 "Canvas"
-            ],
-            "Notes" : [
-                "Created the UI designs and implemented interactive animation effects.",
-                "Created virtual classroom, using canvas and JS.",
-                "Developed custom Moodle blocks and modules.",
-                "Integrated PDF generation libraries to create automated reports."
             ],
             "Links" : [
                 "https://especializa2.com/",
@@ -136,10 +110,8 @@
             ]
         },
         {
-            "Name" : "Junta de Andalucía",
-            "Type" : "Ayesa",
+"Type" : "Ayesa",
             "Year" : "2023 - 2026",
-            "Description" : "A Moodle-based CMS developed for every province of Andalusia, covering adult education, virtual vocational training, teacher training, and the Virtual Space for the IACP.",
             "Colores" : [
                 "#0000d0",
                 "#ff3184"
@@ -147,22 +119,22 @@
             "Cover" : "/card-JDA.svg",
             "CoverBackground" : "/cover-JDA.jpg",
             "Images" : [
-                "/Ayesa-fp.png",
-                "/Ayesa-adultos.png",
-                "/Ayesa-avep.png",
-                "/Ayesa-centros.png",
-                "/Ayesa-iacp.png",
-                "/Ayesa-inspeccion.png",
-                "/Ayesa-plantillas.png",
-                "/Ayesa-profesorado.png",
-                "/Ayesa-taller.png"
+                "/Ayesa-fp.webp",
+                "/Ayesa-adultos.webp",
+                "/Ayesa-avep.webp",
+                "/Ayesa-centros.webp",
+                "/Ayesa-iacp.webp",
+                "/Ayesa-inspeccion.webp",
+                "/Ayesa-plantillas.webp",
+                "/Ayesa-profesorado.webp",
+                "/Ayesa-taller.webp"
             ],
             "Tecnologies" : [
                 "Moodle",
-                "PHP", 
+                "PHP",
                 "Mustache",
                 "Scss",
-                "JavaScript", 
+                "JavaScript",
                 "AJAX",
                 "PostgreSQL",
                 "Moodle Web Services",
@@ -173,23 +145,13 @@
                 "SMTP",
                 "Svelte"
             ],
-            "Notes" : [
-                "Maintained and migrated Moodle platforms.",
-                "Worked with all kinds of Moodle plugins and created custom plugins, including one to override core files.",
-                "Developed custom features based on client requests.",
-                "Handled everything related to platform styling.",
-                "Created a parent theme and a child theme for each platform.",
-                "Created and consumed web services and APIs."
-            ],
             "Links" : [
                 "https://educacionadistancia.juntadeandalucia.es"
             ]
         },
         {
-            "Name" : "Rey Juan Carlos University",
-            "Type" : "Ayesa",
+"Type" : "Ayesa",
             "Year" : "2023 - 2026",
-            "Description" : "A Moodle-based CMS developed for Rey Juan Carlos University.",
             "Colores" : [
                 "#cb0017",
                 "#282829"
@@ -197,14 +159,14 @@
             "Cover" : "/card-URJC.svg",
             "CoverBackground" : "/cover-URJC.jpg",
             "Images" : [
-                "/Urjc.png"
+                "/Urjc.webp"
             ],
             "Tecnologies" : [
                 "Moodle",
-                "PHP", 
+                "PHP",
                 "Mustache",
                 "Scss",
-                "JavaScript", 
+                "JavaScript",
                 "AJAX",
                 "PostgreSQL",
                 "Moodle Web Services",
@@ -214,14 +176,6 @@
                 "STFP",
                 "SMTP",
                 "Svelte"
-            ],
-            "Notes" : [
-                "Maintained and migrated Moodle platforms.",
-                "Worked with all kinds of Moodle plugins and created custom plugins, including one to override core files.",
-                "Developed custom features based on client requests.",
-                "Handled everything related to platform styling.",
-                "Created a parent theme and a child theme for each platform.",
-                "Created and consumed web services and APIs."
             ],
             "Links" : [
                 "https://www.urjc.es/"

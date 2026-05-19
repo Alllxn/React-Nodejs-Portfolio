@@ -239,6 +239,18 @@ textarea{
   font-family: inherit;
   background-color: var(--contraste-primario);
   overflow: hidden;
+  position: relative;
+  transition: box-shadow 0.3s ease;
+}
+
+.button-cta::before{
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(29, 232, 64, 0.08) 50%, transparent 100%);
+  transform: translateX(-150%);
+  transition: transform 0.55s ease;
+  pointer-events: none;
 }
 
 .button-cta span:first-child{
@@ -251,6 +263,7 @@ textarea{
   justify-content: center;
   color: white;
   text-shadow: 0px 0px 5px #222;
+  transition: filter 0.3s ease;
 }
 
 .button-cta span:first-child svg{
@@ -262,6 +275,11 @@ textarea{
   width: 100%;
   text-align: center;
   color: var(--primary);
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.button-cta:hover{
+  box-shadow: 0 0 18px rgba(29, 232, 64, 0.35);
 }
 
 a{

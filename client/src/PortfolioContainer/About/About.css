@@ -135,7 +135,6 @@
 .mindset-list li p:first-child,
 .exploring-list li p{
     margin: 0;
-    font-weight: bold;
 }
 
 .education-list li p:nth-child(2),
