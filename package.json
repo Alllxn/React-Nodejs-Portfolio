@@ -1,0 +1,16 @@
+{
+  "name": "react-nodejs-portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm --prefix server start\" \"npm --prefix client start\"",
+    "start": "npm --prefix client start",
+    "client": "npm --prefix client start",
+    "server": "npm --prefix server start",
+    "build": "npm --prefix client run build"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "sharp": "^0.34.5"
+  }
+}
