@@ -11,7 +11,7 @@ Personal portfolio website built with React and Node.js.
 | Layer    | Technologies                                                                 |
 |----------|------------------------------------------------------------------------------|
 | Frontend | React 18, Redux Toolkit, React Router v6, React Scroll, FontAwesome          |
-| Backend  | Node.js, Express, Nodemailer                                                  |
+| Backend  | Node.js, Express, Resend                                                      |
 | Styling  | CSS (custom, no UI framework)                                                 |
 
 ---
@@ -20,7 +20,7 @@ Personal portfolio website built with React and Node.js.
 
 - **Bilingual (ES / EN)** — language detection based on browser preference, toggle in nav
 - **Dark / Light theme** — system preference detection, toggle in nav
-- **Contact form** — sends email via Nodemailer + Gmail SMTP
+- **Contact form** — sends email via Resend API
 - **Project showcase** — filterable cards with image carousel per project
 - **Sections:** Home · About · Timeline · Work · Contact
 
@@ -51,7 +51,7 @@ Personal portfolio website built with React and Node.js.
 ### Prerequisites
 
 - Node.js 18+
-- A Gmail account for the contact form (see environment variables)
+- A [Resend](https://resend.com) account and API key for the contact form
 
 ### Install
 
@@ -67,11 +67,15 @@ npm --prefix server install
 Create `server/.env`:
 
 ```env
-EMAIL_USER=your-gmail@gmail.com
-EMAIL_PASS=your-app-password
+RESEND_API_KEY=re_xxxxxxxxxxxx
 ```
 
-> Use a [Gmail App Password](https://support.google.com/accounts/answer/185833), not your regular password.
+Create `client/.env`:
+
+```env
+# Empty in development — proxied to localhost:3001 automatically
+REACT_APP_API_URL=
+```
 
 ### Run in development
 
@@ -114,4 +118,13 @@ Outputs the static build to `client/build/`.
 - Added Footer component
 - Moved email credentials to environment variables (`server/.env`)
 - Optimized Work section images (`.webp`)
+
+### [2.1.0] — CI/CD & infrastructure
+
+- Automated deploy pipeline via GitHub Actions on push to `main`
+- Frontend (React build) deployed to IONOS via rsync over SSH
+- Backend (Express) deployed to Render, triggered via deploy hook
+- Replaced Nodemailer + Gmail SMTP with Resend API (SMTP blocked on Render free tier)
+- Added `REACT_APP_API_URL` env variable to decouple frontend from backend URL
+- See [DEPLOY.md](DEPLOY.md) for full setup documentation
 
