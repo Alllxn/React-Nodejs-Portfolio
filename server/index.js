@@ -4,8 +4,8 @@ require("dotenv").config();
 const express = require("express");
 const router = express.Router();
 const cors = require("cors");
-const nodemailer = require("nodemailer");
-const PORT = process.env.PORT || 3001 ;
+const { Resend } = require("resend");
+const PORT = process.env.PORT || 3001;
 
 const app = express();
 app.use(cors());
@@ -13,43 +13,23 @@ app.use(express.json());
 app.use("/", router);
 app.listen(PORT, () => console.log("Server Running | " + PORT));
 
-var contactEmail = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-    },
-});
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-//.verify is a function from nodemailer to verify connection configuration
-contactEmail.verify((error, success) => {
+router.post("/contact", async (req, res) => {
+  const { name, email, subject, message } = req.body;
+
+  const { error } = await resend.emails.send({
+    from: "Portfolio <contact@allandev.es>",
+    to: "contact@allandev.es",
+    subject: `${subject} (Email send from Portfolio)`,
+    html: `<p>Name: ${name}</p><p>Email: ${email}</p><p>Message: ${message}</p>`,
+    reply_to: email,
+  });
+
   if (error) {
     console.log(error);
+    res.json({ status: false, message: "Error" });
   } else {
-    console.log("Ready to Send ");
+    res.json({ status: true, message: "Email sent" });
   }
-});
-
-router.post("/contact", (req, res) => {
-  const name = req.body.name;
-  const email = req.body.email;
-  const subject = req.body.subject; 
-  const message = req.body.message; 
-
-  const mail = {
-    from: name,
-    to: "contact@allandev.es",
-    subject: subject + " (Email send from Portfolio)",
-    html: `<p>Name: ${name}</p>
-      <p>Email: ${email}</p>
-      <p>Message: ${message}</p>`,
-  };
-
-  contactEmail.sendMail(mail, (error) => {
-    if (error) {
-      res.json({ status: false, message: "Error"});
-    } else {
-      res.json({ status: true, message: "Email sent"});
-    }
-  });
 });
