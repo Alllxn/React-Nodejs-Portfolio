@@ -38,7 +38,7 @@ export function Contact() {
 
     const verifyEmail = () => {
         const val = formData.email.value;
-        const regex = /^(([^<>()[\]\.,;:\s@"]+(\.[^<>()[\]\.,;:\s@"]+)*)|(".+"))@(([^<>()[\]\.,;:\s@"]+\.)+[^<>()[\]\.,;:\s@"]{2,})$/i;
+        const regex = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
         let key = '';
         if (val === '') key = 'empty';
         else if (!regex.test(val)) key = 'invalidEmail';
