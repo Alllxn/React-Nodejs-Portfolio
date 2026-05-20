@@ -49,4 +49,6 @@ jobs:
           rsync -avz --delete -e "ssh -i ~/.ssh/id_ed25519 -p $PORT -o StrictHostKeyChecking=no" client/build/ "$USER@$HOST:$DEST"
 
       - name: Trigger Render deploy
-        run: curl -s "${{ secrets.RENDER_DEPLOY_HOOK }}"
+        env:
+          HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
+        run: '[ -n "$HOOK" ] && curl -s "$HOOK" || echo "No deploy hook configured"'
