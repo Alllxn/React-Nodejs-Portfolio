@@ -1,0 +1,2 @@
+npx auto-changelog
+git add CHANGELOG.md

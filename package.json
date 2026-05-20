@@ -7,10 +7,20 @@
     "start": "npm --prefix client start",
     "client": "npm --prefix client start",
     "server": "npm --prefix server start",
-    "build": "npm --prefix client run build"
+    "build": "npm --prefix client run build",
+    "prepare": "husky"
+  },
+  "auto-changelog": {
+    "output": "CHANGELOG.md",
+    "template": "keepachangelog",
+    "unreleased": true,
+    "commitLimit": false,
+    "ignoreCommitPattern": "^(Merge|docs:)"
   },
   "devDependencies": {
+    "auto-changelog": "^2.5.1",
     "concurrently": "^9.2.1",
+    "husky": "^9.1.7",
     "sharp": "^0.34.5"
   }
 }
