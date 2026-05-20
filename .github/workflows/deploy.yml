@@ -36,7 +36,17 @@ jobs:
           ssh-keyscan -p ${{ secrets.SSH_PORT }} -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
       - name: Deploy to IONOS
-        run: rsync -avz --delete -e "ssh -i ~/.ssh/id_ed25519 -p ${{ secrets.SSH_PORT }} -o StrictHostKeyChecking=no" client/build/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.SSH_PATH }}
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_PATH: ${{ secrets.SSH_PATH }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+        run: |
+          HOST=$(printf '%s' "$SSH_HOST" | tr -d '[:space:]')
+          USER=$(printf '%s' "$SSH_USER" | tr -d '[:space:]')
+          PORT=$(printf '%s' "$SSH_PORT" | tr -d '[:space:]')
+          DEST=$(printf '%s' "$SSH_PATH" | tr -d '\n\r')
+          rsync -avz --delete -e "ssh -i ~/.ssh/id_ed25519 -p $PORT -o StrictHostKeyChecking=no" client/build/ "$USER@$HOST:$DEST"
 
       - name: Trigger Render deploy
         run: curl -s "${{ secrets.RENDER_DEPLOY_HOOK }}"
