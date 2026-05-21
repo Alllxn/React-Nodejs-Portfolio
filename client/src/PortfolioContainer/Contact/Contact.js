@@ -4,7 +4,7 @@ import './Contact.css';
 import { useLanguage } from '../../context/LanguageContext';
 
 export function Contact() {
-    const { t } = useLanguage();
+    const { t, lang } = useLanguage();
     const f = t.contact.form;
 
     const [formData, setFormData] = useState({
@@ -80,6 +80,7 @@ export function Contact() {
             email: formData.email.value,
             subject: formData.subject.value,
             message: formData.message.value,
+            lang,
         };
 
         let response = await fetch(`${process.env.REACT_APP_API_URL || ''}/contact`, {
