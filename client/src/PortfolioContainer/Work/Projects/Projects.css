@@ -296,6 +296,13 @@
   width: fit-content;
   background: transparent;
   border: none;
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .project-details-header button{
+    display: block;
+  }
 }
 
 .project-details-header button svg{
@@ -416,11 +423,7 @@
 }
 
 @media only screen and (hover: none) and (pointer: coarse){
-  .project-details-header button{
-    display: none;
-  }
-
-  .project-carrousel img{
+.project-carrousel img{
     transition: 0.5s;
     transition-timing-function:ease-in-out;
 
