@@ -164,6 +164,15 @@
     }
 }
 
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    #contact-container #contact-wrapper #contact-links ul li a span:first-child{
+        width: 100%;
+    }
+    #contact-container #contact-wrapper #contact-links ul li a span:last-child{
+        display: none;
+    }
+}
+
 .form-waiting{
     background-color: var(--custom-blue);
     color: white;
