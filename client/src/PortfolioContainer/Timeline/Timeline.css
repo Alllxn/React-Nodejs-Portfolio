@@ -27,11 +27,8 @@ li.timeline-element:first-child{
     padding-top: 35px;
 }
 
-li.timeline-element:nth-child(odd):hover .timeline-element-description > *{
+li.timeline-element:hover .timeline-element-description > *{
     transform: scale(1.04) translateX(10px);
-}
-li.timeline-element:nth-child(even):hover .timeline-element-description > *{
-    transform: scale(1.04) translateX(-10px);
 }
 
 li.timeline-element .timeline-element-description > span{
@@ -110,6 +107,10 @@ li.timeline-element{
         align-self: flex-end;        
         margin-right: calc(50% - 75px);
         text-align: right;
+    }
+    
+    li.timeline-element:nth-child(even):hover .timeline-element-description > *{
+        transform: scale(1.04) translateX(-10px);
     }
     
     li.timeline-element:nth-child(even) .timeline-element-description{
