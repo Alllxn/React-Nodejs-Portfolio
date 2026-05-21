@@ -91,7 +91,7 @@ export default function NavContainer() {
                 <div id='nav-right' className="part-nav menu-dropdown">
                     <ul>
                         <li className='li-nav-item'>
-                            <Link offset={0} className="nav-item" activeClass="actived-link" spy to="home-container" smooth={true} duration={100}>
+                            <Link offset={-250} className="nav-item" activeClass="actived-link" spy to="home-container" smooth={true} duration={100}>
                                 <span className='icon-container'>
                                     <FontAwesomeIcon icon="fa-solid fa-house-chimney" size='lg'/>
                                 </span>
@@ -99,7 +99,7 @@ export default function NavContainer() {
                             </Link>
                         </li>
                         <li className='li-nav-item'>
-                            <Link offset={0} className="nav-item" activeClass="actived-link" spy to="about-container" smooth={true} duration={100}>
+                            <Link offset={-250} className="nav-item" activeClass="actived-link" spy to="about-container" smooth={true} duration={100}>
                                 <span className='icon-container'>
                                     <FontAwesomeIcon icon="fa-solid fa-address-card" size='lg'/>
                                 </span>
@@ -107,7 +107,7 @@ export default function NavContainer() {
                             </Link>
                         </li>
                         <li className='li-nav-item'>
-                            <Link offset={0} className="nav-item" activeClass="actived-link" spy to="timeline-container" smooth={true} duration={100}>
+                            <Link offset={-250} className="nav-item" activeClass="actived-link" spy to="timeline-container" smooth={true} duration={100}>
                                 <span className='icon-container'>
                                     <FontAwesomeIcon icon="fa-solid fa-house-chimney" size='lg'/>
                                 </span>
@@ -115,7 +115,7 @@ export default function NavContainer() {
                             </Link>
                         </li>
                         <li className='li-nav-item'>
-                            <Link offset={0} className="nav-item" activeClass="actived-link" spy to="work-container" smooth={true} duration={100}>
+                            <Link offset={-250} className="nav-item" activeClass="actived-link" spy to="work-container" smooth={true} duration={100}>
                                 <span className='icon-container'>
                                     <FontAwesomeIcon icon="fa-solid fa-history" size='lg'/>
                                 </span>
@@ -123,7 +123,7 @@ export default function NavContainer() {
                             </Link>
                         </li>
                         <li className='li-nav-item'>
-                            <Link offset={0} className="nav-item" activeClass="actived-link" spy to="contact-container" smooth={true} duration={100}>
+                            <Link offset={-250} className="nav-item" activeClass="actived-link" spy to="contact-container" smooth={true} duration={100}>
                                 <span className='icon-container'>
                                     <FontAwesomeIcon icon="fa-solid fa-comments" size='lg'/>
                                 </span>
