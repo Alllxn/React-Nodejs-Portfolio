@@ -239,12 +239,6 @@ h2.load-animation-element.load-animation-element-actived::after{
   100%{background-position:0% 82%}
 }
 
-@keyframes show_element {
-    100%{
-        opacity: 1;
-    }
-}
-
 .magic-underline{
   position: relative;
 }
@@ -287,13 +281,6 @@ h2.load-animation-element.load-animation-element-actived::after{
 .magic-background,
 .magic-background-underline{
   position: relative;
-}
-
-.project-container article.project-card .project-information .project-type{
-  background-color: grey;
-  padding: 0 5px;
-  border-radius: 7px;
-  color: white;
 }
 
 h2.magic-background-underline{

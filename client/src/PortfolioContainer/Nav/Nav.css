@@ -11,12 +11,7 @@
     min-width: 300px;
     height: var(--height-nav);
     overflow-y: hidden;
-    transition: box-shadow 1s ease-in;
     transition: height 0s ease-in 0.5s;
-}
-
-#nav-container.background-actived{
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
 #curtain{
@@ -117,6 +112,7 @@
     display: flex;
     color: #4dff7c;
     align-items: center;
+    gap: 3px;
     animation-name: show_element_nav;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
@@ -141,10 +137,6 @@
         opacity: 1;
         transform: translateY(0%);
     }
-}
-
-#nav-container #nav-left #link-home{
-    gap: 3px;
 }
 
 #nav-container #nav-left #link-home div{
@@ -183,10 +175,6 @@
 
 .menu-dropdown{
     flex-basis: 100%;
-}
-
-.menu-dropdown.open-nav{
-    max-height: 500px;
 }
 
 .menu-dropdown ul{
@@ -273,24 +261,9 @@
 }
 
 
-.navbarActived::before{
-    transition: 1s ease-in-out;
-    background-color: var(--primario);
-}
-
-
-.navbarDesactived::before{
-    transition: 1s ease-in;
-    background-color: transparent;
-}
-
 @media only screen and (min-width: 1025px) {
     .items-nav-open{
         background-color: transparent;
-    }
-
-    #nav-wrapper.background-lvl1{
-        padding-bottom: 0;
     }
 
     #nav-container #nav-left #wrapper-button-nav-drawer {
@@ -358,11 +331,6 @@
     gap: 7px;
 }
 
-.lang-flag-label--active {
-    color: #4dff7c;
-    text-shadow: 0 0 6px rgba(74, 255, 119, 0.5);
-}
-
 .lang-flag-track {
     margin: 0 9px;
     width: 40px;
@@ -397,14 +365,6 @@
 
 .lang-flag-knob--toggled {
     transform: translateX(19px);
-}
-
-.lang-flag-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    border-radius: 50%;
 }
 
 .theme-toggle span{
