@@ -151,7 +151,7 @@ export const en = {
             },
             {
                 name: 'Junta de Andalucía',
-                description: 'A Moodle-based CMS developed for every province of Andalusia, covering adult education, virtual vocational training, teacher training, and the Virtual Space for the IACP (Instituto Andaluz de Cualificaciones Profesionales).',
+                description: 'A Moodle-based CMS developed for every province of Andalusia.',
                 notes: [
                     'Maintained and migrated Moodle platforms.',
                     'Worked with all kinds of Moodle plugins and created custom plugins, including one to override core files.',
