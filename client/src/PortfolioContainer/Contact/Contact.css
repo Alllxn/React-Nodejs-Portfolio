@@ -11,7 +11,6 @@
     flex-direction: column;
     flex-basis: 100%;
     width: 100%;
-    max-width: 1200px;
     margin-top: 8px;
 }
 
@@ -84,11 +83,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--primario);
 }
 
 #contact-container #contact-wrapper #form-contact .form-contact-part .contact-field input{
     height: 50px;
+}
+
+#contact-container #contact-wrapper #form-contact .form-contact-part .contact-field input::placeholder,
+#contact-container #contact-wrapper #form-contact .form-contact-part .contact-field textarea::placeholder{
+    text-shadow: none;
 }
 
 #contact-container #contact-wrapper #form-contact .form-contact-part .contact-field input.invalid{
@@ -103,9 +106,30 @@
 #contact-container #contact-wrapper #form-contact .form-contact-part .contact-field textarea{
     padding: 10px 10px 10px 40px;
     border:none;
-    border-radius: 10px;
+    border-radius: 7px;
     flex-basis: 100%;
     width: 100%;
+}
+
+#contact-container #contact-wrapper #form-contact .form-contact-part .contact-field input:autofill,
+#contact-container #contact-wrapper #form-contact .form-contact-part .contact-field textarea:autofill{
+    background-color: transparent !important;
+}
+
+#contact-container #contact-wrapper #form-contact .form-contact-part .contact-field input:-webkit-autofill,
+#contact-container #contact-wrapper #form-contact .form-contact-part .contact-field input:-webkit-autofill:hover,
+#contact-container #contact-wrapper #form-contact .form-contact-part .contact-field input:-webkit-autofill:focus,
+#contact-container #contact-wrapper #form-contact .form-contact-part .contact-field textarea:-webkit-autofill,
+#contact-container #contact-wrapper #form-contact .form-contact-part .contact-field textarea:-webkit-autofill:hover,
+#contact-container #contact-wrapper #form-contact .form-contact-part .contact-field textarea:-webkit-autofill:focus{
+    -webkit-text-fill-color: #4dff7c;
+    caret-color: #4dff7c;
+    box-shadow:
+        0 0 0 1000px #0b1a0b inset,
+        0 0 14px rgba(77, 255, 124, 0.07),
+        inset 0 0 20px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(0, 255, 65, 0.35) !important;
+    transition: background-color 9999s ease-in-out 0s;
 }
 
 #contact-container #form-contact #form-contact-submit.form-contact-part{
@@ -195,6 +219,13 @@
 
 .form-process svg{
     animation: spin 1s linear infinite;
+}
+
+.form-process svg,
+.form-success svg,
+.form-error svg,
+.form-waiting svg{
+    color: white;
 }
 
 @keyframes spin {
