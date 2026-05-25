@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-scroll';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
+import flagEN from '../../assets/flags/en.svg';
+import flagES from '../../assets/flags/es.svg';
 
 export default function NavContainer() {
     const [ navState, setNavState ] = useState(false);
@@ -95,7 +97,7 @@ export default function NavContainer() {
                                 <span className='icon-container'>
                                     <FontAwesomeIcon icon="fa-solid fa-house-chimney" size='lg'/>
                                 </span>
-                                <span className='magic-underline'>{t.nav.home}</span>
+                                <span className='magic-clasp'>{t.nav.home}</span>
                             </Link>
                         </li>
                         <li className='li-nav-item'>
@@ -103,7 +105,7 @@ export default function NavContainer() {
                                 <span className='icon-container'>
                                     <FontAwesomeIcon icon="fa-solid fa-address-card" size='lg'/>
                                 </span>
-                                <span className='magic-underline'>{t.nav.about}</span>
+                                <span className='magic-clasp'>{t.nav.about}</span>
                             </Link>
                         </li>
                         <li className='li-nav-item'>
@@ -111,7 +113,7 @@ export default function NavContainer() {
                                 <span className='icon-container'>
                                     <FontAwesomeIcon icon="fa-solid fa-house-chimney" size='lg'/>
                                 </span>
-                                <span className='magic-underline'>{t.nav.timeline}</span>
+                                <span className='magic-clasp'>{t.nav.timeline}</span>
                             </Link>
                         </li>
                         <li className='li-nav-item'>
@@ -119,7 +121,7 @@ export default function NavContainer() {
                                 <span className='icon-container'>
                                     <FontAwesomeIcon icon="fa-solid fa-history" size='lg'/>
                                 </span>
-                                <span className='magic-underline'>{t.nav.projects}</span>
+                                <span className='magic-clasp'>{t.nav.projects}</span>
                             </Link>
                         </li>
                         <li className='li-nav-item'>
@@ -127,14 +129,17 @@ export default function NavContainer() {
                                 <span className='icon-container'>
                                     <FontAwesomeIcon icon="fa-solid fa-comments" size='lg'/>
                                 </span>
-                                <span className='magic-underline'>{t.nav.contact}</span>
+                                <span className='magic-clasp'>{t.nav.contact}</span>
                             </Link>
                         </li>
                     </ul>
                     <div className="button-group">
-                        <button className="lang-toggle nav-item li-nav-item" onClick={toggleLang} aria-label="Toggle language">
-                            <span className='icon-container'>🌐</span>
-                            <span className='magic-underline'>{lang === 'en' ? 'EN' : 'ES'}</span>
+                        <button className="lang-flag-toggle li-nav-item" onClick={toggleLang} aria-label="Toggle language">
+                            <div className="lang-flag-track" style={{backgroundImage: `
+                                    url(${lang === 'en' ? flagEN : flagES})
+                                `, }}>
+                                <div className={`lang-flag-knob ${lang === 'es' ? 'lang-flag-knob--toggled' : ''}`}></div>
+                            </div>
                         </button>
                         <button className="theme-toggle lang-toggle nav-item li-nav-item" onClick={toggleTheme} aria-label="Toggle theme">
                             <span className='icon-container'>
