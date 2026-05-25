@@ -11,7 +11,6 @@ export function Home() {
 
     return (
         <header>
-            <video src={require('../../assets/home/home_background.mp4')} autoPlay loop muted />
             <div id='home-container' className='component load-animation-element'>
                 <div id="presentation-content">
                     <div id='presentation-content-image' className="magic-background card">
@@ -20,7 +19,6 @@ export function Home() {
                     <div id='presentation-content-text'>
                         <h1 className='magic-background-underline'>Allan Bastian Espinoza Ibañez</h1>
                         <TypeAnimation
-                            className="text-shadow"
                             cursor={true}
                             sequence={[
                                 t.home.type1,
@@ -40,6 +38,11 @@ export function Home() {
                             <li>
                                 <a href="https://www.linkedin.com/in/allanwebdev" rel="nofollow noopener noreferrer" target="_blank">
                                     <FontAwesomeIcon icon="fa-brands fa-linkedin-in" className="card" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://wa.me/34628766431" rel="nofollow noopener noreferrer" target="_blank">
+                                    <FontAwesomeIcon icon="fa-brands fa-whatsapp" className="card" />
                                 </a>
                             </li>
                             <li>

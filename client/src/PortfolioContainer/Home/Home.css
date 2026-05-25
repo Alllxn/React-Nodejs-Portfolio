@@ -20,7 +20,7 @@
     border-radius: 100%;
     margin-bottom: 30px;
     overflow: hidden;
-    transition: 1s;
+    transition: 0.5s;
 }
 
 #home-container.load-animation-element-actived #presentation-content-image{
@@ -30,8 +30,8 @@
 #home-container #presentation-content-image img#presentation-image{
     height: 200px;
     width: 200px;
-    filter: drop-shadow(0px 0px 5px #222);
-    transition: 1s;
+    filter: none;
+    transition: 0.5s;
     animation: rainbow 10s ease infinite;
     transform: translate(0px, 100%);
 }
@@ -43,12 +43,12 @@
 }
 
 #home-container #presentation-content-text{
-    width: 265px;
+    width: 300px;
     display: flex;
     flex-direction: column;
-    color: var(--contraste-primario);
+    color: #4dff7c;
     opacity: 0;
-    transition: 1s;
+    transition: 0.5s;
 } 
 
 #home-container.load-animation-element-actived #presentation-content-text{
@@ -57,6 +57,7 @@
 }
 
 #home-container #presentation-content-text h1,
+#home-container #presentation-content-text span,
 #home-container #presentation-content-text > p{
     text-align: center;
     justify-content: center;
@@ -74,7 +75,7 @@
     margin-bottom: 20px;
     padding: 0 5px;
     white-space: nowrap;
-    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+    font-family: "Share Tech Mono", monospace;
     align-self: flex-start;
     max-width: 100%;
 }
@@ -89,7 +90,19 @@
 }
 
 #home-container #home-media-links a{
-    color: var(--contraste-primario);
+    color: #4dff7c;
+    display: flex;
+    border-radius: 7px;
+    border: 1px solid #1a3d1a;
+    background-color: #0d1f0d;
+    transition: transform 0.25s, background-color 0.25s, box-shadow 0.25s;
+}
+
+#home-container #home-media-links a:hover{
+    background-color: #132613;
+    color: #4dff7c;
+    box-shadow: 0 0 12px rgba(74, 255, 119, 0.25);
+    transform: translateY(-3px);
 }
 
 #home-container #home-media-links li{
@@ -101,8 +114,23 @@
     height: 22px;
     width: 22px;
     padding: 5px;
-    background-color:white;
-    color: black;
+    color: #4dff7c;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+#home-container #presentation-cta .button-cta {
+    background-color: #0b1a0b;
+    border: 1px solid #2a5c2a;
+}
+
+#home-container #presentation-cta .button-cta span:last-child {
+    color: #4dff7c;
+    text-shadow: 0 0 8px rgba(77, 255, 124, 0.5);
+}
+
+#home-container #presentation-cta .button-cta:hover {
+    box-shadow: 0 0 20px rgba(77, 255, 124, 0.3);
 }
 
 #home-container #presentation-cta{
@@ -116,7 +144,7 @@
 
 #home-container #presentation-cta a{
     opacity: 0;
-    transition: 1s;
+    transition: 0.5s;
 }
 
 #home-container.load-animation-element-actived #presentation-cta a{
