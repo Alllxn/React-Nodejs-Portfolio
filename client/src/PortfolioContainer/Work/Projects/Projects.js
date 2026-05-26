@@ -139,7 +139,9 @@ export default function Projects(props){
                 <div className='project-screen' onClick={() => {controlOpenDetails('close')}}>
                     <div className='project-details-container' onClick={(e) => {e.stopPropagation()}}>
                         <button className='close-project-datails' onClick={() => {controlOpenDetails('close')}}>
-                            [ X ]
+                            <span>
+                                [ X ]
+                            </span>
                         </button>
                         <div className='project-details card'>    
                             <div className='project-details-header'>

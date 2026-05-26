@@ -99,7 +99,7 @@
 #contact-container #contact-wrapper #form-contact .form-contact-part .contact-field input,
 #contact-container #contact-wrapper #form-contact .form-contact-part .contact-field textarea{
     padding: 10px 10px 10px 40px;
-    border:none;
+    border: 1px solid var(--border-color);
     border-radius: 7px;
     flex-basis: 100%;
     width: 100%;
@@ -116,13 +116,13 @@
 #contact-container #contact-wrapper #form-contact .form-contact-part .contact-field textarea:-webkit-autofill,
 #contact-container #contact-wrapper #form-contact .form-contact-part .contact-field textarea:-webkit-autofill:hover,
 #contact-container #contact-wrapper #form-contact .form-contact-part .contact-field textarea:-webkit-autofill:focus{
-    -webkit-text-fill-color: #4dff7c;
-    caret-color: #4dff7c;
+    -webkit-text-fill-color: var(--primario);
+    caret-color: var(--primario);
     box-shadow:
-        0 0 0 1000px #0b1a0b inset,
+        0 0 0 1000px var(--cuarto) inset,
         0 0 14px rgba(77, 255, 124, 0.07),
         inset 0 0 20px rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(0, 255, 65, 0.35) !important;
+    /* border: 1px solid var(--cuarto) !important; */
     transition: background-color 9999s ease-in-out 0s;
 }
 

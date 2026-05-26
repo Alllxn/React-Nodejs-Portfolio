@@ -90,8 +90,8 @@ export default function About() {
                                 <div className="tech-stack-group">
                                     <h4>{a.techStack.databases}</h4>
                                     <ul>
-                                        <li><FontAwesomeIcon icon="fa-solid fa-table" style={{color:"#C0C0C0"}}/><span>SQL</span></li>
-                                        <li><FontAwesomeIcon icon="fa-solid fa-database" style={{color:"#00758F"}}/><span>MySQL</span></li>
+                                        <li><FontAwesomeIcon icon="fa-solid fa-database" style={{color:"#336791"}}/><span>SQL</span></li>
+                                        <li><FontAwesomeIcon icon="fa-solid fa-database" style={{color:"#336791"}}/><span>MySQL</span></li>
                                         <li><FontAwesomeIcon icon="fa-solid fa-database" style={{color:"#336791"}}/><span>PostgreSQL</span></li>
                                     </ul>
                                 </div>

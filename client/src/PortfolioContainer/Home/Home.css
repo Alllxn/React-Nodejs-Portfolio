@@ -46,7 +46,7 @@
     width: 300px;
     display: flex;
     flex-direction: column;
-    color: #4dff7c;
+    color: var(--primario);
     opacity: 0;
     transition: 0.5s;
 } 
@@ -90,17 +90,17 @@
 }
 
 #home-container #home-media-links a{
-    color: #4dff7c;
+    color: var(--primario);
     display: flex;
     border-radius: 7px;
     border: 1px solid #1a3d1a;
-    background-color: #0d1f0d;
+    background-color: var(--cuarto);
     transition: transform 0.25s, background-color 0.25s, box-shadow 0.25s;
 }
 
 #home-container #home-media-links a:hover{
-    background-color: #132613;
-    color: #4dff7c;
+    background-color: var(--cuarto);
+    color: var(--primario);
     box-shadow: 0 0 12px rgba(74, 255, 119, 0.25);
     transform: translateY(-3px);
 }
@@ -114,23 +114,19 @@
     height: 22px;
     width: 22px;
     padding: 5px;
-    color: #4dff7c;
+    color: var(--primario);
     background-color: transparent;
     box-shadow: none;
 }
 
-#home-container #presentation-cta .button-cta {
-    background-color: #0b1a0b;
-    border: 1px solid #2a5c2a;
-}
-
 #home-container #presentation-cta .button-cta span:last-child {
-    color: #4dff7c;
+    color: var(--primario);
     text-shadow: 0 0 8px rgba(77, 255, 124, 0.5);
 }
 
 #home-container #presentation-cta .button-cta:hover {
     box-shadow: 0 0 20px rgba(77, 255, 124, 0.3);
+    transition-delay: 0s;
 }
 
 #home-container #presentation-cta{
@@ -144,19 +140,18 @@
 
 #home-container #presentation-cta a{
     opacity: 0;
-    transition: 0.5s;
-}
-
-#home-container.load-animation-element-actived #presentation-cta a{
-    opacity: 1;
 }
 
 #home-container.load-animation-element-actived #presentation-cta a:first-child{
-    transition-delay: 0.4s;
+    animation: cta-fade-in 0.5s ease 0.4s forwards;
 }
 
 #home-container.load-animation-element-actived #presentation-cta a:last-child{
-    transition-delay: 0.6s;
+    animation: cta-fade-in 0.5s ease 0.6s forwards;
+}
+
+@keyframes cta-fade-in {
+    to { opacity: 1; }
 }
 
 @media only screen and (min-width: 768px) {

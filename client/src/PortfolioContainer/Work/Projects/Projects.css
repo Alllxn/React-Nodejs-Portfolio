@@ -21,7 +21,7 @@
   display: flex;
   white-space: nowrap;
   overflow: hidden;
-  color: #3acc5f;
+  color: var(--secundario);
   align-items: center;
   min-height: 37px;
 }
@@ -40,7 +40,6 @@
 
 .project-show-more > div span{
   padding: 5px;
-  color: var(--primario);
 }
 
 .project-details{
@@ -50,18 +49,20 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  background: var(--cuarto);
+  border: 1px solid var(--border-color);
 }
 
 .project-details::before {
   content: '[ ENTRY_0' counter(pipboy-entry, decimal-leading-zero) ' ]';
   display: block;
-  background: #010701;
-  color: rgba(0, 255, 65, 0.8);
+  background: var(--cuarto);
+  color: var(--primario);
   font-family: 'Courier New', Courier, monospace;
   font-size: 0.68rem;
   letter-spacing: 3px;
-  border-bottom: 1px solid rgba(0, 255, 65, 0.2);
-  text-shadow: 0 0 8px rgba(0, 255, 65, 0.6);
+  border-bottom: 1px solid var(--border-color);
+  text-shadow: var(--custom-text-shadow);
   position: absolute;
   top: 0;
   left: 0;
@@ -87,7 +88,8 @@
   border-radius: 7px;
   background-color: rgba(255, 255, 255, 0.05);
   padding: 7px 10px;
-  color: #3acc5f;
+  color: var(--secundario);
+  border: 1px solid var(--border-color-label);
 }
 
 .project-image{
@@ -135,8 +137,7 @@
 }
 
 .project-information{
-  background: #0d2a10;
-  color: #3acc5f;
+  color: var(--secundario);
   padding: 0 15px;
   display: flex;
   flex-direction: row;
@@ -146,8 +147,8 @@
   bottom: 0;
   transition: max-height 0.5s;
   text-align: left;
-  -webkit-box-shadow: 0px -2px 17px 0px #000000; 
-  box-shadow: 0px -2px 17px 0px #000000;
+  -webkit-box-shadow: 0px -2px 17px 0px var(--terciario); 
+  box-shadow: 0px -2px 17px 0px var(--terciario);
   width: 100%;
 }
 
@@ -164,7 +165,7 @@
   -webkit-box-orient: vertical;
   font-weight: bold;
   font-size: 1.35rem;
-  color: #4dff7c;
+  color: var(--primario);
   display: flex;
   align-items: center;
 }
@@ -176,7 +177,7 @@
 }
 
 .project-details-body .project-name a > svg{
-  color: #4dff7c;
+  color: var(--primario);
   display: flex;
   gap: 15px;
 }
@@ -247,6 +248,7 @@
   border-right: 1px solid  #404040;
   border-left: 1px solid  #404040;
   aspect-ratio: 6/5;
+  border: 1px solid var(--border-color);
 }
 
 .project-carrousel::-webkit-scrollbar {
@@ -287,8 +289,9 @@
   padding: 0;
   transform: translateY(-50%);
   background:
-    linear-gradient(180deg, rgba(0, 255, 65, 0.18), rgba(0, 42, 12, 0.76)),
-    repeating-linear-gradient(0deg, rgba(0, 255, 65, 0.22) 0 1px, transparent 1px 5px);
+    /* linear-gradient(180deg, rgba(0, 255, 65, 0.18), rgba(0, 42, 12, 0.76)),
+    repeating-linear-gradient(0deg, rgba(0, 255, 65, 0.22) 0 1px, transparent 1px 5px); */
+    var(--cuarto);
   border: 1px solid rgba(0, 255, 65, 0.55);
   border-radius: 4px;
   box-shadow:
@@ -307,7 +310,7 @@
   content: "";
   position: absolute;
   inset: 6px;
-  border: 1px solid rgba(0, 255, 65, 0.24);
+  border: 1px solid var(--border-color);
   clip-path: inherit;
   pointer-events: none;
 }
@@ -317,7 +320,7 @@
   position: absolute;
   right: 7px;
   bottom: 6px;
-  color: rgba(0, 255, 65, 0.72);
+  color: var(--secundario);
   font-family: 'Courier New', Courier, monospace;
   font-size: 0.52rem;
   font-weight: 700;
@@ -335,7 +338,7 @@
   position: relative;
   z-index: 1;
   padding: 0;
-  color: #3acc5f;
+  color: var(--secundario);
   filter: drop-shadow(0 0 6px rgba(0, 255, 65, 0.75));
   transition: transform 0.2s ease, color 0.2s ease;
 }
@@ -343,9 +346,9 @@
 .project-details-header button:hover,
 .project-details-header button:focus-visible{
   background:
-    linear-gradient(180deg, rgba(0, 255, 65, 0.3), rgba(0, 58, 16, 0.9)),
-    repeating-linear-gradient(0deg, rgba(0, 255, 65, 0.32) 0 1px, transparent 1px 4px);
-  border-color: rgba(160, 255, 176, 0.95);
+    /* linear-gradient(180deg, rgba(0, 255, 65, 0.3), rgba(0, 58, 16, 0.9)),
+    repeating-linear-gradient(0deg, rgba(0, 255, 65, 0.32) 0 1px, transparent 1px 4px); */
+    var(--cuarto);
   box-shadow:
     0 0 0 1px rgba(0, 255, 65, 0.35) inset,
     0 0 28px rgba(0, 255, 65, 0.4),
@@ -356,7 +359,7 @@
 
 .project-details-header button:hover svg,
 .project-details-header button:focus-visible svg{
-  color: #b8ffc6;
+  color: var(--secundario);
   transform: scale(1.12);
 }
 
@@ -392,19 +395,17 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
-  color: rgba(0, 255, 65, 0.8);
   z-index: 1;
   transition: 0.5s;
 }
 
-.close-project-datails svg{
-  color: rgba(0, 255, 65, 0.8);
-  transition: 0.5s;
+.close-project-datails span{
+  color: var(--secundario);
 }
 
-.close-project-datails:hover,
-.close-project-datails:hover svg{
-  color: white;
+.close-project-datails:hover span{
+  color: var(--primario) !important;
+  text-shadow: 0 0 8px rgba(77, 255, 124, 0.6);
 }
 
 .project-tags{
@@ -420,6 +421,8 @@
   margin-left: 5px;
   background-color: rgba(255, 255, 255, 0.05);
   padding: 7px 10px;
+  background-color: var(--cuarto);
+  border: 1px solid var(--border-color-label); 
 }
 
 .project-details-container .project-description{
@@ -450,7 +453,8 @@
   margin: 0 5px 5px 0;
   background-color: rgba(255, 255, 255, 0.05);
   padding: 7px 10px;
-  color: #3acc5f;
+  color: var(--secundario);
+  border: 1px solid var(--border-color-label);
 }
 
 .techs-wrap{
@@ -531,7 +535,7 @@
 
 .project-card {
   background: #020a02;
-  border: 1px solid rgba(0, 255, 65, 0.35) !important;
+  border: 1px solid var(--border-color) !important;
   box-shadow: 0 0 14px rgba(0, 255, 65, 0.06);
   font-family: 'Courier New', Courier, monospace;
 }
@@ -540,14 +544,14 @@
 .project-card::before {
   content: '[ ENTRY_0' counter(pipboy-entry, decimal-leading-zero) ' ]';
   display: block;
-  background: #010701;
-  color: rgba(0, 255, 65, 0.8);
+  background: var(--cuarto);
+  color: var(--primario);
   font-family: 'Courier New', Courier, monospace;
   font-size: 0.68rem;
   letter-spacing: 3px;
   padding: 12px 15px;
-  border-bottom: 1px solid rgba(0, 255, 65, 0.2);
-  text-shadow: 0 0 8px rgba(0, 255, 65, 0.6);
+  border-bottom: 1px solid var(--border-color);
+  text-shadow: var(--custom-text-shadow);
   text-align: left;
 }
 
@@ -569,12 +573,12 @@
 }
 
 .project-information {
-  background-color: #010a01 !important;
-  border-top: 1px solid rgba(0, 255, 65, 0.2);
+  background-color: var(--cuarto) !important;
+  border-top: 1px solid var(--border-color);
 }
 
 .project-information > *:not(.project-type) {
-  color: #00ff41 !important;
+  color: var(--primario) !important;
 }
 
 .project-name {

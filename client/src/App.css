@@ -2,10 +2,6 @@ html {
   scroll-behavior: smooth;
 }
 
-* {
-  text-shadow: 0 0 8px rgba(0, 255, 65, 0.6);
-}
-
 #App{
   height: 100%;
   position: relative;
@@ -28,17 +24,17 @@ header h3,
 header h4,
 header h5,
 header h6 {
-  color: #4dff7c;
+  color: var(--primario);
 }
 
 header p,
 header li,
 header span {
-  color: #3acc5f;
+  color: var(--secundario);
 }
 
 body, #App {
-  background-color: black;
+  background-color: var(--terciario);
 }
 
 header .component{
@@ -72,7 +68,7 @@ main .component{
 /* Scanlines */
 main::before {
   content: "";
-  position: absolute;
+  position: fixed;
   inset: 0;
   background: repeating-linear-gradient(
     0deg,
@@ -82,7 +78,7 @@ main::before {
     rgba(0, 0, 0, 0.2) 4px
   );
   pointer-events: none;
-  z-index: 7;
+  z-index: 12;
   box-shadow:
     0 0 40px  rgba(74, 255, 119, 0.25),
     0 0 100px rgba(74, 255, 119, 0.12),
@@ -111,7 +107,7 @@ main::after {
     transparent       175px
   );
   pointer-events: none;
-  z-index: 6;
+  z-index: 11;
   animation: pipboy-scan 14s linear infinite;
 }
 
@@ -127,23 +123,22 @@ main .component h3,
 main .component h4,
 main .component h5,
 main .component h6 {
-  color: #4dff7c;
-  text-shadow: 0 0 10px rgba(77, 255, 124, 0.45);
+  color: var(--primario);
 }
 
 /* Body text */
 main .component p,
 main .component li,
 main .component label {
-  color: #3acc5f;
+  color: var(--secundario);
 }
 
 main .component span:not(.magic-background):not(.project-type):not(.project-tech):not(.item-window):not(.close-window):not(.expand-window):not(.min-window) {
-  color: #3acc5f;
+  color: var(--secundario);
 }
 
 main .component a:not(.button-cta) {
-  color: #4dff7c;
+  color: var(--primario);
   display: flex;
   gap: 15px;
   transition: 0.5s;
@@ -155,44 +150,37 @@ main .component a:not(.button-cta):hover svg{
 
 main .component a:not(.button-cta):hover ,
 main .component a:not(.button-cta):hover svg{
-  color: white;
+  color: var(--secundario) !important;
 }
 
-/* Cards */
-main .component .card {
-  background-color: #0b1a0b;
-  border: 1px solid rgba(0, 255, 65, 0.35) !important;
-  box-shadow:
-    0 0 14px rgba(77, 255, 124, 0.07),
-    inset 0 0 20px rgba(0, 0, 0, 0.4);
+main .component a:not(.button-cta):hover{
+  text-shadow: 0 0 8px rgba(77, 255, 124, 0.6);
 }
 
-/* Buttons */
-main .component .button-cta {
-  background-color: #0b1a0b;
-  border: 1px solid #2a5c2a;
+main .component a:not(.button-cta):hover svg{
+  filter: var(--filter-hover);
 }
 
 main .component .button-cta span:last-child {
-  color: #4dff7c;
-  text-shadow: 0 0 8px rgba(77, 255, 124, 0.5);
+  color: var(--primario);
+  text-shadow: var(--custom-text-shadow);
 }
 
 main .component .button-cta:hover {
-  box-shadow: 0 0 20px rgba(77, 255, 124, 0.3);
+  text-shadow: var(--custom-text-shadow); 
 }
 
 /* Inputs & textarea */
 main .component input,
 main .component textarea {
-  background-color: #0b1a0b;
-  border: 1px solid #2a5c2a;
-  color: #4dff7c;
+  background-color: var(--cuarto);
+  border: 1px solid var(--border-color);
+  color: var(--primario);
 }
 
 main .component input::placeholder,
 main .component textarea::placeholder {
-  color: #2a5c2a;
+  color: color-mix(in srgb, var(--secundario) 75%, transparent);
 }
 
 .component > *{
@@ -316,12 +304,7 @@ img {
   margin-bottom: 0.5rem;
   font-weight: 600;
   line-height: 1.2;
-  color: var(--contraste-primario);
   font-family: "Orbitron", monospace;
-}
-
-p, span, li{
-  color: var(--contraste-primario);
 }
 
 button{
@@ -340,7 +323,7 @@ textarea{
   align-items: center;
   position: relative;
   margin-top: 10px;
-  background-color: #F44336;
+  background-color: var(--custom-red);
   width: 100%;
   z-index: 2;
   padding: 10px;
@@ -354,7 +337,7 @@ textarea{
 }
 
 .input-error:before {
-  border: 26px solid #F44336;
+  border: 26px solid var(--custom-red);
   content: '';
   border-left-color: transparent;
   border-bottom-color: transparent;
@@ -375,10 +358,11 @@ textarea{
   align-items: center;
   cursor: pointer;
   font-family: inherit;
-  background-color: var(--contraste-primario);
   overflow: hidden;
   position: relative;
   transition: box-shadow 0.3s ease;
+  background-color: var(--cuarto);
+  border: 1px solid var(--border-color);
 }
 
 .button-cta::before{
@@ -426,7 +410,7 @@ textarea{
 
 a{
   text-decoration: none;
-  color: black;
+  color: var(--terciario);
 }
 
 ul{

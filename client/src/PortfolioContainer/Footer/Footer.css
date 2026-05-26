@@ -1,15 +1,15 @@
 #footer-container{
-    background-color: #080f08;
+    background-color: var(--cuarto);
     border-top: 1px solid #1a3d1a;
     box-shadow: 0 -4px 30px rgba(74, 255, 119, 0.04);
     padding: 55px 10% 24px;
-    color: #3acc5f;
+    color: var(--secundario);
 }
 
 #footer-container p,
 #footer-container span,
 #footer-container li {
-    color: #3acc5f;
+    color: var(--secundario);
 }
 
 #footer-wrapper{
@@ -30,9 +30,15 @@
 #footer-logo{
     display: inline-flex;
     align-items: center;
-    color: #4dff7c;
+    color: var(--primario);
     text-decoration: none;
     margin-bottom: 18px;
+}
+
+#footer-logo:hover p,
+#footer-logo:hover span{
+    text-shadow: 0 0 8px rgba(77, 255, 124, 0.6);
+    filter: var(--filter-hover);
 }
 
 #footer-logo img{
@@ -64,7 +70,7 @@
 .footer-title{
     display: inline-block;
     font-family: "Orbitron", monospace;
-    color: #4dff7c;
+    color: var(--primario);
     margin-bottom: 14px;
     position: relative;
 }
@@ -92,7 +98,7 @@
 
 #footer-navigation a,
 #footer-email{
-    color: rgba(74, 255, 119, 0.65);
+    color: var(--secundario);
     text-decoration: none;
     cursor: pointer;
     transition: color 0.25s, text-shadow 0.25s;
@@ -100,8 +106,9 @@
 
 #footer-navigation a:hover,
 #footer-email:hover{
-    color: #4dff7c;
-    text-shadow: 0 0 8px rgba(77, 255, 124, 0.5);
+    color: var(--primario);
+    text-shadow: 0 0 8px rgba(77, 255, 124, 0.6);
+    filter: var(--filter-hover);
 }
 
 #footer-contact ul{
@@ -118,16 +125,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #0d1f0d;
-    border: 1px solid #1a3d1a;
-    color: rgba(74, 255, 119, 0.7);
+    background-color: var(--cuarto);
+    border: 1px solid var(--border-color);
+    color: var(--primario);
     text-decoration: none;
     transition: transform 0.25s, background-color 0.25s, box-shadow 0.25s;
 }
 
 #footer-contact li a:hover{
-    background-color: #132613;
-    color: #4dff7c;
+    background-color: var(--cuarto);
+    color: var(--primario);
     box-shadow: 0 0 12px rgba(74, 255, 119, 0.25);
     transform: translateY(-3px);
 }

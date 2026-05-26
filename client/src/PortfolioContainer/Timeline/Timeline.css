@@ -14,7 +14,7 @@
     height: 100%;
     position: absolute;
     left:48px;
-    background-image: linear-gradient(180deg,var(--primario) 0, 30px,transparent calc(100% - 30px),var(--primario));
+    background-image: linear-gradient(180deg,var(--terciario) 0, 30px,transparent calc(100% - 30px),var(--terciario));
 }
 
 #timeline-wrap > ul{
@@ -73,7 +73,7 @@ li.timeline-element{
     justify-content: center;
     display: flex;
     box-shadow: var(--custom-box-shadow);
-    border: 2px solid rgba(0, 255, 65, 0.35) !important;
+    border: 2px solid var(--border-color) !important;
 }
 
 .timeline-element-image img{
