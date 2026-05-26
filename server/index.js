@@ -15,8 +15,14 @@ app.listen(PORT, () => console.log("Server Running | " + PORT));
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+const messages = {
+  es: { success: "¡Correo enviado!", error: "Error al enviar el correo." },
+  en: { success: "Email sent!", error: "Error sending the email." },
+};
+
 router.post("/contact", async (req, res) => {
-  const { name, email, subject, message } = req.body;
+  const { name, email, subject, message, lang } = req.body;
+  const msg = messages[lang] ?? messages.en;
 
   const { error } = await resend.emails.send({
     from: "Portfolio <contact@allandev.es>",
@@ -28,8 +34,8 @@ router.post("/contact", async (req, res) => {
 
   if (error) {
     console.log(error);
-    res.json({ status: false, message: "Error" });
+    res.json({ status: false, message: msg.error });
   } else {
-    res.json({ status: true, message: "Email sent" });
+    res.json({ status: true, message: msg.success });
   }
 });

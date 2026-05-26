@@ -5,12 +5,12 @@ html {
 #App{
   height: 100%;
   position: relative;
+  overflow-x: hidden;
 }
 
 header,
 main{
   height: fit-content;
-  background-color: var(--primario);
 }
 
 header{
@@ -18,13 +18,23 @@ header{
   position: relative;
 }
 
-header > video{
-  min-height: 100%;
-  min-width: 100%;
-  left: 50%;
-  transform: translate(-50%, -15%);
-  position: absolute;
-  filter:brightness(0.5);
+header h1,
+header h2,
+header h3,
+header h4,
+header h5,
+header h6 {
+  color: var(--primario);
+}
+
+header p,
+header li,
+header span {
+  color: var(--secundario);
+}
+
+body, #App {
+  background-color: var(--terciario);
 }
 
 header .component{
@@ -37,19 +47,144 @@ header .component{
 }
 
 main{
-  padding: 0 10%;
   overflow: hidden;
 }
 
 main .component{
-  padding: 125px 0 125px;
+  padding: 0 100px 125px;
   min-width: 250px;
-  max-width: 1000px;
+  max-width: 1440px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  /* Pip-Boy screen */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Scanlines */
+main::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 3px,
+    rgba(0, 0, 0, 0.2) 3px,
+    rgba(0, 0, 0, 0.2) 4px
+  );
+  pointer-events: none;
+  z-index: 12;
+  box-shadow:
+    0 0 40px  rgba(74, 255, 119, 0.25),
+    0 0 100px rgba(74, 255, 119, 0.12),
+    0 0 200px rgba(74, 255, 119, 0.06),
+    inset 0 0 60px  rgba(0, 0, 0, 0.95),
+    inset 0 0 120px rgba(0, 0, 0, 0.7),
+    inset 0 0 20px  rgba(74, 255, 119, 0.04);
+}
+
+/* Interference bands (moving) */
+main::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    180deg,
+    transparent        0px,
+    transparent        60px,
+    rgba(74, 255, 119, 0.04) 60px,
+    rgba(74, 255, 119, 0.04) 63px,
+    transparent        63px,
+    transparent       120px,
+    rgba(46, 160, 73, 0.025) 120px,
+    rgba(46, 160, 73, 0.025) 124px,
+    transparent       124px,
+    transparent       175px
+  );
+  pointer-events: none;
+  z-index: 11;
+  animation: pipboy-scan 14s linear infinite;
+}
+
+@keyframes pipboy-scan {
+  from { background-position: 0 0; }
+  to   { background-position: 0 175px; }
+}
+
+/* Headings – phosphor green */
+main .component h1,
+main .component h2,
+main .component h3,
+main .component h4,
+main .component h5,
+main .component h6 {
+  color: var(--primario);
+}
+
+/* Body text */
+main .component p,
+main .component li,
+main .component label {
+  color: var(--secundario);
+}
+
+main .component span:not(.magic-background):not(.project-type):not(.project-tech):not(.item-window):not(.close-window):not(.expand-window):not(.min-window) {
+  color: var(--secundario);
+}
+
+main .component a:not(.button-cta) {
+  color: var(--primario);
+  display: flex;
+  gap: 15px;
+  transition: 0.5s;
+}
+
+main .component a:not(.button-cta):hover svg{
+  transition: 0.5s;
+}
+
+main .component a:not(.button-cta):hover ,
+main .component a:not(.button-cta):hover svg{
+  color: var(--secundario) !important;
+}
+
+main .component a:not(.button-cta):hover{
+  text-shadow: 0 0 8px rgba(77, 255, 124, 0.6);
+}
+
+main .component a:not(.button-cta):hover svg{
+  filter: var(--filter-hover);
+}
+
+main .component .button-cta span:last-child {
+  color: var(--primario);
+  text-shadow: var(--custom-text-shadow);
+}
+
+main .component .button-cta:hover {
+  text-shadow: var(--custom-text-shadow); 
+}
+
+/* Inputs & textarea */
+main .component input,
+main .component textarea {
+  background-color: var(--cuarto);
+  border: 1px solid var(--border-color);
+  color: var(--primario);
+}
+
+main .component input::placeholder,
+main .component textarea::placeholder {
+  color: color-mix(in srgb, var(--secundario) 75%, transparent);
+}
+
+.component > *{
+  max-width: 1000px;
 }
 
 section.load-animation{
@@ -57,7 +192,7 @@ section.load-animation{
 }
 
 .button-pressed{
-  border-radius: 5px;
+  border-radius: 7px;
   -webkit-box-shadow: inset 0px 0px 18px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: inset 0px 0px 18px 0px rgba(0,0,0,0.75);
   box-shadow: inset 0px 0px 18px 0px rgba(0,0,0,0.75);
@@ -66,16 +201,11 @@ section.load-animation{
 .card{
   box-shadow: var(--custom-box-shadow);
   background-color: white;
-  border-radius: 10px;
+  border-radius: 7px;
 }
-
-.text-shadow{
-  text-shadow: 0px 4px 7px rgba(0,0,0,0.7);
-}
-
 .load-animation-element{
   opacity: 0;
-  transition: opacity 1s;
+  transition: opacity 0.5s;
 }
 
 .load-animation-element.load-animation-element-actived{
@@ -84,7 +214,7 @@ section.load-animation{
 
 h2.load-animation-element::after{
   width: 0%;
-  transition: width 1s;
+  transition: width 0.5s;
 }
 
 h2.load-animation-element.load-animation-element-actived::after{
@@ -95,12 +225,6 @@ h2.load-animation-element.load-animation-element-actived::after{
   0%{background-position:0% 82%}
   50%{background-position:100% 19%}
   100%{background-position:0% 82%}
-}
-
-@keyframes show_element {
-    100%{
-        opacity: 1;
-    }
 }
 
 .magic-underline{
@@ -116,7 +240,7 @@ h2.load-animation-element.load-animation-element-actived::after{
   position: absolute;
   left: 0;
   bottom: -3px;
-  transition: 1s;
+  transition: 0.5s;
   animation: rainbow 4s ease-in infinite;
   margin: 0 auto ;
 }
@@ -147,13 +271,6 @@ h2.load-animation-element.load-animation-element-actived::after{
   position: relative;
 }
 
-.project-container article.project-card .project-information .project-type{
-  background-color: grey;
-  padding: 0 5px;
-  border-radius: 5px;
-  color: white;
-}
-
 h2.magic-background-underline{
   font-size: 2.5rem;
   align-self: center;
@@ -175,15 +292,19 @@ h2.magic-background-underline{
   }
 }
 
-.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-  line-height: 1.2;
-  color: var(--contraste-primario)
+img {
+  filter: saturate(2.5) brightness(0.85);
 }
 
-p, span, li{
-  color: var(--contraste-primario);
+.project-image img {
+  filter: none;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+  font-family: "Orbitron", monospace;
 }
 
 button{
@@ -202,12 +323,12 @@ textarea{
   align-items: center;
   position: relative;
   margin-top: 10px;
-  background-color: #F44336;
+  background-color: var(--custom-red);
   width: 100%;
   z-index: 2;
   padding: 10px;
-  border-radius: 10px;
-  color: white;
+  border-radius: 7px;
+  color: white !important;
   font-size: 0.9rem;
 }
 
@@ -216,7 +337,7 @@ textarea{
 }
 
 .input-error:before {
-  border: 26px solid #F44336;
+  border: 26px solid var(--custom-red);
   content: '';
   border-left-color: transparent;
   border-bottom-color: transparent;
@@ -232,15 +353,16 @@ textarea{
   flex-basis: 100%;
   width: 100%;
   border: none;
-  border-radius: 10px;
+  border-radius: 7px;
   margin: 0 0 10px;
   align-items: center;
   cursor: pointer;
   font-family: inherit;
-  background-color: var(--contraste-primario);
   overflow: hidden;
   position: relative;
   transition: box-shadow 0.3s ease;
+  background-color: var(--cuarto);
+  border: 1px solid var(--border-color);
 }
 
 .button-cta::before{
@@ -255,7 +377,7 @@ textarea{
 
 .button-cta span:first-child{
   font-size: 1.5rem;
-  min-height: 50px;
+  min-height: 48px;
   min-width: 50px;
   height: 100%;
   display: flex;
@@ -282,9 +404,13 @@ textarea{
   box-shadow: 0 0 18px rgba(29, 232, 64, 0.35);
 }
 
+.button-cta:hover::before{
+  transform: translateX(150%);
+}
+
 a{
   text-decoration: none;
-  color: black;
+  color: var(--terciario);
 }
 
 ul{

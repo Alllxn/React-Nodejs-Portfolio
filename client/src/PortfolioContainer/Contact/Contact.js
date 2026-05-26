@@ -4,7 +4,7 @@ import './Contact.css';
 import { useLanguage } from '../../context/LanguageContext';
 
 export function Contact() {
-    const { t } = useLanguage();
+    const { t, lang } = useLanguage();
     const f = t.contact.form;
 
     const [formData, setFormData] = useState({
@@ -80,6 +80,7 @@ export function Contact() {
             email: formData.email.value,
             subject: formData.subject.value,
             message: formData.message.value,
+            lang,
         };
 
         let response = await fetch(`${process.env.REACT_APP_API_URL || ''}/contact`, {
@@ -169,10 +170,11 @@ export function Contact() {
                                 <FontAwesomeIcon icon="fa-solid fa-user-astronaut" size='xl' />
                             </span>
                             <input
+                                spellCheck="false"
                                 placeholder={f.name}
                                 name="name"
                                 type="text"
-                                className='card load-animation-element'
+                                className='card '
                                 onChange={(e) => insertData(e)}
                             />
                             {formData.name.error.exist && (
@@ -187,10 +189,11 @@ export function Contact() {
                                 <FontAwesomeIcon icon="fa-solid fa-envelope" size='xl' />
                             </span>
                             <input
+                                spellCheck="false"
                                 placeholder={f.email}
                                 name="email"
                                 type="text"
-                                className="card load-animation-element"
+                                className="card"
                                 maxLength="320"
                                 onChange={(e) => insertData(e)}
                             />
@@ -206,10 +209,11 @@ export function Contact() {
                                 <FontAwesomeIcon icon="fa-solid fa-pen" size='xl'/>
                             </span>
                             <input
+                                spellCheck="false"
                                 placeholder={f.subject}
                                 name="subject"
                                 type="text"
-                                className="card load-animation-element"
+                                className="card"
                                 maxLength="70"
                                 onChange={(e) => insertData(e)}
                             />
@@ -227,9 +231,10 @@ export function Contact() {
                                 <FontAwesomeIcon icon="fa-solid fa-message" size='xl' />
                             </span>
                             <textarea
+                                spellCheck="false"
                                 name="message"
                                 placeholder={f.message}
-                                className="card load-animation-element"
+                                className="card"
                                 onChange={(e) => insertData(e)}
                             />
                             {formData.message.error.exist && (

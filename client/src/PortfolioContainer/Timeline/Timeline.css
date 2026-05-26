@@ -5,7 +5,6 @@
 
 #timeline-wrap{
     position: relative;
-    max-width: 100%;
 }
 
 #timeline-wrap::before{
@@ -15,7 +14,7 @@
     height: 100%;
     position: absolute;
     left:48px;
-    background-image: linear-gradient(180deg,var(--primario) 0, 30px,transparent calc(100% - 30px),var(--primario));
+    background-image: linear-gradient(180deg,var(--terciario) 0, 30px,transparent calc(100% - 30px),var(--terciario));
 }
 
 #timeline-wrap > ul{
@@ -27,19 +26,18 @@ li.timeline-element:first-child{
     padding-top: 35px;
 }
 
-li.timeline-element:nth-child(odd):hover .timeline-element-description > *{
+li.timeline-element:hover .timeline-element-description > *{
     transform: scale(1.04) translateX(10px);
-}
-li.timeline-element:nth-child(even):hover .timeline-element-description > *{
-    transform: scale(1.04) translateX(-10px);
 }
 
 li.timeline-element .timeline-element-description > span{
     opacity: 0.5;
+    font-size: 1rem;
 }
 
 li.timeline-element .timeline-element-description > p{
     opacity: 0.8;
+    font-size: 1.05rem;
 }
 
 li.timeline-element:hover .timeline-element-image{
@@ -48,7 +46,7 @@ li.timeline-element:hover .timeline-element-image{
 
 li.timeline-element .timeline-element-description > *,
 li.timeline-element .timeline-element-image{
-    transition: 1s;
+    transition: 0.5s;
     display: block;
 }
 
@@ -75,6 +73,7 @@ li.timeline-element{
     justify-content: center;
     display: flex;
     box-shadow: var(--custom-box-shadow);
+    border: 2px solid var(--border-color) !important;
 }
 
 .timeline-element-image img{
@@ -85,7 +84,7 @@ li.timeline-element{
     bottom: -7px;
 }
 
-@media only screen and (min-width: 769px){
+@media only screen and (min-width: 1025px){
     #timeline-wrap::before{
         left: calc(50% - 2.5px);
     }
@@ -110,6 +109,10 @@ li.timeline-element{
         align-self: flex-end;        
         margin-right: calc(50% - 75px);
         text-align: right;
+    }
+
+    li.timeline-element:nth-child(even):hover .timeline-element-description > *{
+        transform: scale(1.04) translateX(-10px);
     }
     
     li.timeline-element:nth-child(even) .timeline-element-description{

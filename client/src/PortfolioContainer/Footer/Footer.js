@@ -66,7 +66,7 @@ export default function Footer() {
                 </div>
             </div>
             <div id="footer-bottom">
-                <p>© {currentYear} Allan Espinoza. {f.copyright}</p>
+                <p>© {currentYear} Allan Bastian Espinoza Ibañez. {f.copyright}</p>
             </div>
         </footer>
     )

@@ -9,7 +9,11 @@
 }
 
 #biography p{
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+}
+
+#biography ul p{
+    margin-bottom: 5px;
 }
 
 #about-presentation .card{
@@ -47,7 +51,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--contraste-primario);
     flex: 0 0 auto;
     margin-left: 4px;
     box-shadow: var(--custom-box-shadow);
@@ -103,10 +106,10 @@
 .biography-element{
     padding: 18px;
     flex-basis: 100%;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color) !important;
+    border-radius: 7px;
     box-shadow: var(--custom-box-shadow);
+    background: var(--cuarto);
 }
 
 .biography-element ul{
@@ -156,6 +159,7 @@
     text-align: center;
     margin-bottom: 15px;
     font-size: 1.5rem;
+    position: relative;
 }
 
 .biography-institution-date{
@@ -187,15 +191,21 @@
     align-items: center;
     gap: 6px;
     padding: 7px 10px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 8px;
+    border: 1px solid var(--border-color-label);
+    border-radius: 7px;
     background: rgba(255, 255, 255, 0.05);
-    font-size: 0.95rem;
+    font-size: 1rem;
+    box-shadow: var(--custom-box-shadow);
 }
 
 .tech-stack-group li svg{
     width: 18px;
     height: 18px;
+}
+
+.tech-stack-group li > *{
+  text-shadow: unset;
+  filter: unset;
 }
 
 .mindset-list li{
@@ -246,10 +256,10 @@
     }
 
     #biography-skills{
-        flex-basis: calc(70% - 12px);
+        flex-basis: calc(60% - 12px);
     }
 
     #biography-interests{
-        flex-basis: calc(30% - 12px);
+        flex-basis: calc(40% - 12px);
     }
 }

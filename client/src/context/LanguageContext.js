@@ -12,13 +12,14 @@ function detectBrowserLang() {
 }
 
 export function LanguageProvider({ children }) {
-    const [lang, setLang] = useState(detectBrowserLang);
+    const [lang, setLang] = useState(() => localStorage.getItem('lang') || detectBrowserLang());
     const t = translations[lang];
     const toggleLang = () => setLang(l => (l === 'en' ? 'es' : 'en'));
 
     useEffect(() => {
         document.body.classList.remove('lang-en', 'lang-es');
         document.body.classList.add(`lang-${lang}`);
+        localStorage.setItem('lang', lang);
     }, [lang]);
 
     return (

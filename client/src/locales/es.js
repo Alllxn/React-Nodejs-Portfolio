@@ -151,7 +151,7 @@ export const es = {
             },
             {
                 name: 'Junta de Andalucía',
-                description: 'CMS basado en Moodle desarrollado para todas las provincias de Andalucía, cubriendo educación de adultos, formación profesional virtual, formación del profesorado y el Espacio Virtual para el IACP (Instituto Andaluz de Cualificaciones Profesionales).',
+                description: 'CMS basado en Moodle desarrollado para todas las provincias de Andalucía.',
                 notes: [
                     'Mantenimiento y migración de plataformas Moodle.',
                     'Trabajo con todo tipo de plugins de Moodle y creación de plugins personalizados, incluyendo uno para sobreescribir ficheros del núcleo.',

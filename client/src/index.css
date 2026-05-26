@@ -1,71 +1,77 @@
-@font-face {
-  font-family: "Poppins Medium";
-  font-style: normal;
-  font-weight: normal;
-  src: url("./assets/fonts/Poppins-Medium.ttf");
-}
-
-@font-face {
-  font-family: "Poppins Regular";
-  font-style: normal;
-  font-weight: normal;
-  src: url("./assets/fonts/Poppins-Regular.ttf");
-}
-
-@font-face {
-  font-family: "Poppins SemiBold";
-  font-style: normal;
-  font-weight: normal;
-  src: url("./assets/fonts/Poppins-SemiBold.ttf");
-}
-
-@font-face {
-  font-family: "Poppins Bold";
-  font-style: normal;
-  font-weight: normal;
-  src: url("./assets/fonts/Poppins-Bold.ttf");
-}
-
-@font-face {
-  font-family: "Poppins ExtraBold";
-  font-style: normal;
-  font-weight: normal;
-  src: url("./assets/fonts/Poppins-ExtraBold.ttf");
-}
-
-@font-face {
-  font-family: "Poppins Light";
-  font-style: normal;
-  font-weight: normal;
-  src: url("./assets/fonts/Poppins-Light.ttf");
-}
-
-@font-face {
-  font-family: "Poppins Thin";
-  font-style: normal;
-  font-weight: normal;
-  src: url("./assets/fonts/Poppins-Thin.ttf");
-}
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Share+Tech+Mono&display=swap');
 
 :root{
-  --primario: #26282c;
-  --secundario: #2e3036;
-  --terciario: #1de840;
-  --cuarto: #3d67db;
+  --primario: #4dff7c;
+  --secundario: #3acc5f;
+  --terciario: #000000;
+  --cuarto: #010701;
   --contraste-primario: #ffffff;
-  --color-rainbow-animation: linear-gradient(190deg, var(--terciario), var(--cuarto));
+  --border-color: rgba(0, 255, 65, 0.35);
+  --border-color-label: #2a5c2a66;
+  --color-rainbow-animation: linear-gradient(190deg, #007a1f, #4dcc7a);
   --custom-box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  --custom-text-shadow: 0 0 8px rgba(0, 255, 65, 0.7);
   --custom-red: #F44336;
   --custom-blue: #2196F3;
   --custom-yellow: #FFC107;
   --custom-green: #4CAF50;
+  --filter-hover: drop-shadow(0 0 8px rgba(77, 255, 124, 0.6));
 }
 
 body.theme-light {
-  --primario: #f4f5f7;
-  --secundario: #e8eaed;
+  --primario: #000000;
+  --secundario: #000000D9;
+  --terciario: #FFFFFF;
+  --cuarto: #FFFFFF;
   --contraste-primario: #1a1a1a;
-  --custom-box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px, rgba(0, 0, 0, 0.14) 0px 2px 16px 0px;
+  --border-color: #2a5c2a;
+  --custom-text-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+}
+
+body.theme-light div:not(:has(.button-cta)) .fa-database,
+body.theme-light div:not(:has(.button-cta)) .fa-github{
+  color: var(--contraste-primario) !important;
+}
+
+body.theme-light main::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    180deg,
+    transparent        0px,
+    transparent        60px,
+    rgba(0, 60, 20, 0.06) 60px,
+    rgba(0, 60, 20, 0.06) 63px,
+    transparent        63px,
+    transparent       120px,
+    rgba(0, 40, 15, 0.04) 120px,
+    rgba(0, 40, 15, 0.04) 124px,
+    transparent       124px,
+    transparent       175px
+  );
+  pointer-events: none;
+  z-index: 6;
+  animation: pipboy-scan 14s linear infinite;
+}
+
+body.theme-light main::before {
+  box-shadow:
+    0 0 40px  rgba(74, 255, 119, 0.20),
+    0 0 100px rgba(74, 255, 119, 0.10),
+    0 0 200px rgba(74, 255, 119, 0.05),
+    inset 0 0 60px  rgba(0, 0, 0, 0.08),
+    inset 0 0 120px rgba(0, 0, 0, 0.04),
+    inset 0 0 20px  rgba(74, 255, 119, 0.04);
+}
+
+body.theme-dark #nav-container .nav-item:hover span{
+  /* text-shadow: var(--custom-text-shadow); */
+  filter: drop-shadow(var(--custom-text-shadow));
+}
+
+body.theme-dark #nav-container #nav-left #link-home span {
+  text-shadow: var(--custom-text-shadow);
 }
 
 * {
@@ -73,19 +79,27 @@ body.theme-light {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-shadow: var(--custom-text-shadow);
+}
+
+*::placeholder {
+  text-shadow: var(--custom-text-shadow);
+  filter: drop-shadow(var(--custom-text-shadow));
+}
+
+svg{
+  filter: drop-shadow(var(--custom-text-shadow));
 }
 
 body {
   margin: 0;
   overflow-y: overlay;
-  font-family: "Poppins Regular";
+  font-family: "Share Tech Mono", monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-width: 350px;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: "Share Tech Mono", monospace;
 }
-

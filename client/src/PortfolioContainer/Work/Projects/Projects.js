@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './Projects.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useLanguage } from '../../../context/LanguageContext';
@@ -10,6 +10,7 @@ export default function Projects(props){
     const [projectDetails, setProjectDetails] = useState(false); // is project Details opened?
     let [carrouselLeft, setCarrouselLeft] = useState(false); // is the left button of carrousel displayed?
     let [carrouselRight, setCarrouselRight] = useState(hasMultipleImages); // is the right button of carrousel displayed?
+    const carrouselRef = useRef(null);
     
     // When we open a project Details, the scroll of body disable
     if(projectDetails){
@@ -21,7 +22,7 @@ export default function Projects(props){
     // show tags of techs used
     const Techs = () => project.Tecnologies.map(function(object,i){
         return(
-            <span className="project-tech card" style={{backgroundColor: project.Colores[0]}} key={i}>{object}</span>
+            <span className="project-tech card" key={i}>{object}</span>
         );
     });
 
@@ -56,7 +57,12 @@ export default function Projects(props){
     };
 
     const controlScrollDetails = (e, direction) => {
-        let target = e.currentTarget.parentElement.firstChild.nextSibling;   
+        // TODO: revisar porque no funcionan estos botones de pasar imagen
+        // let target = e.currentTarget.parentElement.firstChild.nextSibling;
+        const target = carrouselRef.current;
+        if(!target) return;
+
+        // let target = e.currentTarget.parentElement.querySelector('.project-carrousel');
         let totalScrollWidth = target.firstChild.offsetWidth * (project.Images.length - 1) ;
 
         if(direction === 'left'){
@@ -68,6 +74,11 @@ export default function Projects(props){
             (target.scrollLeft + 3 > target.firstChild.offsetWidth) ? setCarrouselLeft(true) : setCarrouselLeft(false);
             (target.scrollLeft < totalScrollWidth) ? setCarrouselRight(true) : setCarrouselRight(false);
         }
+
+        target.scrollTo({
+            left: target.scrollLeft,
+            behavior: 'smooth'
+        });
     }
 
     const scrollProjectControl = (element) => {
@@ -92,12 +103,6 @@ export default function Projects(props){
     }
 
     useEffect(() => {
-        if(document.getElementsByClassName("project-carrousel")[0]){
-            document.getElementsByClassName("project-carrousel")[0].addEventListener('scroll', function(event) {
-                scrollProjectControl(event.currentTarget)
-            });
-        }
-
         if(projectDetails) {
             scrollProjectControl(document.getElementsByClassName("project-screen")[0])
         };
@@ -107,7 +112,6 @@ export default function Projects(props){
         <li className="project-container">
             <button className="project-card load-animation-element card" onClick={() => {controlOpenDetails('open')}}>
                 <div className="project-image" style={{backgroundImage: `
-                linear-gradient(rgba(40, 40, 40, 0.6), rgba(40, 40, 40, 0.45)),
                 url(${require('../../../assets/work' + project.CoverBackground)})
                 `, }}>
                     <div className="project-image-container">
@@ -116,7 +120,7 @@ export default function Projects(props){
                             src={require('../../../assets/work' + project.Cover)} 
                         />
                     </div>
-                    <div className="project-show-more card" style={{backgroundColor: 'white'}}>
+                    <div className="project-show-more">
                         <FontAwesomeIcon icon="fa-solid fa-eye" size='lg'/>
                         <div>
                             <span> {t.work.showMore}</span>
@@ -125,7 +129,7 @@ export default function Projects(props){
                 </div>
                 <div className="project-information">
                     <h3 className="project-name"><b>{project.Name}</b></h3>
-                    <span className="project-type card" style={{backgroundColor: project.Colores[0]}}>
+                    <span className="project-type card">
                         {project.Type}
                     </span>
                     <span className="project-description">{project.Description}</span>
@@ -135,34 +139,30 @@ export default function Projects(props){
                 <div className='project-screen' onClick={() => {controlOpenDetails('close')}}>
                     <div className='project-details-container' onClick={(e) => {e.stopPropagation()}}>
                         <button className='close-project-datails' onClick={() => {controlOpenDetails('close')}}>
-                            <FontAwesomeIcon icon="fa-solid fa-xmark" size='xl'/>
+                            <span>
+                                [ X ]
+                            </span>
                         </button>
                         <div className='project-details card'>    
                             <div className='project-details-header'>
-                                <div className='top-window'>
-                                    <div className='close-window item-window'></div>
-                                    <div className='expand-window item-window'></div>
-                                    <div className='min-window item-window'></div>
-                                </div>
-                                <div className='project-carrousel card'>
+                                <div className='project-carrousel card' ref={carrouselRef}>
                                         <ProjectImages />
                                 </div>
                                 {carrouselLeft &&
                                     <button className='button-carrousel-left' onClick={(e) => controlScrollDetails(e, 'left')}>
-                                        <FontAwesomeIcon icon="fa-solid fa-arrow-left" size='lg' style={{backgroundColor: project.Colores[1]}} />
+                                        <FontAwesomeIcon icon="fa-solid fa-arrow-left" size='lg' />
                                     </button>
                                 }
                                 {carrouselRight &&
                                     <button className='button-carrousel-right' onClick={(e) => controlScrollDetails(e, 'right')}>
-                                        <FontAwesomeIcon icon="fa-solid fa-arrow-right" size='lg' style={{backgroundColor: project.Colores[1]}} />
+                                        <FontAwesomeIcon icon="fa-solid fa-arrow-right" size='lg' />
                                     </button>
                                 }
-                                <div className='bottom-window'></div>
                             </div>
                             <div className='project-details-body'>
                                 <div className="project-tags">
-                                    <span className="project-tag card" style={{backgroundColor: project.Colores[1]}}>{project.Type}</span>
-                                    <span className="project-tag card" style={{backgroundColor: project.Colores[1]}}>{project.Year}</span>
+                                    <span className="project-tag card" >{project.Type}</span>
+                                    <span className="project-tag card" >{project.Year}</span>
                                 </div>
                                 <h3 className="project-name">
                                     <a href={project.Links[0]} target='_blank' rel="noreferrer">
@@ -170,7 +170,7 @@ export default function Projects(props){
                                     </a>
                                 </h3>
                                 <p className="project-description">{project.Description}</p>
-                                <div className="project-separator" style={{backgroundColor: project.Colores[0]}}/>
+                                <div className="project-separator magic-background" />
                                 <div className='project-notes'>
                                     <ul>
                                         <Notes />
