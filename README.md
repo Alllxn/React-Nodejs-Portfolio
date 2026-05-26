@@ -128,3 +128,11 @@ Outputs the static build to `client/build/`.
 - Added `REACT_APP_API_URL` env variable to decouple frontend from backend URL
 - See [DEPLOY.md](DEPLOY.md) for full setup documentation
 
+### [2.2.0] — Pip-Boy terminal redesign
+
+- Full Pip-Boy phosphor-green theme across all sections (global layout, nav, home, footer, about, timeline, contact, projects)
+- Projects section redesigned with terminal aesthetic; carousel refactored and card assets replaced
+- Flag-based language toggle in nav with `localStorage` persistence; contact form responses localized
+- Light mode scan lines and vignette corrected to be visible on white background
+- CSS cleanup: removed dead rules, duplicates and orphan class definitions
+
