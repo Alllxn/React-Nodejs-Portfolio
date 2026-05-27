@@ -75,7 +75,7 @@
 
     #nav-right .button-group button{
         display: flex;
-        margin-bottom: 15px;
+        margin-bottom: 20px;
         justify-content: flex-end;
     }
 
@@ -200,7 +200,7 @@
 }
 
 .menu-dropdown ul li{
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     display: flex;
 }
 
