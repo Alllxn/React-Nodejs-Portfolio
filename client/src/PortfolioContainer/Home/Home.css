@@ -93,7 +93,7 @@
     color: var(--primario);
     display: flex;
     border-radius: 7px;
-    border: 1px solid #1a3d1a;
+    border: 1px solid var(--border-color);
     background-color: var(--cuarto);
     transition: transform 0.25s, background-color 0.25s, box-shadow 0.25s;
 }

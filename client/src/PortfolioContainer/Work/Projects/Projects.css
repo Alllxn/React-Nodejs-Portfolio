@@ -108,9 +108,14 @@
   background-size: cover;
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  backdrop-filter: saturate(2.5) brightness(0.85);
   mix-blend-mode: multiply;
   z-index: 1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .project-image::before{
+    backdrop-filter: saturate(2.5) brightness(0.85);
+  }
 }
 
 .project-image .project-image-container {

@@ -38,13 +38,14 @@ export default function NavContainer() {
     }
 
     const scrollControl = () => {
-        for (let i = 0; i < document.getElementsByClassName("load-animation-element").length; i++) {
-            let value = document.getElementsByClassName("load-animation-element")[i]
-
-            if(value.getBoundingClientRect().top + value.getBoundingClientRect().height > 150 && value.getBoundingClientRect().top < window.screen.height - 70){
-                value.classList.add('load-animation-element-actived');
+        const elements = document.getElementsByClassName("load-animation-element");
+        const screenHeight = window.innerHeight;
+        for (let i = 0; i < elements.length; i++) {
+            const rect = elements[i].getBoundingClientRect();
+            if(rect.top + rect.height > 150 && rect.top < screenHeight - 70){
+                elements[i].classList.add('load-animation-element-actived');
             }else{
-                value.classList.remove('load-animation-element-actived');
+                elements[i].classList.remove('load-animation-element-actived');
             }
         };
 
@@ -62,10 +63,17 @@ export default function NavContainer() {
 
     useEffect(() => {
         scrollControl();
-        window.addEventListener('scroll', function() {
-            scrollControl()
-        });
-
+        let rafPending = false;
+        const onScroll = () => {
+            if (rafPending) return;
+            rafPending = true;
+            requestAnimationFrame(() => {
+                scrollControl();
+                rafPending = false;
+            });
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        return () => window.removeEventListener('scroll', onScroll);
     }, []);
 
     useEffect(() => {

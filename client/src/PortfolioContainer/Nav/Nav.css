@@ -47,10 +47,17 @@
     }
 
     #nav-wrapper.items-nav-open{
-        background-color: rgba(8, 15, 8, 0.96);
+        background-color: var(--cuarto);
         max-height: 100%;
-        border-bottom: 1px solid #1a3d1a;
-        backdrop-filter: blur(4px);
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 20px rgba(74, 255, 119, 0.05);
+    }
+
+    @supports (backdrop-filter: blur(4px)) {
+        #nav-wrapper.items-nav-open{
+            /* background-color: rgba(1, 7, 1, 0.88); */
+            backdrop-filter: blur(4px);
+        }
     }
 
     .lang-flag-toggle {
@@ -79,7 +86,7 @@
 
 #nav-wrapper.background-actived{
     background-color: var(--cuarto);
-    border-bottom: 1px solid #1a3d1a;
+    border-bottom: 1px solid var(--border-color);
     box-shadow:
         0 4px 20px rgba(0, 0, 0, 0.6),
         0 0 20px rgba(74, 255, 119, 0.05);

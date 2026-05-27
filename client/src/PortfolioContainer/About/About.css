@@ -42,6 +42,7 @@
     background: var(--color-rainbow-animation);
     background-size: 1800% 1800%;
     animation: rainbow 4s ease-in infinite;
+    will-change: background-position;
 }
 
 .about-intro-marker{
