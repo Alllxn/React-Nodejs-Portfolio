@@ -6,6 +6,8 @@ import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
 import flagEN from '../../assets/flags/en.svg';
 import flagES from '../../assets/flags/es.svg';
+import iconSun from '../../assets/icons/sun.svg';
+import iconMoon from '../../assets/icons/moon.svg';
 
 export default function NavContainer() {
     const [ navState, setNavState ] = useState(false);
@@ -38,13 +40,14 @@ export default function NavContainer() {
     }
 
     const scrollControl = () => {
-        for (let i = 0; i < document.getElementsByClassName("load-animation-element").length; i++) {
-            let value = document.getElementsByClassName("load-animation-element")[i]
-
-            if(value.getBoundingClientRect().top + value.getBoundingClientRect().height > 150 && value.getBoundingClientRect().top < window.screen.height - 70){
-                value.classList.add('load-animation-element-actived');
+        const elements = document.getElementsByClassName("load-animation-element");
+        const screenHeight = window.innerHeight;
+        for (let i = 0; i < elements.length; i++) {
+            const rect = elements[i].getBoundingClientRect();
+            if(rect.top + rect.height > 150 && rect.top < screenHeight - 70){
+                elements[i].classList.add('load-animation-element-actived');
             }else{
-                value.classList.remove('load-animation-element-actived');
+                elements[i].classList.remove('load-animation-element-actived');
             }
         };
 
@@ -62,10 +65,17 @@ export default function NavContainer() {
 
     useEffect(() => {
         scrollControl();
-        window.addEventListener('scroll', function() {
-            scrollControl()
-        });
-
+        let rafPending = false;
+        const onScroll = () => {
+            if (rafPending) return;
+            rafPending = true;
+            requestAnimationFrame(() => {
+                scrollControl();
+                rafPending = false;
+            });
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        return () => window.removeEventListener('scroll', onScroll);
     }, []);
 
     useEffect(() => {
@@ -141,10 +151,10 @@ export default function NavContainer() {
                                 <div className={`lang-flag-knob ${lang === 'es' ? 'lang-flag-knob--toggled' : ''}`}></div>
                             </div>
                         </button>
-                        <button className="theme-toggle lang-toggle nav-item li-nav-item" onClick={toggleTheme} aria-label="Toggle theme">
-                            <span className='icon-container'>
-                                <FontAwesomeIcon icon={theme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon'} size='lg'/>
-                            </span>
+                        <button className="theme-toggle li-nav-item" onClick={toggleTheme} aria-label="Toggle theme">
+                            <div className="theme-track" style={{ backgroundImage: `url(${theme === 'dark' ? iconMoon : iconSun})` }}>
+                                <div className={`theme-knob ${theme === 'light' ? 'theme-knob--toggled' : ''}`}></div>
+                            </div>
                         </button>
                     </div>
                 </div>

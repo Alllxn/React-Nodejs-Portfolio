@@ -74,8 +74,10 @@ main .component{
 
 /* Scanlines */
 main::before {
+  height: 150%;
+  margin-top: -50px;
   content: "";
-  position: absolute;
+  position: fixed;
   inset: 0;
   background: repeating-linear-gradient(
     0deg,
@@ -93,12 +95,13 @@ main::before {
     inset 0 0 60px  rgba(0, 0, 0, 0.95),
     inset 0 0 120px rgba(0, 0, 0, 0.7),
     inset 0 0 20px  rgba(74, 255, 119, 0.04);
+  will-change: transform;
 }
 
 /* Interference bands (moving) */
 main::after {
   content: "";
-  position: absolute;
+  position: fixed;
   inset: 0;
   background: repeating-linear-gradient(
     180deg,
@@ -116,6 +119,7 @@ main::after {
   pointer-events: none;
   z-index: 11;
   animation: pipboy-scan 14s linear infinite;
+  will-change: background-position;
 }
 
 @keyframes pipboy-scan {
@@ -249,7 +253,8 @@ h2.load-animation-element.load-animation-element-actived::after{
   bottom: -3px;
   transition: 0.5s;
   animation: rainbow 4s ease-in infinite;
-  margin: 0 auto ;
+  margin: 0 auto;
+  will-change: background-position;
 }
 
 .magic-background,
@@ -257,6 +262,7 @@ h2.load-animation-element.load-animation-element-actived::after{
   background: var(--color-rainbow-animation);
   background-size: 5000px 5000px;
   animation: rainbow 10s ease infinite;
+  will-change: background-position;
 }
 
 .magic-background-underline{

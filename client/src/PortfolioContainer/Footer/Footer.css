@@ -1,6 +1,6 @@
 #footer-container{
     background-color: var(--cuarto);
-    border-top: 1px solid #1a3d1a;
+    border-top: 1px solid var(--border-color);
     box-shadow: 0 -4px 30px rgba(74, 255, 119, 0.04);
     padding: 55px 10% 24px;
     color: var(--secundario);
@@ -147,7 +147,7 @@
     max-width: 1000px;
     margin: 35px auto 0;
     padding-top: 20px;
-    border-top: 1px solid #1a3d1a;
+    border-top: 1px solid var(--border-color);
     text-align: center;
 }
 
