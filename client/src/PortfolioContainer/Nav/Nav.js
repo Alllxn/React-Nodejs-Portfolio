@@ -6,6 +6,8 @@ import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
 import flagEN from '../../assets/flags/en.svg';
 import flagES from '../../assets/flags/es.svg';
+import iconSun from '../../assets/icons/sun.svg';
+import iconMoon from '../../assets/icons/moon.svg';
 
 export default function NavContainer() {
     const [ navState, setNavState ] = useState(false);
@@ -149,10 +151,10 @@ export default function NavContainer() {
                                 <div className={`lang-flag-knob ${lang === 'es' ? 'lang-flag-knob--toggled' : ''}`}></div>
                             </div>
                         </button>
-                        <button className="theme-toggle lang-toggle nav-item li-nav-item" onClick={toggleTheme} aria-label="Toggle theme">
-                            <span className='icon-container'>
-                                <FontAwesomeIcon icon={theme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon'} size='lg'/>
-                            </span>
+                        <button className="theme-toggle li-nav-item" onClick={toggleTheme} aria-label="Toggle theme">
+                            <div className="theme-track" style={{ backgroundImage: `url(${theme === 'dark' ? iconMoon : iconSun})` }}>
+                                <div className={`theme-knob ${theme === 'light' ? 'theme-knob--toggled' : ''}`}></div>
+                            </div>
                         </button>
                     </div>
                 </div>

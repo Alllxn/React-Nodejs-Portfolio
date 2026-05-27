@@ -72,6 +72,16 @@ body.theme-light main::before {
   );
 }
 
+body.theme-light .theme-track {
+  background-position-x: 5px;
+  background-size: 12px;
+  background-position-y: 4px;
+}
+
+body.theme-light .theme-track .theme-knob{
+  background: var(--cuarto);
+}
+
 body.theme-dark #nav-container .nav-item:hover span{
   /* text-shadow: var(--custom-text-shadow); */
   filter: drop-shadow(var(--custom-text-shadow));
