@@ -82,6 +82,14 @@ body.theme-light .theme-track .theme-knob{
   background: var(--cuarto);
 }
 
+body.theme-light .project-card {
+  background: transparent;
+}
+
+body.theme-light .project-image .project-image-container{
+  background: rgba(255, 255, 255, 0.3);
+}
+
 body.theme-dark #nav-container .nav-item:hover span{
   /* text-shadow: var(--custom-text-shadow); */
   filter: drop-shadow(var(--custom-text-shadow));
