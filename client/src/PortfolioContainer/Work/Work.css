@@ -5,10 +5,11 @@
     justify-content: center;
     width: 100%;
     counter-reset: pipboy-entry;
+    gap: 30px;
 }
 
 @media only screen and (min-width: 769px) {
     #work-container ol#work-wrap{
-        justify-content: space-between;      
+        justify-content: center;      
     }
 }
