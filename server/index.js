@@ -20,14 +20,23 @@ const messages = {
   en: { success: "Email sent!", error: "Error sending the email." },
 };
 
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 router.post("/contact", async (req, res) => {
   const { name, email, subject, message, lang } = req.body;
   const msg = messages[lang] ?? messages.en;
 
+  if (!name?.trim() || !subject?.trim() || !message?.trim()) {
+    return res.status(400).json({ status: false, message: msg.error });
+  }
+  if (!email?.trim() || !emailRegex.test(email)) {
+    return res.status(400).json({ status: false, message: msg.error });
+  }
+
   const { error } = await resend.emails.send({
     from: "Portfolio <contact@allandev.es>",
     to: "contact@allandev.es",
-    subject: `${subject} (Email send from Portfolio)`,
+    subject: `${subject} (Email sent from Portfolio)`,
     html: `<p>Name: ${name}</p><p>Email: ${email}</p><p>Message: ${message}</p>`,
     reply_to: email,
   });
