@@ -4,11 +4,12 @@ require("dotenv").config();
 const express = require("express");
 const router = express.Router();
 const cors = require("cors");
+const rateLimit = require("express-rate-limit");
 const { Resend } = require("resend");
 const PORT = process.env.PORT || 3001;
 
 const app = express();
-app.use(cors());
+app.use(cors({ origin: process.env.CORS_ORIGIN || "http://localhost:3000" }));
 app.use(express.json());
 app.use("/", router);
 app.listen(PORT, () => console.log("Server Running | " + PORT));
@@ -20,14 +21,30 @@ const messages = {
   en: { success: "Email sent!", error: "Error sending the email." },
 };
 
-router.post("/contact", async (req, res) => {
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const contactLimiter = rateLimit({
+  windowMs: 10 * 60 * 1000,
+  max: 5,
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
+router.post("/contact", contactLimiter, async (req, res) => {
   const { name, email, subject, message, lang } = req.body;
   const msg = messages[lang] ?? messages.en;
+
+  if (!name?.trim() || !subject?.trim() || !message?.trim()) {
+    return res.status(400).json({ status: false, message: msg.error });
+  }
+  if (!email?.trim() || !emailRegex.test(email)) {
+    return res.status(400).json({ status: false, message: msg.error });
+  }
 
   const { error } = await resend.emails.send({
     from: "Portfolio <contact@allandev.es>",
     to: "contact@allandev.es",
-    subject: `${subject} (Email send from Portfolio)`,
+    subject: `${subject} (Email sent from Portfolio)`,
     html: `<p>Name: ${name}</p><p>Email: ${email}</p><p>Message: ${message}</p>`,
     reply_to: email,
   });
