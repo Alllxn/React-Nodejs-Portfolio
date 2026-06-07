@@ -361,6 +361,16 @@ textarea{
   transform: rotate(180deg);
 }
 
+.input-error.privacy-consent-error{
+  margin-bottom: 20px;
+}
+
+.input-error.privacy-consent-error::before{
+  right: unset;
+  left: 25px;
+  top: -40px;
+}
+
 .button-cta{
   display: flex;
   flex-basis: 100%;

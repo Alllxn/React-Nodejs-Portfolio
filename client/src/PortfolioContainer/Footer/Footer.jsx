@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Footer.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-scroll';
 import { useLanguage } from '../../context/LanguageContext';
+import PrivacyPolicy from './PrivacyPolicy';
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
     const { t } = useLanguage();
+    const [showPrivacy, setShowPrivacy] = useState(false);
     const f = t.footer;
 
     return (
@@ -67,7 +69,11 @@ export default function Footer() {
             </div>
             <div id="footer-bottom">
                 <p>© {currentYear} Allan Bastian Espinoza Ibañez. {f.copyright}</p>
+                <button id="footer-privacy-link" onClick={() => setShowPrivacy(true)}>
+                    {t.footer.privacyPolicy}
+                </button>
             </div>
+            {showPrivacy && <PrivacyPolicy onClose={() => setShowPrivacy(false)} />}
         </footer>
     )
 }

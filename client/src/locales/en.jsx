@@ -194,6 +194,9 @@ export const en = {
             serverError: "Can't connect with server...",
             empty: 'This field cannot be empty.',
             invalidEmail: 'This e-mail format is not correct. Example: username@domain.com',
+            privacyConsent: 'I have read and accept the',
+            privacyLink: 'privacy policy',
+            privacyError: 'You must accept the privacy policy to send the form.',
         },
     },
     footer: {
@@ -202,5 +205,37 @@ export const en = {
         explore: 'Explore',
         connect: "Let's Connect",
         copyright: 'Designed and built with React.',
+        privacyPolicy: 'Privacy Policy',
+    },
+    privacy: {
+        trigger: 'Privacy Policy',
+        title: 'Privacy Policy',
+        lastUpdated: 'Last updated: June 2025',
+        sections: [
+            {
+                title: '1. Data Controller',
+                content: 'Allan Bastian Espinoza Ibañez · contact@allandev.es · allandev.es',
+            },
+            {
+                title: '2. Data Collected',
+                content: 'Through the contact form the following data is collected: full name, email address, subject and message. No sensitive personal data is collected.',
+            },
+            {
+                title: '3. Purpose and Legal Basis',
+                content: 'Your data is used solely to respond to your enquiry. The legal basis is your consent, given when you submit the form.',
+            },
+            {
+                title: '4. Retention Period',
+                content: 'Data is kept only as long as needed to handle your enquiry and is not stored in any database.',
+            },
+            {
+                title: '5. Third Parties',
+                content: 'Messages are sent via Resend (resend.com), an email delivery service based in the US with an adequate level of GDPR protection. No data is shared with any other third party.',
+            },
+            {
+                title: '6. Your Rights',
+                content: 'You may exercise your rights of access, rectification, erasure, restriction and portability by writing to contact@allandev.es. You may also lodge a complaint with your local data protection authority.',
+            },
+        ],
     },
 };

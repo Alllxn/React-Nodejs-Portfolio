@@ -194,6 +194,9 @@ export const es = {
             serverError: 'No se puede conectar con el servidor...',
             empty: 'Este campo no puede estar vacío.',
             invalidEmail: 'El formato del correo no es correcto. Ejemplo: usuario@dominio.com',
+            privacyConsent: 'He leído y acepto la',
+            privacyLink: 'política de privacidad',
+            privacyError: 'Debes aceptar la política de privacidad para enviar el formulario.',
         },
     },
     footer: {
@@ -202,5 +205,37 @@ export const es = {
         explore: 'Explorar',
         connect: 'Conectemos',
         copyright: 'Diseñado y construido con React.',
+        privacyPolicy: 'Política de Privacidad',
+    },
+    privacy: {
+        trigger: 'Política de Privacidad',
+        title: 'Política de Privacidad',
+        lastUpdated: 'Última actualización: junio 2025',
+        sections: [
+            {
+                title: '1. Responsable del tratamiento',
+                content: 'Allan Bastian Espinoza Ibañez · contact@allandev.es · allandev.es',
+            },
+            {
+                title: '2. Datos que se recopilan',
+                content: 'A través del formulario de contacto se recogen: nombre completo, dirección de correo electrónico, asunto y mensaje. No se recopilan datos especialmente sensibles.',
+            },
+            {
+                title: '3. Finalidad y base legal',
+                content: 'Los datos se utilizan exclusivamente para responder a tu consulta. La base legal es tu consentimiento, otorgado al enviar el formulario.',
+            },
+            {
+                title: '4. Conservación de los datos',
+                content: 'Los datos se conservan el tiempo necesario para atender tu consulta y no se almacenan en ninguna base de datos propia.',
+            },
+            {
+                title: '5. Destinatarios (terceros)',
+                content: 'El mensaje se envía a través de Resend (resend.com), servicio de envío de correo electrónico con sede en EE. UU. y adecuado nivel de protección bajo GDPR. No se ceden datos a ningún otro tercero.',
+            },
+            {
+                title: '6. Tus derechos',
+                content: 'Puedes ejercer tus derechos de acceso, rectificación, supresión, limitación y portabilidad escribiendo a contact@allandev.es. También puedes reclamar ante la Agencia Española de Protección de Datos (aepd.es).',
+            },
+        ],
     },
 };
