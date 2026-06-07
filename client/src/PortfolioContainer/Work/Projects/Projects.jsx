@@ -3,6 +3,9 @@ import './Projects.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useLanguage } from '../../../context/LanguageContext';
 
+const workImages = import.meta.glob('../../../assets/work/**/*', { eager: true, import: 'default' });
+const getImage = (path) => workImages['../../../assets/work' + path];
+
 export default function Projects(props){
     const project = props.project;
     const { t } = useLanguage();
@@ -36,9 +39,9 @@ export default function Projects(props){
     // display every image of the project
     const ProjectImages = () => project.Images.map(function(object, i){
         return(
-            <img 
-                alt={project.Name} 
-                src={require('../../../assets/work' + object)}
+            <img
+                alt={project.Name}
+                src={getImage(object)}
                 key={i}
                 id={'imagen_' + i}
             />
@@ -111,13 +114,11 @@ export default function Projects(props){
     return(
         <li className="project-container">
             <button className="project-card load-animation-element card" onClick={() => {controlOpenDetails('open')}}>
-                <div className="project-image" style={{backgroundImage: `
-                url(${require('../../../assets/work' + project.CoverBackground)})
-                `, }}>
+                <div className="project-image" style={{ backgroundImage: `url(${getImage(project.CoverBackground)})` }}>
                     <div className="project-image-container">
-                        <img 
-                            alt={project.Name} 
-                            src={require('../../../assets/work' + project.Cover)} 
+                        <img
+                            alt={project.Name}
+                            src={getImage(project.Cover)}
                         />
                     </div>
                     <div className="project-show-more">
