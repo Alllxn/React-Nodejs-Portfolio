@@ -4,6 +4,7 @@ require("dotenv").config();
 const express = require("express");
 const router = express.Router();
 const cors = require("cors");
+const rateLimit = require("express-rate-limit");
 const { Resend } = require("resend");
 const PORT = process.env.PORT || 3001;
 
@@ -22,7 +23,14 @@ const messages = {
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-router.post("/contact", async (req, res) => {
+const contactLimiter = rateLimit({
+  windowMs: 10 * 60 * 1000,
+  max: 5,
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
+router.post("/contact", contactLimiter, async (req, res) => {
   const { name, email, subject, message, lang } = req.body;
   const msg = messages[lang] ?? messages.en;
 
