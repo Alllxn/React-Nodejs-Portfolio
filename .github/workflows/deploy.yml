@@ -26,7 +26,7 @@ jobs:
       - name: Build React app
         run: npm run build
         env:
-          REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
+          VITE_API_URL: ${{ secrets.VITE_API_URL }}
 
       - name: Setup SSH key
         run: |
@@ -46,7 +46,7 @@ jobs:
           USER=$(printf '%s' "$SSH_USER" | tr -d '[:space:]')
           PORT=$(printf '%s' "$SSH_PORT" | tr -d '[:space:]')
           DEST=$(printf '%s' "$SSH_PATH" | tr -d '\n\r')
-          rsync -avz --delete -e "ssh -i ~/.ssh/id_ed25519 -p $PORT -o StrictHostKeyChecking=no" client/build/ "$USER@$HOST:$DEST"
+          rsync -avz --delete -e "ssh -i ~/.ssh/id_ed25519 -p $PORT -o StrictHostKeyChecking=no" client/dist/ "$USER@$HOST:$DEST"
 
       - name: Trigger Render deploy
         env:

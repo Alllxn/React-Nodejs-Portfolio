@@ -83,7 +83,7 @@ export function Contact() {
             lang,
         };
 
-        let response = await fetch(`${process.env.REACT_APP_API_URL || ''}/contact`, {
+        let response = await fetch(`${import.meta.env.VITE_API_URL || ''}/contact`, {
             method: "POST",
             headers: { "Content-Type": "application/json;charset=utf-8" },
             body: JSON.stringify(details),

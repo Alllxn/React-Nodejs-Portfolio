@@ -10,7 +10,7 @@ Documentación completa para reproducir el entorno de producción desde cero.
 git push origin main
         │
         ├── GitHub Actions
-        │       ├── Build React (client/build/)
+        │       ├── Build Vite (client/dist/)
         │       ├── rsync → IONOS /home/www/public/   (frontend estático)
         │       └── curl deploy hook → Render          (trigger backend)
         │
@@ -40,16 +40,16 @@ git push origin main
 ### `.github/workflows/deploy.yml`
 Workflow de GitHub Actions. Se dispara en cada push a `main`:
 1. Instala dependencias del cliente
-2. Hace el build de React con `REACT_APP_API_URL` inyectada
-3. Sube `client/build/` a IONOS vía rsync/SSH
+2. Hace el build de Vite con `VITE_API_URL` inyectada
+3. Sube `client/dist/` a IONOS vía rsync/SSH
 4. Llama al deploy hook de Render para actualizar el backend
 
 ### `client/.env.production`
 ```
-REACT_APP_API_URL=https://react-nodejs-portfolio.onrender.com
+VITE_API_URL=https://react-nodejs-portfolio.onrender.com
 ```
 > Este archivo está en `.gitignore`. No se sube al repo. El valor se pasa
-> como secreto de GitHub Actions en el build (secreto `REACT_APP_API_URL`).
+> como secreto de GitHub Actions en el build (secreto `VITE_API_URL`).
 
 ### `server/.env`
 ```
@@ -72,7 +72,7 @@ Configurar en: **GitHub → repo → Settings → Secrets and variables → Acti
 | `SSH_PORT` | Puerto SSH de IONOS | Panel IONOS → Acceso SSH/FTP |
 | `SSH_USER` | Usuario SSH de IONOS | Panel IONOS → Acceso SSH/FTP (ej: `su76212`) |
 | `SSH_PATH` | Ruta web en el servidor | `/home/www/public/` |
-| `REACT_APP_API_URL` | URL del backend en Render | `https://react-nodejs-portfolio.onrender.com` |
+| `VITE_API_URL` | URL del backend en Render | `https://react-nodejs-portfolio.onrender.com` |
 | `RENDER_DEPLOY_HOOK` | URL para disparar deploy en Render | Render → Settings → Deploy Hook |
 
 ---
