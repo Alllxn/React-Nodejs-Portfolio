@@ -130,7 +130,7 @@ export function Contact() {
                 <aside id="contact-links">
                     <ul>
                         <li className='load-animation-element'>
-                            <a href="mailto:contact@allandev.es" id="button-hire-me" className="button-cta card">
+                            <a href="mailto:contact@allandev.es" className="button-cta card">
                                 <span className="magic-background">
                                     <FontAwesomeIcon icon="fa-solid fa-envelope"/>
                                 </span>
@@ -138,7 +138,7 @@ export function Contact() {
                             </a>
                         </li>
                         <li className='load-animation-element'>
-                            <a href="tel:+34628766431" id="button-hire-me" className="button-cta card">
+                            <a href="tel:+34628766431" className="button-cta card">
                                 <span className="magic-background">
                                     <FontAwesomeIcon icon="fa-solid fa-phone"/>
                                 </span>
@@ -243,6 +243,7 @@ export function Contact() {
                                 name="message"
                                 placeholder={f.message}
                                 className="card"
+                                maxLength="3000"
                                 onChange={(e) => insertData(e)}
                             />
                             {formData.message.error.exist && (

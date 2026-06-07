@@ -73,7 +73,7 @@
     border-top: 1px solid var(--border-color);
 }
 
-#footer-privacy-link {
+.footer-privacy-link {
     background: none;
     border: none;
     color: var(--secundario);
@@ -87,7 +87,7 @@
     text-align: left;
 }
 
-#footer-privacy-link:hover {
+.footer-privacy-link:hover {
     color: var(--primario);
     opacity: 1;
 }

@@ -15,7 +15,6 @@ export default function NavContainer() {
     const { theme, toggleTheme } = useTheme();
 
     const controllNav = (event) => {
-        console.log('aqyu');
         event.stopPropagation();
         if(!navState){
             setNavState(true);
@@ -88,7 +87,7 @@ export default function NavContainer() {
             <div id="nav-wrapper">
                 <div id='nav-left' className='part-nav'>
                     <a href='.' id='link-home'>
-                        <img className='magic-background' id='imagen-nav' src='/extraterrestre.png' alt='alien-cabecera'></img>
+                        <img className='magic-background' id='imagen-nav' src='/extraterrestre.png' alt='alien-con-fondo-de-estrellas'></img>
                         <div>
                             <p className="nav-myname nav-myname-name">Allan Espinoza</p>
                             <p className="nav-myname nav-myname-desc">$ Web Developer</p>
@@ -121,7 +120,7 @@ export default function NavContainer() {
                         <li className='li-nav-item'>
                             <Link offset={-250} className="nav-item" activeClass="actived-link" spy to="timeline-container" smooth={true} duration={100}>
                                 <span className='icon-container'>
-                                    <FontAwesomeIcon icon="fa-solid fa-house-chimney" size='lg'/>
+                                    <FontAwesomeIcon icon="fa-solid fa-history" size='lg'/>
                                 </span>
                                 <span className='magic-clasp'>{t.nav.timeline}</span>
                             </Link>
@@ -129,7 +128,7 @@ export default function NavContainer() {
                         <li className='li-nav-item'>
                             <Link offset={-250} className="nav-item" activeClass="actived-link" spy to="work-container" smooth={true} duration={100}>
                                 <span className='icon-container'>
-                                    <FontAwesomeIcon icon="fa-solid fa-history" size='lg'/>
+                                    <FontAwesomeIcon icon="fa-solid fa-layer-group" size='lg'/>
                                 </span>
                                 <span className='magic-clasp'>{t.nav.projects}</span>
                             </Link>

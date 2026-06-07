@@ -72,10 +72,10 @@ export default function Footer() {
             </div>
             <div id="footer-bottom">
                 <p>© {currentYear} Allan Bastian Espinoza Ibañez. {f.copyright}</p>
-                <button id="footer-privacy-link" onClick={() => setShowPrivacy(true)}>
+                <button className="footer-privacy-link" onClick={() => setShowPrivacy(true)}>
                     {t.footer.privacyPolicy}
                 </button>
-                <button id="footer-privacy-link" onClick={() => setShowCookiePolicy(true)}>
+                <button className="footer-privacy-link" onClick={() => setShowCookiePolicy(true)}>
                     {t.cookies.policyLink}
                 </button>
             </div>

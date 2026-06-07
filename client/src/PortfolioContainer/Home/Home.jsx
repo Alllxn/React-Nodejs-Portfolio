@@ -14,7 +14,7 @@ export function Home() {
             <div id='home-container' className='component load-animation-element'>
                 <div id="presentation-content">
                     <div id='presentation-content-image' className="magic-background card">
-                        <img src={me} alt='me' id='presentation-image'/>
+                        <img src={me} alt='Allan Bastian Espinoza Ibanez' id='presentation-image'/>
                     </div>
                     <div id='presentation-content-text'>
                         <h1 className='magic-background-underline'>Allan Bastian Espinoza Ibañez</h1>

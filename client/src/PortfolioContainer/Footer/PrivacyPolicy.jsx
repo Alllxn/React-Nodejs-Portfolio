@@ -11,7 +11,7 @@ export default function PrivacyPolicy({ onClose }) {
         const handleKey = (e) => { if (e.key === 'Escape') onClose(); };
         window.addEventListener('keydown', handleKey);
         return () => {
-            document.body.style.overflow = '';
+            document.body.style.overflow = 'overlay';
             window.removeEventListener('keydown', handleKey);
         };
     }, [onClose]);
