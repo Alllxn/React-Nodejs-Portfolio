@@ -126,6 +126,12 @@
     transition: background-color 9999s ease-in-out 0s;
 }
 
+
+
+#contact-container #form-contact #form-contact-submit #form-privacy-consent{
+    margin-bottom: 20px;
+}
+
 #contact-container #form-contact #form-contact-submit.form-contact-part{
     position: relative;
     flex-basis: 100%;
@@ -230,4 +236,63 @@
     100% {
         transform: rotate(360deg);
     }
+}
+
+#form-privacy-consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: pointer;
+    margin-bottom: 4px;
+}
+
+#form-privacy-consent input[type="checkbox"] {
+    margin-top: 3px;
+    accent-color: var(--primario);
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    position: relative;
+}
+
+#form-privacy-consent input[type="checkbox"]::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--secundario);
+}
+
+#form-privacy-consent input[type="checkbox"]:checked::after {
+    display: none;
+}
+
+
+#form-privacy-consent span {
+    font-size: 0.88rem;
+    color: var(--secundario);
+    opacity: 0.8;
+    line-height: 1.5;
+}
+
+.privacy-inline-link {
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--primario);
+    cursor: pointer;
+    font-size: inherit;
+    text-decoration: underline;
+    opacity: 0.9;
+    transition: opacity 0.2s;
+}
+
+.privacy-inline-link:hover {
+    opacity: 1;
+}
+
+.privacy-consent-error {
+    margin-top: 2px;
+    margin-bottom: 6px;
 }

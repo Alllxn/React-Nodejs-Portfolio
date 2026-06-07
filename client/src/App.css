@@ -5,7 +5,6 @@ html {
 #App{
   height: 100%;
   position: relative;
-  overflow-x: hidden;
 }
 
 header,
@@ -359,6 +358,16 @@ textarea{
   top:-50px;
   right: 25px;
   transform: rotate(180deg);
+}
+
+.input-error.privacy-consent-error{
+  margin-bottom: 20px;
+}
+
+.input-error.privacy-consent-error::before{
+  right: unset;
+  left: 25px;
+  top: -40px;
 }
 
 .button-cta{

@@ -19,6 +19,7 @@ export function LanguageProvider({ children }) {
     useEffect(() => {
         document.body.classList.remove('lang-en', 'lang-es');
         document.body.classList.add(`lang-${lang}`);
+        document.documentElement.lang = lang;
         localStorage.setItem('lang', lang);
     }, [lang]);
 

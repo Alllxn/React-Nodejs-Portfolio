@@ -90,6 +90,34 @@ body.theme-light .project-image .project-image-container{
   background: rgba(255, 255, 255, 0.3);
 }
 
+body.theme-light::-webkit-scrollbar-thumb {
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.18) 2px,
+      rgba(0, 0, 0, 0.18) 4px
+    ),
+    var(--secundario) !important;
+}
+
+body.theme-light::-webkit-scrollbar-thumb:hover {
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.18) 2px,
+      rgba(0, 0, 0, 0.18) 4px
+    ),
+    var(--primario) !important;
+}
+
+body.theme-light .project-screen::-webkit-scrollbar-thumb{
+  border: 3px solid #313131;
+}
+
 body.theme-dark #nav-container .nav-item:hover span{
   /* text-shadow: var(--custom-text-shadow); */
   filter: drop-shadow(var(--custom-text-shadow));
@@ -137,4 +165,79 @@ body {
 
 code {
   font-family: "Share Tech Mono", monospace;
+}
+
+
+
+/* ═══ SCROLLBAR ═══════════════════════════════════════════════════ */
+
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.18) 2px,
+      rgba(0, 0, 0, 0.18) 4px
+    ),
+    var(--secundario);
+  border-radius: 6px;
+  border: 3px solid var(--terciario);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.18) 2px,
+      rgba(0, 0, 0, 0.18) 4px
+    ),
+    var(--primario);
+}
+
+body::-webkit-scrollbar-thumb {
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.18) 2px,
+      rgba(0, 0, 0, 0.18) 4px
+    ),
+    #185327;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.18) 2px,
+      rgba(0, 0, 0, 0.18) 4px
+    ),
+    #206934;
+}
+
+*::-webkit-scrollbar-button {
+  display: none;
+}
+
+@media (pointer: coarse) {
+  * {
+    scrollbar-width: none;
+  }
+  *::-webkit-scrollbar {
+    width: 0;
+  }
 }

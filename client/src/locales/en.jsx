@@ -194,6 +194,9 @@ export const en = {
             serverError: "Can't connect with server...",
             empty: 'This field cannot be empty.',
             invalidEmail: 'This e-mail format is not correct. Example: username@domain.com',
+            privacyConsent: 'I have read and accept the',
+            privacyLink: 'privacy policy',
+            privacyError: 'You must accept the privacy policy to send the form.',
         },
     },
     footer: {
@@ -202,5 +205,67 @@ export const en = {
         explore: 'Explore',
         connect: "Let's Connect",
         copyright: 'Designed and built with React.',
+        privacyPolicy: 'Privacy Policy',
+    },
+    cookies: {
+        bannerText: 'This site uses Google Analytics to understand how it is visited. You can accept or reject analytics cookies. Essential cookies (language, theme) are always active.',
+        accept: 'Accept',
+        reject: 'Essential only',
+        policyLink: 'Cookie policy',
+        policyTitle: 'Cookie Policy',
+        policyLastUpdated: 'Last updated: June 2025',
+        sections: [
+            {
+                title: '1. What are cookies?',
+                content: 'Cookies are small files stored on your device when you visit a website. This site uses two types: essential cookies and analytics cookies.',
+            },
+            {
+                title: '2. Essential cookies (always active)',
+                content: 'We store your language (ES/EN) and theme (light/dark) preference in localStorage. These are required for basic functionality and do not need consent.',
+            },
+            {
+                title: '3. Analytics cookies (require consent)',
+                content: 'We use Google Analytics 4 (ID: G-HGG7TNSY9C) to analyse traffic anonymously. Google Analytics may set cookies _ga and _ga_XXXXXX lasting up to 2 years. These are only activated if you accept.',
+            },
+            {
+                title: '4. Third-party cookies',
+                content: 'Google Analytics is operated by Google LLC. You can read their privacy policy at policies.google.com/privacy.',
+            },
+            {
+                title: '5. Withdrawing consent',
+                content: 'You can change your preference at any time by clicking "Cookie Policy" in the footer.',
+            },
+        ],
+    },
+    privacy: {
+        trigger: 'Privacy Policy',
+        title: 'Privacy Policy',
+        lastUpdated: 'Last updated: June 2025',
+        sections: [
+            {
+                title: '1. Data Controller',
+                content: 'Allan Bastian Espinoza Ibañez · contact@allandev.es · allandev.es',
+            },
+            {
+                title: '2. Data Collected',
+                content: 'Through the contact form the following data is collected: full name, email address, subject and message. No sensitive personal data is collected.',
+            },
+            {
+                title: '3. Purpose and Legal Basis',
+                content: 'Your data is used solely to respond to your enquiry. The legal basis is your consent, given when you submit the form.',
+            },
+            {
+                title: '4. Retention Period',
+                content: 'Data is kept only as long as needed to handle your enquiry and is not stored in any database.',
+            },
+            {
+                title: '5. Third Parties',
+                content: 'Messages are sent via Resend (resend.com), an email delivery service based in the US with an adequate level of GDPR protection. No data is shared with any other third party.',
+            },
+            {
+                title: '6. Your Rights',
+                content: 'You may exercise your rights of access, rectification, erasure, restriction and portability by writing to contact@allandev.es. You may also lodge a complaint with your local data protection authority.',
+            },
+        ],
     },
 };

@@ -194,6 +194,9 @@ export const es = {
             serverError: 'No se puede conectar con el servidor...',
             empty: 'Este campo no puede estar vacío.',
             invalidEmail: 'El formato del correo no es correcto. Ejemplo: usuario@dominio.com',
+            privacyConsent: 'He leído y acepto la',
+            privacyLink: 'política de privacidad',
+            privacyError: 'Debes aceptar la política de privacidad para enviar el formulario.',
         },
     },
     footer: {
@@ -202,5 +205,67 @@ export const es = {
         explore: 'Explorar',
         connect: 'Conectemos',
         copyright: 'Diseñado y construido con React.',
+        privacyPolicy: 'Política de Privacidad',
+    },
+    cookies: {
+        bannerText: 'Este sitio usa Google Analytics para entender cómo se visita. Puedes aceptar o rechazar las cookies analíticas. Las cookies esenciales (idioma, tema) siempre están activas.',
+        accept: 'Aceptar',
+        reject: 'Solo esenciales',
+        policyLink: 'Ver política de cookies',
+        policyTitle: 'Política de Cookies',
+        policyLastUpdated: 'Última actualización: junio 2025',
+        sections: [
+            {
+                title: '1. ¿Qué son las cookies?',
+                content: 'Las cookies son pequeños archivos que se almacenan en tu dispositivo cuando visitas un sitio web. Este sitio usa dos tipos: cookies esenciales y cookies analíticas.',
+            },
+            {
+                title: '2. Cookies esenciales (siempre activas)',
+                content: 'Guardamos tu preferencia de idioma (ES/EN) y tema (claro/oscuro) en localStorage. Son necesarias para el funcionamiento básico y no requieren consentimiento.',
+            },
+            {
+                title: '3. Cookies analíticas (requieren consentimiento)',
+                content: 'Usamos Google Analytics 4 (ID: G-HGG7TNSY9C) para analizar el tráfico de forma anónima. Google Analytics puede establecer las cookies _ga y _ga_XXXXXX con una duración de hasta 2 años. Solo se activan si aceptas.',
+            },
+            {
+                title: '4. Cookies de terceros',
+                content: 'Google Analytics es operado por Google LLC. Puedes consultar su política de privacidad en policies.google.com/privacy.',
+            },
+            {
+                title: '5. Cómo retirar el consentimiento',
+                content: 'Puedes cambiar tu preferencia en cualquier momento haciendo clic en "Política de Cookies" en el pie de página.',
+            },
+        ],
+    },
+    privacy: {
+        trigger: 'Política de Privacidad',
+        title: 'Política de Privacidad',
+        lastUpdated: 'Última actualización: junio 2025',
+        sections: [
+            {
+                title: '1. Responsable del tratamiento',
+                content: 'Allan Bastian Espinoza Ibañez · contact@allandev.es · allandev.es',
+            },
+            {
+                title: '2. Datos que se recopilan',
+                content: 'A través del formulario de contacto se recogen: nombre completo, dirección de correo electrónico, asunto y mensaje. No se recopilan datos especialmente sensibles.',
+            },
+            {
+                title: '3. Finalidad y base legal',
+                content: 'Los datos se utilizan exclusivamente para responder a tu consulta. La base legal es tu consentimiento, otorgado al enviar el formulario.',
+            },
+            {
+                title: '4. Conservación de los datos',
+                content: 'Los datos se conservan el tiempo necesario para atender tu consulta y no se almacenan en ninguna base de datos propia.',
+            },
+            {
+                title: '5. Destinatarios (terceros)',
+                content: 'El mensaje se envía a través de Resend (resend.com), servicio de envío de correo electrónico con sede en EE. UU. y adecuado nivel de protección bajo GDPR. No se ceden datos a ningún otro tercero.',
+            },
+            {
+                title: '6. Tus derechos',
+                content: 'Puedes ejercer tus derechos de acceso, rectificación, supresión, limitación y portabilidad escribiendo a contact@allandev.es. También puedes reclamar ante la Agencia Española de Protección de Datos (aepd.es).',
+            },
+        ],
     },
 };

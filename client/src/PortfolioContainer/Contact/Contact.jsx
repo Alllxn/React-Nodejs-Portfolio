@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Contact.css';
 import { useLanguage } from '../../context/LanguageContext';
+import PrivacyPolicy from '../Footer/PrivacyPolicy';
 
 export function Contact() {
     const { t, lang } = useLanguage();
@@ -58,8 +59,15 @@ export function Contact() {
         return empty;
     };
 
-    const verifyInputs = () =>
-        !verifyName() && !verifyEmail() && !verifySubject() && !verifyMessage();
+    const verifyInputs = () => {
+        const noPrivacy = !privacyAccepted;
+        setPrivacyError(noPrivacy);
+        return !verifyName() && !verifyEmail() && !verifySubject() && !verifyMessage() && !noPrivacy;
+    };
+
+    const [privacyAccepted, setPrivacyAccepted] = useState(false);
+    const [privacyError, setPrivacyError] = useState(false);
+    const [showPrivacy, setShowPrivacy] = useState(false);
 
     // submitStatus: 'waiting' | 'sending' | 'success' | 'check-errors' | 'server-error'
     const [submitStatus, setSubmitStatus] = useState('waiting');
@@ -122,7 +130,7 @@ export function Contact() {
                 <aside id="contact-links">
                     <ul>
                         <li className='load-animation-element'>
-                            <a href="mailto:contact@allandev.es" id="button-hire-me" className="button-cta card">
+                            <a href="mailto:contact@allandev.es" className="button-cta card">
                                 <span className="magic-background">
                                     <FontAwesomeIcon icon="fa-solid fa-envelope"/>
                                 </span>
@@ -130,7 +138,7 @@ export function Contact() {
                             </a>
                         </li>
                         <li className='load-animation-element'>
-                            <a href="tel:+34628766431" id="button-hire-me" className="button-cta card">
+                            <a href="tel:+34628766431" className="button-cta card">
                                 <span className="magic-background">
                                     <FontAwesomeIcon icon="fa-solid fa-phone"/>
                                 </span>
@@ -235,6 +243,7 @@ export function Contact() {
                                 name="message"
                                 placeholder={f.message}
                                 className="card"
+                                maxLength="3000"
                                 onChange={(e) => insertData(e)}
                             />
                             {formData.message.error.exist && (
@@ -246,6 +255,28 @@ export function Contact() {
                         </label>
                     </div>
                     <div id="form-contact-submit" className="form-contact-part load-animation-element">
+                        <label id="form-privacy-consent">
+                            <input
+                                type="checkbox"
+                                checked={privacyAccepted}
+                                onChange={(e) => {
+                                    setPrivacyAccepted(e.target.checked);
+                                    if (e.target.checked) setPrivacyError(false);
+                                }}
+                            />
+                            <span>
+                                {f.privacyConsent}{' '}
+                                <button type="button" className="privacy-inline-link" onClick={() => setShowPrivacy(true)}>
+                                    {f.privacyLink}
+                                </button>
+                            </span>
+                        </label>
+                        {privacyError && (
+                            <span className="input-error privacy-consent-error">
+                                <FontAwesomeIcon icon="fa-solid fa-triangle-exclamation" size="lg" />
+                                {f.privacyError}
+                            </span>
+                        )}
                         <button type="submit" className="card button-cta">
                             <span className={submitDisplay.class}>
                                 {submitDisplay.icon}
@@ -256,6 +287,7 @@ export function Contact() {
                         </button>
                     </div>
                 </form>
+                {showPrivacy && <PrivacyPolicy onClose={() => setShowPrivacy(false)} />}
             </article>
         </section>
     );

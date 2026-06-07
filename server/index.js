@@ -4,11 +4,13 @@ require("dotenv").config();
 const express = require("express");
 const router = express.Router();
 const cors = require("cors");
+const helmet = require("helmet");
 const rateLimit = require("express-rate-limit");
 const { Resend } = require("resend");
 const PORT = process.env.PORT || 3001;
 
 const app = express();
+app.use(helmet());
 app.use(cors({ origin: process.env.CORS_ORIGIN || "http://localhost:3000" }));
 app.use(express.json());
 app.use("/", router);
@@ -22,6 +24,14 @@ const messages = {
 };
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const escapeHtml = (str) =>
+  String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
 
 const contactLimiter = rateLimit({
   windowMs: 10 * 60 * 1000,
@@ -40,12 +50,15 @@ router.post("/contact", contactLimiter, async (req, res) => {
   if (!email?.trim() || !emailRegex.test(email)) {
     return res.status(400).json({ status: false, message: msg.error });
   }
+  if (name.length > 100 || subject.length > 70 || message.length > 3000 || email.length > 320) {
+    return res.status(400).json({ status: false, message: msg.error });
+  }
 
   const { error } = await resend.emails.send({
     from: "Portfolio <contact@allandev.es>",
     to: "contact@allandev.es",
     subject: `${subject} (Email sent from Portfolio)`,
-    html: `<p>Name: ${name}</p><p>Email: ${email}</p><p>Message: ${message}</p>`,
+    html: `<p>Name: ${escapeHtml(name)}</p><p>Email: ${escapeHtml(email)}</p><p>Message: ${escapeHtml(message)}</p>`,
     reply_to: email,
   });
 

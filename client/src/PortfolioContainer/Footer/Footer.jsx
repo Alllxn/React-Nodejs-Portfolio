@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Footer.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-scroll';
 import { useLanguage } from '../../context/LanguageContext';
+import { useCookieConsent } from '../../context/CookieConsentContext';
+import PrivacyPolicy from './PrivacyPolicy';
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
     const { t } = useLanguage();
+    const [showPrivacy, setShowPrivacy] = useState(false);
+    const [showCookiePolicy, setShowCookiePolicy] = useState(false);
+    const { setConsent } = useCookieConsent();
     const f = t.footer;
 
     return (
@@ -67,7 +72,43 @@ export default function Footer() {
             </div>
             <div id="footer-bottom">
                 <p>© {currentYear} Allan Bastian Espinoza Ibañez. {f.copyright}</p>
+                <button className="footer-privacy-link" onClick={() => setShowPrivacy(true)}>
+                    {t.footer.privacyPolicy}
+                </button>
+                <button className="footer-privacy-link" onClick={() => setShowCookiePolicy(true)}>
+                    {t.cookies.policyLink}
+                </button>
             </div>
+            {showPrivacy && <PrivacyPolicy onClose={() => setShowPrivacy(false)} />}
+            {showCookiePolicy && (
+                <div className="project-screen" onClick={() => setShowCookiePolicy(false)}>
+                    <div className="project-details-container" onClick={(e) => e.stopPropagation()}>
+                        <button className="close-project-datails" onClick={() => setShowCookiePolicy(false)}>
+                            <span>[ X ]</span>
+                        </button>
+                        <div className="privacy-details card">
+                            <h2>{t.cookies.policyTitle}</h2>
+                            <p className="privacy-date">{t.cookies.policyLastUpdated}</p>
+                            <div className="privacy-sections">
+                                {t.cookies.sections.map((s, i) => (
+                                    <div key={i} className="privacy-section">
+                                        <h3>{s.title}</h3>
+                                        <p>{s.content}</p>
+                                    </div>
+                                ))}
+                            </div>
+                            <div id="cookie-policy-actions">
+                                <button className="cookie-btn cookie-btn-accept" onClick={() => { setConsent('accepted'); setShowCookiePolicy(false); }}>
+                                    {t.cookies.accept}
+                                </button>
+                                <button className="cookie-btn cookie-btn-reject" onClick={() => { setConsent('rejected'); setShowCookiePolicy(false); }}>
+                                    {t.cookies.reject}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
         </footer>
     )
 }

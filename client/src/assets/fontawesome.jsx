@@ -55,6 +55,7 @@ import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { faSun } from '@fortawesome/free-solid-svg-icons';
 import { faMoon } from '@fortawesome/free-solid-svg-icons';
+import { faLayerGroup } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -115,5 +116,5 @@ library.add(
     faWhatsapp,
     faSun,
     faMoon,
-
+    faLayerGroup,
 );
