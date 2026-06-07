@@ -207,6 +207,36 @@ export const es = {
         copyright: 'Diseñado y construido con React.',
         privacyPolicy: 'Política de Privacidad',
     },
+    cookies: {
+        bannerText: 'Este sitio usa Google Analytics para entender cómo se visita. Puedes aceptar o rechazar las cookies analíticas. Las cookies esenciales (idioma, tema) siempre están activas.',
+        accept: 'Aceptar',
+        reject: 'Solo esenciales',
+        policyLink: 'Ver política de cookies',
+        policyTitle: 'Política de Cookies',
+        policyLastUpdated: 'Última actualización: junio 2025',
+        sections: [
+            {
+                title: '1. ¿Qué son las cookies?',
+                content: 'Las cookies son pequeños archivos que se almacenan en tu dispositivo cuando visitas un sitio web. Este sitio usa dos tipos: cookies esenciales y cookies analíticas.',
+            },
+            {
+                title: '2. Cookies esenciales (siempre activas)',
+                content: 'Guardamos tu preferencia de idioma (ES/EN) y tema (claro/oscuro) en localStorage. Son necesarias para el funcionamiento básico y no requieren consentimiento.',
+            },
+            {
+                title: '3. Cookies analíticas (requieren consentimiento)',
+                content: 'Usamos Google Analytics 4 (ID: G-HGG7TNSY9C) para analizar el tráfico de forma anónima. Google Analytics puede establecer las cookies _ga y _ga_XXXXXX con una duración de hasta 2 años. Solo se activan si aceptas.',
+            },
+            {
+                title: '4. Cookies de terceros',
+                content: 'Google Analytics es operado por Google LLC. Puedes consultar su política de privacidad en policies.google.com/privacy.',
+            },
+            {
+                title: '5. Cómo retirar el consentimiento',
+                content: 'Puedes cambiar tu preferencia en cualquier momento haciendo clic en "Política de Cookies" en el pie de página.',
+            },
+        ],
+    },
     privacy: {
         trigger: 'Política de Privacidad',
         title: 'Política de Privacidad',

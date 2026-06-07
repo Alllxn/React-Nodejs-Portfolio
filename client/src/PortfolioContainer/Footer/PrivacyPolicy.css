@@ -64,6 +64,15 @@
     opacity: 0.85;
 }
 
+#cookie-policy-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+}
+
 #footer-privacy-link {
     background: none;
     border: none;
@@ -74,6 +83,8 @@
     padding: 0;
     text-decoration: underline;
     transition: color 0.25s, opacity 0.25s;
+    display: block;
+    text-align: left;
 }
 
 #footer-privacy-link:hover {

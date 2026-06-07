@@ -253,7 +253,21 @@
     width: 16px;
     height: 16px;
     cursor: pointer;
+    position: relative;
 }
+
+#form-privacy-consent input[type="checkbox"]::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--secundario);
+}
+
+#form-privacy-consent input[type="checkbox"]:checked::after {
+    display: none;
+}
+
 
 #form-privacy-consent span {
     font-size: 0.88rem;

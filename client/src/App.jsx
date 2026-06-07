@@ -7,14 +7,17 @@ import Work from './PortfolioContainer/Work/Work';
 import Contact from './PortfolioContainer/Contact/Contact';
 import Timeline from './PortfolioContainer/Timeline/Timeline';
 import Footer from './PortfolioContainer/Footer/Footer';
+import CookieBanner from './PortfolioContainer/CookieBanner/CookieBanner';
 import { LanguageProvider } from './context/LanguageContext';
 import { ThemeProvider } from './context/ThemeContext';
+import { CookieConsentProvider } from './context/CookieConsentContext';
 import './assets/fontawesome';
 
 function App() {
   return (
     <ThemeProvider>
     <LanguageProvider>
+    <CookieConsentProvider>
       <div className="App" id="App">
         <Nav/>
         <Home/>
@@ -25,7 +28,9 @@ function App() {
             <Contact/>
           </main>
           <Footer/>
+        <CookieBanner/>
       </div>
+    </CookieConsentProvider>
     </LanguageProvider>
     </ThemeProvider>
   );

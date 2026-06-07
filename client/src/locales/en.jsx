@@ -207,6 +207,36 @@ export const en = {
         copyright: 'Designed and built with React.',
         privacyPolicy: 'Privacy Policy',
     },
+    cookies: {
+        bannerText: 'This site uses Google Analytics to understand how it is visited. You can accept or reject analytics cookies. Essential cookies (language, theme) are always active.',
+        accept: 'Accept',
+        reject: 'Essential only',
+        policyLink: 'Cookie policy',
+        policyTitle: 'Cookie Policy',
+        policyLastUpdated: 'Last updated: June 2025',
+        sections: [
+            {
+                title: '1. What are cookies?',
+                content: 'Cookies are small files stored on your device when you visit a website. This site uses two types: essential cookies and analytics cookies.',
+            },
+            {
+                title: '2. Essential cookies (always active)',
+                content: 'We store your language (ES/EN) and theme (light/dark) preference in localStorage. These are required for basic functionality and do not need consent.',
+            },
+            {
+                title: '3. Analytics cookies (require consent)',
+                content: 'We use Google Analytics 4 (ID: G-HGG7TNSY9C) to analyse traffic anonymously. Google Analytics may set cookies _ga and _ga_XXXXXX lasting up to 2 years. These are only activated if you accept.',
+            },
+            {
+                title: '4. Third-party cookies',
+                content: 'Google Analytics is operated by Google LLC. You can read their privacy policy at policies.google.com/privacy.',
+            },
+            {
+                title: '5. Withdrawing consent',
+                content: 'You can change your preference at any time by clicking "Cookie Policy" in the footer.',
+            },
+        ],
+    },
     privacy: {
         trigger: 'Privacy Policy',
         title: 'Privacy Policy',
