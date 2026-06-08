@@ -155,7 +155,7 @@ h1, h2, h3, h4, h5, h6, p, span, a, li, label, button, td, th {
 
 body {
   margin: 0;
-  overflow-y: overlay;
+  overflow-y: auto;
   font-family: "Share Tech Mono", monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

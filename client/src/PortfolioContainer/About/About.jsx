@@ -3,6 +3,11 @@ import './About.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useLanguage } from '../../context/LanguageContext';
 
+const parseBold = (str) =>
+    str.split(/<b>(.*?)<\/b>/).map((part, i) =>
+        i % 2 === 1 ? <b key={i}>{part}</b> : part
+    );
+
 export default function About() {
     const { t } = useLanguage();
     const a = t.about;
@@ -19,7 +24,7 @@ export default function About() {
                         <div className="about-intro-copy">
                             <span className="about-intro-label">{a.label}</span>
                             {a.bio.map((paragraph, i) => (
-                                <p key={i} dangerouslySetInnerHTML={{ __html: paragraph }} />
+                                <p key={i}>{parseBold(paragraph)}</p>
                             ))}
                         </div>
                     </div>

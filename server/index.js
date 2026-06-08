@@ -54,18 +54,22 @@ router.post("/contact", contactLimiter, async (req, res) => {
     return res.status(400).json({ status: false, message: msg.error });
   }
 
-  const { error } = await resend.emails.send({
-    from: "Portfolio <contact@allandev.es>",
-    to: "contact@allandev.es",
-    subject: `${subject} (Email sent from Portfolio)`,
-    html: `<p>Name: ${escapeHtml(name)}</p><p>Email: ${escapeHtml(email)}</p><p>Message: ${escapeHtml(message)}</p>`,
-    reply_to: email,
-  });
+  try {
+    const { error } = await resend.emails.send({
+      from: "Portfolio <contact@allandev.es>",
+      to: "contact@allandev.es",
+      subject: `${subject} (Email sent from Portfolio)`,
+      html: `<p>Name: ${escapeHtml(name)}</p><p>Email: ${escapeHtml(email)}</p><p>Message: ${escapeHtml(message)}</p>`,
+      reply_to: email,
+    });
 
-  if (error) {
-    console.error(error);
-    res.json({ status: false, message: msg.error });
-  } else {
+    if (error) {
+      console.error(error);
+      return res.status(500).json({ status: false, message: msg.error });
+    }
     res.json({ status: true, message: msg.success });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ status: false, message: msg.error });
   }
 });

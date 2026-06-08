@@ -11,10 +11,12 @@ import CookieBanner from './PortfolioContainer/CookieBanner/CookieBanner';
 import { LanguageProvider } from './context/LanguageContext';
 import { ThemeProvider } from './context/ThemeContext';
 import { CookieConsentProvider } from './context/CookieConsentContext';
+import ErrorBoundary from './ErrorBoundary';
 import './assets/fontawesome';
 
 function App() {
   return (
+    <ErrorBoundary>
     <ThemeProvider>
     <LanguageProvider>
     <CookieConsentProvider>
@@ -33,6 +35,7 @@ function App() {
     </CookieConsentProvider>
     </LanguageProvider>
     </ThemeProvider>
+    </ErrorBoundary>
   );
 }
 
