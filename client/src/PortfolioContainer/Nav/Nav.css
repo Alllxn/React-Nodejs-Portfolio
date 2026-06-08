@@ -55,7 +55,6 @@
 
     @supports (backdrop-filter: blur(4px)) {
         #nav-wrapper.items-nav-open{
-            /* background-color: rgba(1, 7, 1, 0.88); */
             backdrop-filter: blur(4px);
         }
     }
@@ -136,7 +135,6 @@
 
 
 #nav-container #nav-left #link-home:hover p{
-    /* text-shadow: 0 0 8px rgba(77, 255, 124, 0.6); */
     filter: var(--filter-hover);
 }
 
@@ -437,131 +435,3 @@ body.theme-light,
 body.theme-light #App{
     background-color: white;
 }
-
-/* body.theme-light .lang-flag-track {
-    background: #e0e5ec;
-    box-shadow:
-        inset 3px 3px 6px rgba(0, 0, 0, 0.15),
-        inset -2px -2px 5px rgba(255, 255, 255, 0.8);
-}
-
-body.theme-light .lang-flag-knob {
-    background: #f0f4f8;
-    box-shadow:
-        3px 3px 7px rgba(0, 0, 0, 0.18),
-        -2px -2px 5px rgba(255, 255, 255, 0.9);
-}
-
-body.theme-light .lang-flag-label--active {
-    color: #111;
-    text-shadow: none;
-}
-
-body.theme-light .nav-item {
-    color: rgba(0, 0, 0, 0.55);
-}
-
-body.theme-light .menu-dropdown ul li a:hover span,
-body.theme-light .lang-toggle:hover span,
-body.theme-light .theme-toggle:hover span {
-    color: #1a1a1a;
-}
-
-body.theme-light #nav-container #nav-left #link-home {
-    color: #1a1a1a;
-}
-
-body.theme-light:has(.background-actived) #nav-container #nav-left #button-nav-drawer {
-    color: #1a1a1a;
-}
-
-body.theme-light #nav-container #nav-left #link-home div p {
-    filter: none;
-}
-
-body.theme-light #nav-wrapper.items-nav-open {
-    background-color: rgba(240, 241, 243, 0.85);
-}
-
-body.theme-light .button-cta{
-    background-color: var(--primario);
-}
-
-body.theme-light #home-container p,
-body.theme-light #home-container li, 
-body.theme-light #home-container h1 {
-    color: var(--primario);
-}
-
-body.theme-light:not(:has(.background-actived)) #nav-container #nav-left #link-home div p.nav-myname{
-    color: var(--primario);
-}
-
-body.theme-light:not(:has(.background-actived)) .lang-flag-label--active {
-    color: var(--primario);
-    text-shadow: 0 0 6px rgba(0, 100, 0, 0.3);
-}
-
-body.theme-light:not(:has(.background-actived)) .theme-toggle span{
-    color: var(--primario);
-}
-
-body.theme-light .menu-dropdown ul li a span:last-child{
-    transition: 0.5s;
-}
-
-body.theme-light .biography-element,
-body.theme-light .tech-stack-group li{
-    border: 1px solid rgba(0,0,0,0.15);
-}
-
-body.theme-light .tech-stack-group li [data-icon="github"]{
-    color: black !important;
-}
-
-body.theme-light .project-information > *:not(.project-type){
-    color: var(--contraste-primario);
-}
-
-body.theme-light .project-show-more > div span{
-    color: var(--contraste-primario);
-}
-
-body.theme-light .project-tag{
-    color: var(--primario);
-}
-
-body.theme-light #contact-container #contact-wrapper #form-contact .form-contact-part .contact-field span:not(.input-error){
-    color: var(--contraste-primario);
-}
-
-body.theme-light #footer-contact li a{
-    backdrop-filter: brightness(105%);
-}
-
-body.theme-light #footer-bottom{
-    border-top: 1px solid rgba(0, 0, 0, 0.08);
-} */
-
-/* @media only screen and (min-width: 768px) { 
-    body.theme-light:not(:has(.background-actived)) .menu-dropdown ul li a span{
-        color: var(--primario);
-        filter: drop-shadow(0px 0px 2px var(--contraste-primario));
-    }
-}
-
-
-@media only screen and (max-width: 767px) { 
-    body.theme-light:has(.nav-container-open) #nav-container #nav-left #link-home div p.nav-myname{
-        color: black;
-    }
-
-    body.theme-light:has(.nav-container-open) #nav-container #nav-left #button-nav-drawer{
-        color: black;
-    }
-
-    body.theme-light:has(.nav-container-open) .lang-flag-label--active {
-        color: black;
-        text-shadow: none;
-    }
-} */

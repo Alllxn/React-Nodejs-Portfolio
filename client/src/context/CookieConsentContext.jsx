@@ -10,13 +10,19 @@ export function CookieConsentProvider({ children }) {
     const [consent, setConsentState] = useState(() => localStorage.getItem(STORAGE_KEY));
 
     useEffect(() => {
-        if (consent === 'accepted') ReactGA.initialize(GA_ID);
-    }, []);
+        if (consent === 'accepted') {
+            ReactGA.initialize(GA_ID);
+            ReactGA.send('pageview');
+        }
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     const setConsent = (value) => {
         localStorage.setItem(STORAGE_KEY, value);
         setConsentState(value);
-        if (value === 'accepted') ReactGA.initialize(GA_ID);
+        if (value === 'accepted') {
+            ReactGA.initialize(GA_ID);
+            ReactGA.send('pageview');
+        }
     };
 
     return (

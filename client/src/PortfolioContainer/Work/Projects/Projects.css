@@ -300,10 +300,7 @@
   margin: 0;
   padding: 0;
   transform: translateY(-50%);
-  background:
-    /* linear-gradient(180deg, rgba(0, 255, 65, 0.18), rgba(0, 42, 12, 0.76)),
-    repeating-linear-gradient(0deg, rgba(0, 255, 65, 0.22) 0 1px, transparent 1px 5px); */
-    var(--cuarto);
+  background:var(--cuarto);
   border: 1px solid rgba(0, 255, 65, 0.55);
   border-radius: 4px;
   box-shadow:
@@ -357,10 +354,7 @@
 
 .project-details-header button:hover,
 .project-details-header button:focus-visible{
-  background:
-    /* linear-gradient(180deg, rgba(0, 255, 65, 0.3), rgba(0, 58, 16, 0.9)),
-    repeating-linear-gradient(0deg, rgba(0, 255, 65, 0.32) 0 1px, transparent 1px 4px); */
-    var(--cuarto);
+  background:var(--cuarto);
   box-shadow:
     0 0 0 1px rgba(0, 255, 65, 0.35) inset,
     0 0 28px rgba(0, 255, 65, 0.4),
@@ -537,7 +531,6 @@
 .project-card {
   background: #020a02;
   border: 1px solid var(--border-color) !important;
-  /* box-shadow: 0 0 14px rgba(0, 255, 65, 0.06); */
   font-family: 'Courier New', Courier, monospace;
 }
 
@@ -602,8 +595,5 @@
 @media (hover: hover) {
   .project-card:hover {
     box-shadow: 0 0 18px rgba(29, 232, 64, 0.35);
-    /* animation: pipboy-flicker 0.35s ease-out 2; */
-    /* border-color: rgba(0, 255, 65, 0.7) !important; */
-    /* box-shadow: 0 0 30px rgba(0, 255, 65, 0.16), 0 0 6px rgba(0, 255, 65, 0.1); */
   }
 }
