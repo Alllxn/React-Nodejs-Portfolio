@@ -15,12 +15,10 @@ export default function Projects(props){
     let [carrouselRight, setCarrouselRight] = useState(hasMultipleImages); // is the right button of carrousel displayed?
     const carrouselRef = useRef(null);
     
-    // When we open a project Details, the scroll of body disable
-    if(projectDetails){
-        document.body.style.overflow = "hidden";
-    }else{
-        document.body.style.overflow = "overlay";
-    }
+    useEffect(() => {
+        document.body.style.overflow = projectDetails ? "hidden" : "auto";
+        return () => { document.body.style.overflow = "auto"; };
+    }, [projectDetails]);
 
     // show tags of techs used
     const Techs = () => project.Tecnologies.map(function(object,i){
@@ -60,12 +58,9 @@ export default function Projects(props){
     };
 
     const controlScrollDetails = (e, direction) => {
-        // TODO: revisar porque no funcionan estos botones de pasar imagen
-        // let target = e.currentTarget.parentElement.firstChild.nextSibling;
         const target = carrouselRef.current;
         if(!target) return;
 
-        // let target = e.currentTarget.parentElement.querySelector('.project-carrousel');
         let totalScrollWidth = target.firstChild.offsetWidth * (project.Images.length - 1) ;
 
         if(direction === 'left'){
