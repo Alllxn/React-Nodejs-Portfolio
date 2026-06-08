@@ -119,7 +119,6 @@ body.theme-light .project-screen::-webkit-scrollbar-thumb{
 }
 
 body.theme-dark #nav-container .nav-item:hover span{
-  /* text-shadow: var(--custom-text-shadow); */
   filter: drop-shadow(var(--custom-text-shadow));
 }
 

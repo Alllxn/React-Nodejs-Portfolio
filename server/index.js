@@ -63,7 +63,7 @@ router.post("/contact", contactLimiter, async (req, res) => {
   });
 
   if (error) {
-    console.log(error);
+    console.error(error);
     res.json({ status: false, message: msg.error });
   } else {
     res.json({ status: true, message: msg.success });
